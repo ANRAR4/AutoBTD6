@@ -1,8 +1,10 @@
 # Introduction
 
-The scripts contained in this repository allow you to automatically play any gamemode on any map in Bloons Tower Defence 6 and recory your own playthroughs to a textual description.
+The scripts contained in this repository allow you to automatically play any gamemode on any map in Bloons Tower Defence 6.
 <br>
-This can be used for automatically farming monkey money, player xp, tower xp or collection event rewards.
+This can be used for automatically farming monkey money, player xp, tower xp, medals, achievements or collection event rewards.
+<br>
+Additionally the scripts allow you to record your own playthroughs to a textual description which can be automatically replayed afterwards.
 
 **Please be aware Ninja Kiwi doesn't support modding or use of external scripts for automated farming and may flag or ban accounts as a result when using this or similar scripts(although this hasn't happend to any of my accounts yet).**
 
