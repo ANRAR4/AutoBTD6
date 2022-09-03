@@ -1,0 +1,16 @@
+{
+    "easy": {"group": "easy", "cash_group": "easy", "name": "Easy", "value": 1},
+    "primary_only": {"group": "easy", "cash_group": "easy", "name": "Primary only", "value": 1},
+    "deflation": {"group": "easy", "cash_group": "easy", "name": "Deflation", "value": 2},
+    "medium": {"group": "medium", "cash_group": "medium", "name": "Medium", "value": 3},
+    "military_only": {"group": "medium", "cash_group": "medium", "name": "Military only", "value": 3},
+    "reverse": {"group": "medium", "cash_group": "medium", "name": "Reverse", "value": 3},
+    "apopalypse": {"group": "medium", "cash_group": "medium", "name": "Apopalypse", "value": 3},
+    "hard": {"group": "hard", "cash_group": "hard", "name": "Hard", "value": 4},
+    "magic_monkeys_only": {"group": "hard", "cash_group": "hard", "name": "Magic monkeys only", "value": 4},
+    "double_hp_moabs": {"group": "hard", "cash_group": "hard", "name": "Double HP moabs", "value": 4},
+    "half_cash": {"group": "hard", "cash_group": "hard", "name": "Half cash", "value": 4},
+    "alternate_bloons_rounds": {"group": "hard", "cash_group": "hard", "name": "Alternate bloons rounds", "value": 4},
+    "impoppable": {"group": "hard", "cash_group": "impoppable", "name": "Impoppable", "value": 5},
+    "chimps": {"group": "hard", "cash_group": "impoppable", "name": "C.H.I.M.P.S", "value": 5}
+}

@@ -1,0 +1,29 @@
+place etienne hero0 at 626, 683
+place buccaneer buccaneer0 at 572, 837
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 1
+place buccaneer buccaneer1 at 442, 837
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+place heli heli0 at 1477, 119
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place heli heli1 at 1273, 108
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade buccaneer1 path 0
+upgrade heli1 path 0
+upgrade buccaneer0 path 1
+upgrade buccaneer1 path 0

@@ -1,0 +1,111 @@
+place obyn_greenfoot hero0 at 1140, 597
+place spike spike0 at 2029, 754
+place druid druid0 at 1036, 592
+upgrade druid0 path 1
+upgrade druid0 path 2
+upgrade druid0 path 2
+upgrade spike0 path 1
+place druid druid1 at 936, 562
+upgrade druid1 path 1
+upgrade druid1 path 2
+upgrade druid1 path 2
+place sniper sniper0 at 1813, 430
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+place ninja ninja0 at 1357, 896
+upgrade ninja0 path 2
+special ninja0
+upgrade spike0 path 2
+upgrade spike0 path 2
+upgrade spike0 path 2
+retarget spike0
+upgrade spike0 path 1
+upgrade spike0 path 2
+upgrade druid0 path 1
+upgrade druid0 path 2
+upgrade druid0 path 2
+place druid druid2 at 1073, 509
+upgrade druid2 path 1
+upgrade druid2 path 2
+upgrade druid2 path 2
+place village village0 at 1135, 398
+upgrade village0 path 1
+upgrade village0 path 1
+place druid druid3 at 1243, 591
+upgrade druid3 path 1
+upgrade druid3 path 2
+upgrade druid3 path 2
+place druid druid4 at 1194, 502
+upgrade druid4 path 1
+upgrade druid4 path 2
+upgrade druid4 path 2
+place druid druid5 at 1336, 551
+upgrade druid5 path 1
+upgrade druid5 path 2
+upgrade druid5 path 2
+place druid druid6 at 968, 477
+upgrade druid6 path 1
+upgrade druid6 path 2
+upgrade druid6 path 2
+place alchemist alchemist0 at 894, 419
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+upgrade druid1 path 2
+upgrade druid1 path 2
+upgrade druid6 path 2
+upgrade druid6 path 2
+upgrade druid2 path 2
+upgrade druid2 path 2
+upgrade druid4 path 2
+upgrade druid4 path 2
+upgrade druid3 path 2
+upgrade druid3 path 2
+upgrade druid5 path 2
+upgrade druid5 path 2
+place alchemist alchemist1 at 1320, 462
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade alchemist0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+place druid druid7 at 1021, 883
+upgrade druid7 path 1
+upgrade druid7 path 2
+upgrade druid7 path 2
+upgrade druid7 path 2
+upgrade druid7 path 2
+place druid druid8 at 1124, 899
+upgrade druid8 path 1
+upgrade druid8 path 2
+upgrade druid8 path 2
+upgrade druid8 path 2
+upgrade druid8 path 2
+place druid druid9 at 1227, 895
+upgrade druid9 path 1
+upgrade druid9 path 2
+upgrade druid9 path 2
+upgrade druid9 path 2
+upgrade druid9 path 2
+place alchemist alchemist2 at 931, 928
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+place village village1 at 1149, 1056
+upgrade village1 path 1
+upgrade village1 path 1
+upgrade village1 path 0
+upgrade village1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist2 path 0

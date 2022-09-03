@@ -1,0 +1,60 @@
+place etienne hero0 at 1646, 548
+place engineer engineer0 at 1326, 614
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+place sniper sniper0 at 1495, 712
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+place heli heli0 at 269, 552
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place engineer engineer1 at 310, 1078
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 1
+upgrade engineer1 path 1
+place engineer engineer2 at 1152, 1356
+upgrade engineer2 path 0
+upgrade engineer2 path 0
+upgrade engineer2 path 0
+upgrade engineer2 path 1
+upgrade engineer2 path 1
+upgrade engineer2 path 0
+upgrade sniper0 path 0
+place heli heli1 at 478, 491
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+place tack tack0 at 1812, 231
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+place tack tack1 at 1760, 864
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack1 path 2
+upgrade heli1 path 0
+upgrade heli0 path 2

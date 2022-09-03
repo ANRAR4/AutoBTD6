@@ -1,0 +1,677 @@
+{
+    "playthroughs/logs#chimps#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1226.0382568836212
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/infernal#deflation#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    342.7980156966618
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/dark_castle#hard#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    833.0717000961304
+                ]
+            },
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    340.6749269962311
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/alpine_run#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    336.4571957588196
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/dark_castle#chimps#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1355.2530454226903
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/rake#hard#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    374.3245231310527
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/quarry#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    347.46432542800903
+                ]
+            }
+        }
+    },
+    "playthroughs/resort#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    339.3530623912811
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/another_brick#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    768.7094695568085
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/geared#deflation#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    340.52166509628296
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/underground#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    817.1335175037384
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/another_brick#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    778.461259111762
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cornfield#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    919.2175739109516
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cargo#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    801.9050907293955
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/high_finance#hard#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    826.1053611380713
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/mesa#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    844.2986657185988
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spillway#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    840.2019655227662
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/peninsula#hard#2560x1440#noLLwMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    859.1805611848831
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    504.80487620830536
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/x_factor#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    869.1463961866167
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    550.9589903354645
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sunken_columns#hard#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    760.5540011440005
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/pats_pond#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    888.0376039651724
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    639.8475120067596
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/off_the_coast#hard#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    765.8907757486616
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/underground#hard#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    838.2205592923694
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cargo#hard#2560x1440#noMK#noLLwMK#chimpsPotential.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    786.2680218749576
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/bloody_puddles#hard#2560x1440#noMK#RNG.btd6": {
+        "2560x1440": {
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    761.7834260463715
+                ]
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/quad#medium#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    583.266753911972
+                ]
+            },
+            "easy": {
+                "attempts": 0,
+                "wins": 0,
+                "win_times": []
+            },
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/candy_falls#alternate_bloons_rounds#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/carved#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cornfield#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cubism#apopalypse#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/cubism#double_hp_moabs#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cubism#half_cash#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cubism#magic_monkeys_only#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/dark_castle#alternate_bloons_rounds#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/dark_castle#primary_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/frozen_over#apopalypse#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/frozen_over#double_hp_moabs#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/frozen_over#half_cash#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/frozen_over#magic_monkeys_only#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/hedge#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/kartsndarts#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/logs#easy#2560x1440#noMK#buccaneerOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/lotus_island#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#deflation#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": false
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#easy#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/off_the_coast#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/park_path#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/resort#hard#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/skates#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spice_islands#alternate_bloons_rounds#2560x1440#noMK#noWaterTowers.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/spillway#hard#2560x1440#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spring_spring#medium#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sunken_columns#hard#2560x1440#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/the_cabin#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/town_center#easy#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/tree_stump#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/winter_park#easy#2560x1440#noMK#ninjaOnly#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": false
+        }
+    }
+}

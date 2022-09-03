@@ -1,0 +1,130 @@
+place dart dart0 at 795, 816
+place sub sub0 at 1447, 574
+retarget dart0
+retarget dart0
+retarget dart0
+place dart dart1 at 787, 656
+retarget dart1
+retarget dart1
+retarget dart1
+place obyn_greenfoot hero0 at 1342, 592
+place sub sub1 at 1446, 922
+upgrade sub1 path 2
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade sub1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+place alchemist alchemist0 at 1354, 897
+retarget alchemist0
+retarget alchemist0
+retarget alchemist0
+upgrade sub1 path 2
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+place super super0 at 1212, 572
+place village village0 at 1131, 388
+upgrade village0 path 2
+upgrade village0 path 2
+place village village1 at 973, 422
+upgrade village1 path 2
+upgrade village1 path 2
+upgrade super0 path 2 with 20% discount
+upgrade super0 path 2 with 20% discount
+upgrade super0 path 0 with 20% discount
+upgrade super0 path 0 with 20% discount
+place alchemist alchemist1 at 1231, 467
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1 with 20% discount
+upgrade alchemist1 path 1 with 20% discount
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade super0 path 0 with 20% discount
+place spike spike0 at 2033, 727
+upgrade spike0 path 2
+upgrade spike0 path 2
+retarget spike0
+upgrade spike0 path 2
+upgrade spike0 path 2
+upgrade spike0 path 2
+upgrade spike0 path 1
+upgrade spike0 path 1
+place village village2 at 2057, 604
+upgrade village2 path 0
+upgrade village2 path 0
+place alchemist alchemist2 at 2150, 719
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+place spike spike1 at 2037, 827
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 1
+upgrade spike1 path 1
+place sniper sniper0 at 1096, 185
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0 with 20% discount
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 2 with 20% discount
+upgrade sniper0 path 2 with 20% discount
+upgrade sniper0 path 0
+place boomerang boomerang0 at 1076, 575
+retarget boomerang0
+retarget boomerang0
+retarget boomerang0
+upgrade boomerang0 path 2 with 20% discount
+upgrade boomerang0 path 2 with 20% discount
+upgrade boomerang0 path 2 with 20% discount
+upgrade boomerang0 path 2
+upgrade boomerang0 path 1 with 20% discount
+upgrade boomerang0 path 1 with 20% discount
+place boomerang boomerang1 at 972, 569
+retarget boomerang1
+retarget boomerang1
+retarget boomerang1
+upgrade boomerang1 path 2 with 20% discount
+upgrade boomerang1 path 2 with 20% discount
+upgrade boomerang1 path 2 with 20% discount
+upgrade boomerang1 path 2
+upgrade boomerang1 path 1 with 20% discount
+upgrade boomerang1 path 1 with 20% discount
+place glue glue0 at 896, 519
+upgrade glue0 path 2 with 20% discount
+upgrade glue0 path 2 with 20% discount
+upgrade glue0 path 2 with 20% discount
+upgrade glue0 path 1 with 20% discount
+retarget glue0
+retarget glue0
+retarget glue0
+place boomerang boomerang2 at 1258, 884
+retarget boomerang2
+retarget boomerang2
+retarget boomerang2
+upgrade boomerang2 path 2
+upgrade boomerang2 path 2
+upgrade boomerang2 path 2
+upgrade boomerang2 path 2
+upgrade boomerang2 path 1
+upgrade boomerang2 path 1
+place mortar mortar0 at 981, 251
+retarget mortar0 to 989, 737
+upgrade mortar0 path 2 with 20% discount
+upgrade mortar0 path 2 with 20% discount
+upgrade mortar0 path 2 with 20% discount
+upgrade mortar0 path 2

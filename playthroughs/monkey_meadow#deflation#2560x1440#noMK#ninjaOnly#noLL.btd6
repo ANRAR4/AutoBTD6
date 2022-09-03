@@ -1,0 +1,30 @@
+place sauda hero0 at 838, 718
+place ninja ninja0 at 195, 540
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+place ninja ninja1 at 868, 511
+upgrade ninja1 path 2
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+place ninja ninja2 at 644, 926
+upgrade ninja2 path 2
+upgrade ninja2 path 0
+upgrade ninja2 path 0
+upgrade ninja2 path 0
+upgrade ninja2 path 0
+place ninja ninja3 at 666, 722
+retarget ninja3
+retarget ninja3
+retarget ninja3
+upgrade ninja3 path 2
+upgrade ninja3 path 2
+upgrade ninja3 path 2

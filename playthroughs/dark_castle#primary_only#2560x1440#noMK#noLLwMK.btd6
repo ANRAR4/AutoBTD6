@@ -1,0 +1,35 @@
+place sauda hero0 at 771, 650
+place tack tack0 at 776, 818
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+place boomerang boomerang0 at 700, 581
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade tack0 path 0
+upgrade boomerang0 path 0
+place dart dart0 at 1335, 598
+upgrade tack0 path 0
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 1
+upgrade dart0 path 1
+place dart dart1 at 956, 579
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 1
+upgrade dart1 path 1
+upgrade dart0 path 2
+place dart dart2 at 1322, 890
+upgrade dart2 path 2
+upgrade dart2 path 2
+upgrade dart2 path 2
+upgrade dart2 path 2
+upgrade dart2 path 1
+upgrade dart2 path 1

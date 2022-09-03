@@ -1,0 +1,37 @@
+place sauda hero0 at 788, 647
+place tack tack0 at 850, 811
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+place village village0 at 983, 634
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade tack0 path 0
+place bomb bomb0 at 724, 737
+retarget bomb0
+retarget bomb0
+retarget bomb0
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+upgrade bomb0 path 1
+place heli heli0 at 1172, 649
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place sniper sniper0 at 1018, 777
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0

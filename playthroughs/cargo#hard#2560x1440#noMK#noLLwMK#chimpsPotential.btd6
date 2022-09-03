@@ -1,0 +1,91 @@
+place dart dart0 at 1003, 322
+place dart dart1 at 1678, 591
+place dart dart2 at 1915, 1058
+place sniper sniper0 at 1369, 312
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 2
+place obyn_greenfoot hero0 at 1135, 651
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+place spike spike0 at 1559, 874
+place village village0 at 1243, 828
+upgrade village0 path 0
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade spike0 path 2
+upgrade spike0 path 2
+retarget spike0
+place wizard wizard0 at 1266, 652
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 2
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 1
+place wizard wizard1 at 1559, 733
+upgrade wizard1 path 1
+upgrade wizard1 path 1
+retarget spike0
+retarget spike0
+upgrade village0 path 0
+upgrade wizard0 path 2
+place wizard wizard2 at 1169, 735
+upgrade wizard2 path 0
+upgrade wizard2 path 0
+upgrade wizard2 path 0
+upgrade wizard2 path 2
+upgrade wizard2 path 2
+place wizard wizard3 at 1011, 650
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+place alchemist alchemist0 at 1108, 830
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade sniper0 path 0
+upgrade wizard3 path 2
+upgrade wizard3 path 0
+upgrade wizard3 path 0
+upgrade alchemist0 path 2
+upgrade wizard2 path 0
+place spike spike1 at 927, 719
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 1
+upgrade spike1 path 1
+retarget spike1
+retarget spike1
+retarget spike1
+place alchemist alchemist1 at 655, 652
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+place glue glue0 at 1266, 1099
+retarget glue0
+retarget glue0
+retarget glue0
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 1
+upgrade village0 path 0
+place alchemist alchemist2 at 1006, 835
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+upgrade alchemist2 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2

@@ -1,0 +1,24 @@
+place sauda hero0 at 1659, 757
+place engineer engineer0 at 382, 723
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+place heli heli0 at 729, 591
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place village village0 at 548, 721
+upgrade village0 path 1
+upgrade village0 path 1
+place heli heli1 at 742, 765
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade heli1 path 0

@@ -1,0 +1,45 @@
+{
+    "monkeys": {
+        "dart": "q",
+        "boomerang": "w",
+        "bomb": "e",
+        "tack": "r",
+        "ice": "t",
+        "glue": 21,
+        "sniper": 44,
+        "sub": "x",
+        "buccaneer": "c",
+        "ace": "v",
+        "heli": "b",
+        "mortar": "n",
+        "dartling": "m",
+        "wizard": "a",
+        "super": "s",
+        "ninja": "d",
+        "alchemist": "f",
+        "druid": "g",
+        "farm": "h",
+        "engineer": "l",
+        "spike": "j",
+        "village": "k",
+        "hero": "u"
+    },
+    "path": {
+        "0": 51,
+        "1": 52,
+        "2": 53
+    },
+    "others": {
+        "retarget": "{Tab}",
+        "special": "{PgDn}",
+        "sell": "{Backspace}",
+        "play": "{Space}"
+    },
+    "recording": {
+        "select_monkey": "ctrl",
+        "remove_obstacle": "right shift",
+        "retarget": "tab",
+        "sell": "backspace",
+        "monkey_special": "page down"
+    }
+}

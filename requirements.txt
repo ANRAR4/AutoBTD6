@@ -1,0 +1,8 @@
+ahk
+keyboard
+numpy
+opencv-python
+PyAutoGUI
+Pillow
+keras
+tensorflow

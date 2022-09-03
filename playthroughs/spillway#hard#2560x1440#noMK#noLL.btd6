@@ -1,0 +1,27 @@
+place ninja ninja0 at 1113, 710
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+place etienne hero0 at 1653, 732
+upgrade ninja0 path 0
+remove obstacle at 1110, 386 for 2000
+place buccaneer buccaneer0 at 1119, 349
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+place heli heli0 at 1835, 593
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade buccaneer0 path 0
+upgrade heli0 path 2
+place heli heli1 at 1836, 771
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade buccaneer0 path 0

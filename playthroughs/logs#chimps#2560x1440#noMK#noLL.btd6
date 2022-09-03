@@ -1,0 +1,44 @@
+place buccaneer buccaneer0 at 1035, 723
+upgrade buccaneer0 path 1
+place etienne hero0 at 1018, 914
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+place ninja ninja0 at 850, 616
+special ninja0
+upgrade ninja0 path 2
+upgrade buccaneer0 path 0
+place heli heli0 at 1453, 123
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place heli heli1 at 1459, 296
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade buccaneer0 path 0
+place ice ice0 at 651, 483
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+retarget ice0
+retarget ice0
+retarget ice0
+upgrade ice0 path 0
+upgrade ice0 path 0
+place glue glue0 at 294, 391
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 0
+upgrade glue0 path 0
+upgrade glue0 path 0
+upgrade glue0 path 0
+upgrade glue0 path 0

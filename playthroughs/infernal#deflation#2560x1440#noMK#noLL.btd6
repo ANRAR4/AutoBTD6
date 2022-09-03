@@ -1,0 +1,28 @@
+place boomerang boomerang0 at 1118, 942
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+place sniper sniper0 at 105, 668
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+place sniper sniper1 at 124, 810
+upgrade sniper1 path 0
+upgrade sniper1 path 0
+upgrade sniper1 path 0
+upgrade sniper1 path 0
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+retarget sniper1
+retarget sniper1
+retarget sniper1
+place sniper sniper2 at 2081, 792
+upgrade sniper2 path 0
+upgrade sniper2 path 1
+upgrade sniper2 path 1
+special sniper2
+place etienne hero0 at 1111, 496

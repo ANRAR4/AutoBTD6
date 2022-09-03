@@ -1,0 +1,15 @@
+place sauda hero0 at 870, 713
+place engineer engineer0 at 626, 709
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+upgrade engineer0 path 0
+upgrade engineer0 path 1
+place engineer engineer1 at 605, 477
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 0
+upgrade engineer1 path 1
+upgrade engineer1 path 1

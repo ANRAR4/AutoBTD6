@@ -1,0 +1,24 @@
+place boomerang boomerang0 at 795, 440
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+place wizard wizard0 at 550, 1228
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade boomerang0 path 0
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade boomerang0 path 0
+place bomb bomb0 at 676, 654
+retarget bomb0
+retarget bomb0
+retarget bomb0
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 0
+upgrade bomb0 path 0

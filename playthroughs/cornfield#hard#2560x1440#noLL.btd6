@@ -1,0 +1,47 @@
+place etienne hero0 at 1107, 850
+place tack tack0 at 1212, 641
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+remove obstacle at 178, 211 for 500
+place ninja ninja0 at 294, 212
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+place heli heli0 at 139, 215
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade tack0 path 0
+place heli heli1 at 136, 393
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+place tack tack1 at 1007, 635
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack1 path 2
+upgrade heli1 path 0
+place glue glue0 at 287, 293
+upgrade glue0 path 0
+upgrade glue0 path 0
+upgrade glue0 path 1
+upgrade glue0 path 1
+upgrade glue0 path 0
+upgrade glue0 path 0
+upgrade glue0 path 0

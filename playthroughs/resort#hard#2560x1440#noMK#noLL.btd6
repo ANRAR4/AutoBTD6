@@ -1,0 +1,26 @@
+place buccaneer buccaneer0 at 1512, 440
+place etienne hero0 at 1147, 272
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 1
+place buccaneer buccaneer1 at 1506, 543
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+place ninja ninja0 at 142, 267
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+upgrade buccaneer0 path 1
+upgrade buccaneer1 path 0

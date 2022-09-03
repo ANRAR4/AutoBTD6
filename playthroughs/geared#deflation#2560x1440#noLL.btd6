@@ -1,0 +1,28 @@
+place psi hero0 at 1107, 1005
+retarget hero0
+retarget hero0
+retarget hero0
+place heli heli0 at 651, 744
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 1
+upgrade heli0 path 1
+place heli heli1 at 656, 923
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 2
+place ace ace0 at 741, 1067
+upgrade ace0 path 2
+upgrade ace0 path 2
+upgrade ace0 path 2
+upgrade ace0 path 0
+upgrade ace0 path 0
+place ace ace1 at 853, 1190
+upgrade ace1 path 2
+upgrade ace1 path 2
+upgrade ace1 path 2
+upgrade ace1 path 1
+upgrade ace1 path 1

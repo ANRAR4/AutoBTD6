@@ -1,0 +1,22 @@
+place ninja ninja0 at 1266, 1162
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+place ninja ninja1 at 1847, 1083
+retarget ninja1
+retarget ninja1
+retarget ninja1
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade ninja0 path 0
+upgrade ninja1 path 2
+place ninja ninja2 at 1387, 1050
+upgrade ninja2 path 0
+upgrade ninja2 path 2
+upgrade ninja2 path 0
+upgrade ninja2 path 0
+upgrade ninja2 path 0

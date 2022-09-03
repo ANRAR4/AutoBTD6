@@ -1,0 +1,58 @@
+place tack tack0 at 1713, 748
+place tack tack1 at 535, 742
+upgrade tack0 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack1 path 2
+upgrade tack0 path 0
+upgrade tack1 path 0
+upgrade tack0 path 0
+upgrade tack1 path 0
+place ninja ninja0 at 1114, 370
+special ninja0
+place ninja ninja1 at 1114, 1117
+special ninja1
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade ninja1 path 0
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+place buccaneer buccaneer0 at 1137, 589
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade tack0 path 0
+place village village0 at 922, 531
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade tack1 path 0
+upgrade ninja1 path 0
+upgrade ninja0 path 0
+upgrade buccaneer0 path 0
+place heli heli0 at 770, 676
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place buccaneer buccaneer1 at 1129, 870
+upgrade buccaneer1 path 2
+upgrade buccaneer1 path 2
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+place sniper sniper0 at 996, 400
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade ninja1 path 0

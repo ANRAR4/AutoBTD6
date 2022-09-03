@@ -1,0 +1,46 @@
+place etienne hero0 at 1526, 1014
+place buccaneer buccaneer0 at 466, 404
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 1
+place buccaneer buccaneer1 at 515, 730
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+place sniper sniper0 at 1045, 87
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade buccaneer1 path 0
+place heli heli0 at 1127, 215
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place heli heli1 at 1125, 391
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade buccaneer0 path 1
+place tack tack0 at 1464, 1077
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade heli0 path 2
+upgrade sniper0 path 0
+upgrade heli1 path 0

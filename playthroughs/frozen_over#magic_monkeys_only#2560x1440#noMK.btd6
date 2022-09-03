@@ -1,0 +1,40 @@
+place ninja ninja0 at 732, 944
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+place druid druid0 at 414, 1171
+upgrade druid0 path 0
+retarget druid0
+retarget druid0
+retarget druid0
+upgrade druid0 path 2
+upgrade druid0 path 2
+upgrade druid0 path 0
+place etienne hero0 at 485, 1066
+place ninja ninja1 at 112, 1233
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+retarget ninja1
+retarget ninja1
+retarget ninja1
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+place super super0 at 523, 947
+upgrade super0 path 0
+upgrade super0 path 0
+upgrade super0 path 1
+upgrade super0 path 1
+upgrade ninja0 path 0
+upgrade druid0 path 0
+place wizard wizard0 at 293, 1083
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade super0 path 0
+upgrade wizard0 path 2

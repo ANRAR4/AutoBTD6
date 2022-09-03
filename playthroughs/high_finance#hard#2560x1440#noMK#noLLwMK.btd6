@@ -1,0 +1,55 @@
+place sauda hero0 at 938, 604
+place buccaneer buccaneer0 at 1000, 864
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+place village village0 at 1231, 976
+upgrade village0 path 1
+upgrade village0 path 1
+remove obstacle at 2052, 481 for 1500
+place sniper sniper0 at 1922, 575
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade buccaneer0 path 0
+place heli heli0 at 1960, 294
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 0
+upgrade heli0 path 0
+place village village1 at 1958, 456
+upgrade village1 path 1
+upgrade village1 path 1
+place buccaneer buccaneer1 at 1111, 913
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+place tack tack0 at 934, 1169
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+place tack tack1 at 1291, 1174
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack1 path 2
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade sniper0 path 0

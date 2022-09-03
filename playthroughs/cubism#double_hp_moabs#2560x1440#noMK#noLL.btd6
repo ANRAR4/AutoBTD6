@@ -1,0 +1,38 @@
+place tack tack0 at 843, 815
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+place etienne hero0 at 916, 689
+upgrade tack0 path 0
+place ninja ninja0 at 80, 222
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade tack0 path 0
+upgrade ninja0 path 2
+place heli heli0 at 2069, 574
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 0
+place tack tack1 at 789, 641
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack1 path 2
+upgrade tack1 path 0
+upgrade heli0 path 0
+place heli heli1 at 2068, 398
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 2

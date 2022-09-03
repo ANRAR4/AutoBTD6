@@ -1,0 +1,37 @@
+place sauda hero0 at 368, 994
+place tack tack0 at 1807, 899
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+place buccaneer buccaneer0 at 1296, 941
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+place village village0 at 1549, 849
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade tack0 path 0
+place sniper sniper0 at 1442, 791
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade buccaneer0 path 0
+upgrade village0 path 0
+place heli heli0 at 1655, 1108
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade buccaneer0 path 0
