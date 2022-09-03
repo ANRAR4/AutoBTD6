@@ -1,4 +1,5 @@
 from helper import *
+from urllib.parse import quote_plus
 
 extraComments = {
     'playthroughs/spice_islands#alternate_bloons_rounds#2560x1440#noMK#noWaterTowers.btd6': ['no water towers(achievement)'],
@@ -102,7 +103,7 @@ for category in mapsByCategory:
                     firstPlaythroughRow = False
                 else:
                     output += '<br><br>'
-                output += '<a href="' + playthrough['filename'] + '"' + ('title="required monkeys: ' + title + '"' if len(title) else '') + '>' + ('<i>' + description + '</i>' if not playthrough['isOriginalGamemode'] else description) + '</a>'
+                output += '<a href="' + quote_plus(playthrough['filename']) + '"' + ('title="required monkeys: ' + title + '"' if len(title) else '') + '>' + ('<i>' + description + '</i>' if not playthrough['isOriginalGamemode'] else description) + '</a>'
             output += '</td>' + '\n'
 
         if mapname in mapComments:
