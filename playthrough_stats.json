@@ -674,9 +674,16 @@
             "validation_result": false
         }
     },
-    "own_playthroughs/peninsula#hard#2560x1440#noMK#noLL#chimpsPotential.btd6": {
+    "playthroughs/peninsula#hard#2560x1440#noMK#noLL#chimpsPotential.btd6": {
         "2560x1440": {
-            "validation_result": false
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    848.9451103210449
+                ]
+            }
         }
     },
     "playthroughs/balance#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
@@ -706,10 +713,32 @@
     "playthroughs/adoras_temple#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
         "2560x1440": {
             "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
         }
     },
     "playthroughs/bazaar#medium#2560x1440#noMK#noLLwMK.btd6": {
         "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/quarry#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/quiet_street#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
             "validation_result": true
         }
     }

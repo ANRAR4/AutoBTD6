@@ -1,0 +1,88 @@
+place dart dart0 at 1516, 1003
+place dart dart1 at 1443, 1075
+retarget dart1
+place dart dart2 at 1532, 1080
+retarget dart2
+retarget dart2
+retarget dart2
+place sniper sniper0 at 1033, 418
+place sniper sniper1 at 1158, 431
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place psi hero0 at 1046, 87
+upgrade dart1 path 2
+upgrade dart1 path 2
+remove obstacle at 1934, 265 for 500
+place spike spike0 at 1913, 228
+upgrade sniper0 path 0
+upgrade spike0 path 2
+upgrade spike0 path 2
+retarget spike0
+upgrade spike0 path 2
+upgrade spike0 path 1
+upgrade spike0 path 1
+place alchemist alchemist0 at 2026, 230
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade spike0 path 2
+place village village0 at 1072, 201
+upgrade village0 path 0
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade village0 path 0
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+upgrade sniper1 path 1
+upgrade sniper1 path 1
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+upgrade sniper1 path 1
+upgrade sniper0 path 0
+upgrade sniper1 path 1
+place alchemist alchemist1 at 1198, 354
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 2
+upgrade sniper1 path 1
+retarget sniper1
+upgrade spike0 path 2
+place alchemist alchemist2 at 1033, 302
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+upgrade alchemist2 path 0
+retarget alchemist2
+retarget alchemist2
+retarget alchemist2
+place boomerang boomerang0 at 1186, 89
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+place boomerang boomerang1 at 1192, 270
+upgrade boomerang1 path 0
+upgrade boomerang1 path 0
+upgrade boomerang1 path 2
+upgrade boomerang1 path 2
+upgrade boomerang1 path 2
+upgrade boomerang1 path 2
+upgrade village0 path 0
+upgrade village0 path 0
+place glue glue0 at 1111, 341
+upgrade glue0 path 2 with 100% discount
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 1 with 100% discount
+upgrade glue0 path 1
+retarget glue0
+retarget glue0
+retarget glue0

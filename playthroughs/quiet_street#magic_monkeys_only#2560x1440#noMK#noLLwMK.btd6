@@ -1,0 +1,22 @@
+place sauda hero0 at 785, 516
+place wizard wizard0 at 784, 949
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+place super super0 at 1147, 747
+upgrade super0 path 1
+upgrade super0 path 0
+upgrade super0 path 1
+upgrade wizard0 path 2
+upgrade super0 path 0
+upgrade super0 path 0
+place wizard wizard1 at 485, 956
+upgrade wizard1 path 0
+upgrade wizard1 path 0
+upgrade wizard1 path 0
+upgrade wizard1 path 0
+upgrade wizard1 path 1
+upgrade wizard1 path 1

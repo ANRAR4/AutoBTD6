@@ -572,6 +572,8 @@ def main():
     lastScreen = Screen.UNKNOWN
     lastState = State.UNDEFINED
 
+    unknownScreenHasWaited = False
+
     while True:
         screenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
 
@@ -732,8 +734,12 @@ def main():
                 customPrint("goal GOTO_HOME fullfilled!")
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
-                if lastScreen == Screen.UNKNOWN:
+                if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
+                    unknownScreenHasWaited = False
                     ahk.send_event('{Esc}')
+                else:
+                    unknownScreenHasWaited = True
+                    time.sleep(2)
             elif screen == Screen.INGAME:
                 ahk.send_event('{Esc}')
             elif screen == Screen.INGAME_PAUSED:
@@ -911,8 +917,12 @@ def main():
                 if ahk.get_active_window().title.decode() == 'BloonsTD6':
                     ahk.send_event('{Esc}')
             elif screen == Screen.UNKNOWN:
-                if lastScreen == Screen.UNKNOWN:
+                if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
+                    unknownScreenHasWaited = False
                     ahk.send_event('{Esc}')
+                else:
+                    unknownScreenHasWaited = True
+                    time.sleep(2)
             elif screen == Screen.LEVELUP:
                 pyautogui.click(100, 100)
                 time.sleep(menuChangeDelay)
