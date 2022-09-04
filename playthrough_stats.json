@@ -143,7 +143,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    340.52166509628296
+                    339.19864061900546
                 ]
             },
             "validation_result": true
@@ -173,7 +173,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    778.461259111762
+                    775.3969339095056
                 ]
             },
             "validation_result": true
@@ -188,7 +188,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    919.2175739109516
+                    912.2846909582615
                 ]
             },
             "validation_result": true
@@ -218,7 +218,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    826.1053611380713
+                    825.7550424450919
                 ]
             },
             "validation_result": true
@@ -233,7 +233,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    844.2986657185988
+                    843.5680299925083
                 ]
             },
             "validation_result": true
@@ -248,7 +248,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    840.2019655227662
+                    839.9234158420562
                 ]
             },
             "validation_result": true
@@ -263,14 +263,14 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    859.1805611848831
+                    802.7710606654485
                 ]
             },
             "medium": {
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    504.80487620830536
+                    504.87931702136996
                 ]
             },
             "validation_result": true
@@ -285,7 +285,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    869.1463961866167
+                    871.7578565573987
                 ]
             },
             "medium": {
@@ -307,7 +307,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    760.5540011440005
+                    760.9844129158527
                 ]
             },
             "validation_result": true
@@ -322,7 +322,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    888.0376039651724
+                    882.6209141780168
                 ]
             },
             "medium": {
@@ -344,7 +344,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    765.8907757486616
+                    762.1962761027472
                 ]
             },
             "validation_result": true
@@ -359,7 +359,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    838.2205592923694
+                    836.0625717507468
                 ]
             },
             "validation_result": true
@@ -374,7 +374,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    786.2680218749576
+                    780.3980680240525
                 ]
             },
             "validation_result": true
@@ -672,6 +672,45 @@
         },
         "1920x1080": {
             "validation_result": false
+        }
+    },
+    "own_playthroughs/peninsula#hard#2560x1440#noMK#noLL#chimpsPotential.btd6": {
+        "2560x1440": {
+            "validation_result": false
+        }
+    },
+    "playthroughs/balance#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cracked#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/encrypted#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/adoras_temple#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/bazaar#medium#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
         }
     }
 }

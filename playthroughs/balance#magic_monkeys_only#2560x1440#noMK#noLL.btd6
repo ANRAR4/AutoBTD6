@@ -1,0 +1,42 @@
+place sauda hero0 at 1118, 757
+place alchemist alchemist0 at 937, 746
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+place ninja ninja0 at 2106, 680
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+place ninja ninja1 at 116, 679
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+retarget ninja1
+retarget ninja1
+retarget ninja1
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+place wizard wizard0 at 1126, 483
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+place wizard wizard1 at 1308, 753
+upgrade wizard1 path 1
+upgrade wizard1 path 1
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2

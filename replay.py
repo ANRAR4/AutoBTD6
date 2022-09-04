@@ -855,7 +855,7 @@ def main():
                         time.sleep(menuChangeDelay)
                         newScreenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
                         result = findImageInImage(newScreenshot, locateImages['collection'][collectionEvent])
-                        if result[0] < 0.01:
+                        if result[0] < 0.05:
                             mapname = findMapForPxPos(categoryRestriction, page, result[1])
                             break
                     if not mapname:
@@ -879,7 +879,7 @@ def main():
                             time.sleep(menuChangeDelay)
                             newScreenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
                             result = findImageInImage(newScreenshot, locateImages['collection'][collectionEvent])
-                            if result[0] < 0.01:
+                            if result[0] < 0.05:
                                 mapname = findMapForPxPos(category, page, result[1])
                                 break
                         if not mapname:

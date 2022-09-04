@@ -1,0 +1,67 @@
+place sauda hero0 at 1110, 722
+place wizard wizard0 at 1825, 719
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+place wizard wizard1 at 439, 718
+upgrade wizard1 path 1
+upgrade wizard1 path 1
+place ninja ninja0 at 1787, 1192
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+place ninja ninja1 at 446, 272
+upgrade ninja1 path 2
+upgrade ninja1 path 2
+retarget ninja1
+retarget ninja1
+retarget ninja1
+upgrade ninja1 path 2
+upgrade ninja1 path 0
+upgrade ninja1 path 0
+upgrade ninja1 path 2
+upgrade wizard0 path 1
+upgrade wizard1 path 1
+place wizard wizard2 at 1664, 1192
+upgrade wizard2 path 2
+upgrade wizard2 path 2
+upgrade wizard2 path 2
+upgrade wizard2 path 2
+upgrade wizard2 path 1
+upgrade wizard2 path 1
+place wizard wizard3 at 323, 269
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+upgrade wizard3 path 2
+upgrade wizard3 path 1
+upgrade wizard3 path 1
+place druid druid0 at 583, 265
+upgrade druid0 path 0
+upgrade druid0 path 0
+upgrade druid0 path 0
+upgrade druid0 path 0
+upgrade druid0 path 2
+upgrade druid0 path 2
+place wizard wizard4 at 1920, 926
+upgrade wizard4 path 0
+upgrade wizard4 path 0
+upgrade wizard4 path 0
+upgrade wizard4 path 1
+upgrade wizard4 path 1
+place wizard wizard5 at 315, 373
+upgrade wizard5 path 0
+upgrade wizard5 path 0
+upgrade wizard5 path 0
+upgrade wizard5 path 1
+upgrade wizard5 path 1
+upgrade wizard5 path 0

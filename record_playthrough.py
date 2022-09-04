@@ -39,8 +39,6 @@ def onRecordingEvent(e):
     global monkeys
     global monkeysByTypeCount
 
-    print(e)
-    
     pos = pyautogui.position()
     
     activeWindow = ahk.get_active_window()

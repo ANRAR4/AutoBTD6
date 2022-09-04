@@ -735,15 +735,15 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Balance</th>
+		<td><a href="playthroughs%2Fbalance%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: alchemist(3-2-0), ninja(2-0-4), wizard(0-2-5)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fbalance%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: alchemist(3-2-0), ninja(2-0-4), wizard(0-2-5)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fbalance%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: alchemist(3-2-0), ninja(2-0-4), wizard(0-2-5)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td><a href="playthroughs%2Fbalance%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: alchemist(3-2-0), ninja(2-0-4), wizard(0-2-5)">supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -753,15 +753,15 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Encrypted</th>
+		<td><a href="playthroughs%2Fencrypted%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5), ninja(2-0-4)"><i>supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fencrypted%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5), ninja(2-0-4)"><i>supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fencrypted%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5), ninja(2-0-4)"><i>supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td><a href="playthroughs%2Fencrypted%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5), ninja(2-0-4)">supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -771,10 +771,10 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Bazaar</th>
+		<td><a href="playthroughs%2Fbazaar%23medium%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-4), ninja(2-0-4), druid(4-0-2)"><i>supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</i></a></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fbazaar%23medium%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-4), ninja(2-0-4), druid(4-0-2)">supported, Sauda, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -789,15 +789,15 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Adora's temple</th>
+		<td><a href="playthroughs%2Fadoras_temple%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5)"><i>supported, Sauda, wizard only, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</i></a></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fadoras_temple%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5)"><i>supported, Sauda, wizard only, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fadoras_temple%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5)"><i>supported, Sauda, wizard only, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</i></a></td>
+		<td><a href="playthroughs%2Fadoras_temple%23magic_monkeys_only%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(4-3-5)">supported, Sauda, wizard only, magic monkeys only, (*), native: 2560x1440, tested for: 2560x1440</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -915,15 +915,15 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Cracked</th>
+		<td><a href="playthroughs%2Fcracked%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: wizard(0-2-5), super(3-0-2)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fcracked%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: wizard(0-2-5), super(3-0-2)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fcracked%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: wizard(0-2-5), super(3-0-2)"><i>supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td><a href="playthroughs%2Fcracked%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: wizard(0-2-5), super(3-0-2)">supported, Sauda, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
 		<td></td>
 		<td></td>
 		<td></td>

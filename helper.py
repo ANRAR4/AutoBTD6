@@ -182,7 +182,7 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
         newMapConfig['extrainstructions'] = 1
 
     for line in configLines:
-        matches = re.search('^(?P<action>place|upgrade|retarget|special|sell|remove) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2})% discount)?$', line)
+        matches = re.search('^(?P<action>place|upgrade|retarget|special|sell|remove) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$', line)
         if not matches:
             continue
 
@@ -212,7 +212,7 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
                 continue
             monkeyUpgrades = monkeys[matches.group('name')]['upgrades']
             monkeyUpgrades[int(matches.group('path'))] += 1
-            if sum(map(lambda x: x > 2, monkeyUpgrades)) > 1 or sum(map(lambda x: x > 0, monkeyUpgrades)) > 2:
+            if sum(map(lambda x: x > 2, monkeyUpgrades)) > 1 or sum(map(lambda x: x > 0, monkeyUpgrades)) > 2 or monkeyUpgrades[int(matches.group('path'))] > 5:
                 print(filename + ': monkey ' + matches.group('name') + ' has invalid upgrade path! skipping!')
                 monkeyUpgrades[int(matches.group('path'))] -= 1
                 continue
@@ -515,7 +515,8 @@ def getAllAvailablePlaythroughs(additionalDirs = [], considerUserConfig = False)
     playthroughs = {}
     files = []
     for dir in ['playthroughs', *additionalDirs]:
-        files = [*files, *[dir + '/' + x for x in os.listdir(dir)]]
+        if exists(dir):
+            files = [*files, *[dir + '/' + x for x in os.listdir(dir)]]
 
     for filename in files:
         fileConfig = parseBTD6InstructionFileName(filename)
