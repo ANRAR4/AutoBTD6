@@ -53,7 +53,7 @@ upgrade alchemist1 path 2
 upgrade sniper1 path 1
 retarget sniper1
 upgrade spike0 path 2
-place alchemist alchemist2 at 1033, 302
+place alchemist alchemist2 at 1033, 303
 upgrade alchemist2 path 1
 upgrade alchemist2 path 1
 upgrade alchemist2 path 1
@@ -68,7 +68,7 @@ upgrade boomerang0 path 2
 upgrade boomerang0 path 2
 upgrade boomerang0 path 2
 upgrade boomerang0 path 2
-place boomerang boomerang1 at 1192, 270
+place boomerang boomerang1 at 1190, 272
 upgrade boomerang1 path 0
 upgrade boomerang1 path 0
 upgrade boomerang1 path 2

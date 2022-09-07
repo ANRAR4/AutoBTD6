@@ -59,6 +59,7 @@ def userHasMonkeyKnowledge(name):
 
 def adjustPrice(price, difficulty, gamemode, action = None, monkey = None, discountPercentage = None):
     discount = int(discountPercentage) / 100 if discountPercentage and str(discountPercentage).isdigit() else 0
+    priceReduction = 0
     if(difficulty == 'easy'):
         factor = 0.85
     elif(difficulty == 'medium'):
@@ -72,8 +73,10 @@ def adjustPrice(price, difficulty, gamemode, action = None, monkey = None, disco
     if gamemode != 'chimps':
         if monkey and monkey['type'] == 'hero' and action and action['action'] == 'place' and userHasMonkeyKnowledge('hero_favors'):
             additionalFactor = 0.9
+        if monkey and monkey['type'] == 'spike' and monkey['name'] == 'spike0' and action and action['action'] == 'place' and userHasMonkeyKnowledge('first_last_line_of_defense'):
+            priceReduction += 150
 
-    return round(price * (1 - discount) * factor * additionalFactor / 5) * 5
+    return round(price * (1 - discount) * factor * additionalFactor / 5) * 5 - priceReduction
 
 
 def getMonkeySellValue(cost):
@@ -193,16 +196,16 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
                 print(filename + ': monkey ' + matches.group('name') + ' placed twice! skipping!')
                 continue
             if matches.group('type') in costs['monkeys']:
-                step = {'action': 'place', 'type': matches.group('type'), 'name': matches.group('name'), 'key': keybinds['monkeys'][matches.group('type')], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                step = {'action': 'place', 'type': matches.group('type'), 'name': matches.group('name'), 'key': keybinds['monkeys'][matches.group('type')], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
                 if matches.group('discount'):
                     step['discount'] = matches.group('discount')
-                monkeys[matches.group('name')] = {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                monkeys[matches.group('name')] = {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
             elif matches.group('type') in costs['heros']:
-                step = {'action': 'place', 'type': 'hero', 'name': matches.group('name'), 'key': keybinds['monkeys']['hero'], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                step = {'action': 'place', 'type': 'hero', 'name': matches.group('name'), 'key': keybinds['monkeys']['hero'], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
                 if matches.group('discount'):
                     step['discount'] = matches.group('discount')
                 newMapConfig['hero'] = matches.group('type')
-                monkeys[matches.group('name')] = {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                monkeys[matches.group('name')] = {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
             else:
                 print(filename + ': monkey/hero ' + matches.group('name') + ' has unknown type: ' + matches.group('type') + '! skipping!')
                 continue

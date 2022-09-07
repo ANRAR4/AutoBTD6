@@ -1,0 +1,52 @@
+place spike spike0 at 2130, 857
+place psi hero0 at 1005, 654
+retarget hero0
+retarget hero0
+retarget hero0
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+place alchemist alchemist0 at 1875, 961
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+place spike spike1 at 2012, 848
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 0
+upgrade spike0 path 0
+upgrade spike1 path 0
+place heli heli0 at 1419, 1127
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place spike spike2 at 2073, 948
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 1
+upgrade spike2 path 1
+place heli heli1 at 1420, 1302
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+place tack tack0 at 1366, 650
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade heli1 path 0

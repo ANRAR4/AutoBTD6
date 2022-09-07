@@ -20,7 +20,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    342.7980156966618
+                    336.80316071850916
                 ]
             },
             "validation_result": true
@@ -35,7 +35,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    833.0717000961304
+                    829.9968600273132
                 ]
             },
             "easy": {
@@ -72,13 +72,20 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    1355.2530454226903
+                    1323.5060637337822
                 ]
             },
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": true
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    373.93385338783264
+                ]
+            }
         }
     },
     "playthroughs/rake#hard#2560x1440#noMK.btd6": {
@@ -143,13 +150,20 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    339.19864061900546
+                    341.7735624767485
                 ]
             },
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": true
+            "validation_result": true,
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    389.91478276252747
+                ]
+            }
         }
     },
     "playthroughs/underground#hard#2560x1440#noLL.btd6": {
@@ -173,7 +187,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    775.3969339095056
+                    777.4410500321537
                 ]
             },
             "validation_result": true
@@ -188,7 +202,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    912.2846909582615
+                    913.1220219261944
                 ]
             },
             "validation_result": true
@@ -218,7 +232,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    825.7550424450919
+                    828.0487006448564
                 ]
             },
             "validation_result": true
@@ -233,10 +247,17 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    843.5680299925083
+                    844.7961704478118
                 ]
             },
-            "validation_result": true
+            "validation_result": true,
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    549.7979810237885
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
@@ -248,7 +269,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    839.9234158420562
+                    841.6118519163132
                 ]
             },
             "validation_result": true
@@ -285,7 +306,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    871.7578565573987
+                    870.892082546964
                 ]
             },
             "medium": {
@@ -307,7 +328,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    760.9844129158527
+                    761.6387200765058
                 ]
             },
             "validation_result": true
@@ -322,7 +343,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    882.6209141780168
+                    882.5631614220448
                 ]
             },
             "medium": {
@@ -344,7 +365,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    762.1962761027472
+                    759.9505866834095
                 ]
             },
             "validation_result": true
@@ -359,7 +380,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    836.0625717507468
+                    839.3453887071875
                 ]
             },
             "validation_result": true
@@ -374,13 +395,20 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    780.3980680240525
+                    780.1295582799264
                 ]
             },
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    371.55502104759216
+                ]
+            }
         }
     },
     "playthroughs/bloody_puddles#hard#2560x1440#noMK#RNG.btd6": {
@@ -389,13 +417,39 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    761.7834260463715
+                    753.4266054153443
                 ]
             },
-            "validation_result": true
+            "validation_result": true,
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    530.3170885443687
+                ]
+            }
         },
         "1920x1080": {
-            "validation_result": true
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    347.25925302505493
+                ]
+            },
+            "hard": {
+                "attempts": 0,
+                "wins": 0,
+                "win_times": []
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    569.6745221614838
+                ]
+            }
         }
     },
     "playthroughs/quad#medium#2560x1440#noMK.btd6": {
@@ -404,7 +458,7 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    583.266753911972
+                    567.83806681633
                 ]
             },
             "easy": {
@@ -415,7 +469,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/candy_falls#alternate_bloons_rounds#2560x1440#noMK.btd6": {
@@ -447,7 +501,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/cubism#double_hp_moabs#2560x1440#noMK#noLL.btd6": {
@@ -479,7 +533,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/dark_castle#primary_only#2560x1440#noMK#noLLwMK.btd6": {
@@ -535,7 +589,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/logs#easy#2560x1440#noMK#buccaneerOnly#noLL.btd6": {
@@ -583,7 +637,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/park_path#hard#2560x1440#noMK#noLL.btd6": {
@@ -615,7 +669,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/spillway#hard#2560x1440#noLLwMK.btd6": {
@@ -671,7 +725,7 @@
             "validation_result": true
         },
         "1920x1080": {
-            "validation_result": false
+            "validation_result": true
         }
     },
     "playthroughs/peninsula#hard#2560x1440#noMK#noLL#chimpsPotential.btd6": {
@@ -681,9 +735,12 @@
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    848.9451103210449
+                    850.8987521529198
                 ]
             }
+        },
+        "1920x1080": {
+            "validation_result": true
         }
     },
     "playthroughs/balance#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
@@ -735,6 +792,242 @@
         }
     },
     "playthroughs/quiet_street#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sanctuary#deflation#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    344.6691368818283
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    377.2835192680359
+                ]
+            }
+        }
+    },
+    "playthroughs/quad#hard#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    863.4688720107079
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    369.7232151031494
+                ]
+            }
+        }
+    },
+    "playthroughs/infernal#hard#2560x1440#noMK#noLLwMK#chimpsPotential.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    814.8724529478285
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/flooded_valley#hard#2560x1440#noMK.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    788.8659825975245
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    352.07120752334595
+                ]
+            }
+        }
+    },
+    "playthroughs/muddy_puddles#hard#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    812.8209173679352
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    370.61552572250366
+                ]
+            }
+        }
+    },
+    "playthroughs/ouch#hard#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    826.7712008476258
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    531.6879358291626
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    366.9351706504822
+                ]
+            }
+        }
+    },
+    "playthroughs/workshop#hard#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    922.063573884964
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    586.3550131320953
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    384.56824016571045
+                ]
+            }
+        }
+    },
+    "playthroughs/ravine#deflation#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "deflation": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    326.05894684791565
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/ravine#hard#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    901.8010768890381
+                ]
+            },
+            "medium": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    593.1894122958183
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    398.8344638347626
+                ]
+            }
+        }
+    },
+    "playthroughs/downstream#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    371.68096137046814
+                ]
+            }
+        }
+    },
+    "playthroughs/haunted#magic_monkeys_only#2560x1440#noMK#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/streambed#magic_monkeys_only#2560x1440#noMK#noLL.btd6": {
         "2560x1440": {
             "validation_result": true
         },

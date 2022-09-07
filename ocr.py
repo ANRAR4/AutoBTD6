@@ -4,40 +4,9 @@ import keras
 
 ocr_model = keras.models.load_model('btd6_ocr_net.h5')
 
-locateImages = {}
-locateImages['numbers'] = []
-locateImages['remove_obstacle_confirm_button'] = cv2.imread('images/remove_obstacle_confirm_button.png')
-for i in range(0, 10):
-    locateImages['numbers'].append(cv2.imread('images/' + str(i) + '.png'))
-
-# custom ocr:
-
-def custom_ocr(image):
-    numbers = []
-
-    for i in range(0, 10):
-        result = cv2.matchTemplate(locateImages['numbers'][i], image, cv2.TM_SQDIFF_NORMED)
-        it = np.nditer(result, flags=['multi_index'])
-        for x in it:
-            if x < 0.03:
-                # print("%d at %s; %f accuracy" % (i, it.multi_index, x))
-                numbers.append([i, it.multi_index, x])
-
-    numbers.sort(key = lambda x: x[1][1])
-    number = 0
-    lastPos = -100
-    for x in numbers:
-        if x[1][1] > lastPos + 15:
-            number = number * 10 + x[0]
-            lastPos = x[1][1]
-
-    return int(number)
-
-def new_custom_ocr(img):
+def custom_ocr(img, resolution=pyautogui.size()):
     h = img.shape[0]
     w = img.shape[1]
-
-    resolution = pyautogui.size()
 
     white = np.array([255, 255, 255])
     black = np.array([0, 0, 0])
@@ -105,15 +74,3 @@ def new_custom_ocr(img):
         number = number * 10 + np.argmax(prediction)
 
     return number
-
-    # print(chrImages)
-
-    # print(chrImages)
-    # print(chrImages[:,0])
-
-    # chrImagesMinX = dict(sorted(chrImagesMinX.items(), key=lambda item:item[1]))
-    # i = 0
-    # for index in chrImagesMinX:
-    #     cv2.imwrite('digits/' + matches.group('number')[i] + '_' + str(digitCount[int(matches.group('number')[i])]) + '.png', chrImages[index])
-    #     digitCount[int(matches.group('number')[i])] += 1
-    #     i += 1

@@ -18,6 +18,7 @@
         "insider_trades": true,
         "farm_subsidy": true,
         "better_sell_deals": true,
+        "first_last_line_of_defense": true,
         "hi_value_mines": true,
         "hero_favors": true,
         "scholarships": true

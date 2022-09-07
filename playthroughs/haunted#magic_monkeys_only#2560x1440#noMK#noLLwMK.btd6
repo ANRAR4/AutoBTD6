@@ -1,0 +1,27 @@
+place sauda hero0 at 798, 1042
+place super super0 at 1456, 1026
+place alchemist alchemist0 at 1615, 891
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade super0 path 0
+upgrade super0 path 0
+upgrade super0 path 2
+upgrade super0 path 2
+upgrade alchemist0 path 0
+place super super1 at 699, 944
+upgrade super1 path 0
+upgrade super1 path 0
+upgrade super1 path 2
+upgrade super1 path 2
+upgrade super0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+place alchemist alchemist1 at 578, 882
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade super1 path 0

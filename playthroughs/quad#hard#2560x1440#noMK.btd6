@@ -1,0 +1,157 @@
+place dart dart0 at 535, 741
+place dart dart1 at 1114, 1123
+place dart dart2 at 1705, 734
+place sub sub0 at 1148, 569
+retarget sub0
+retarget sub0
+retarget sub0
+upgrade sub0 path 0
+place sauda hero0 at 1113, 360
+place wizard wizard0 at 808, 955
+place sniper sniper0 at 1465, 932
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sub0 path 0
+upgrade sub0 path 2
+place sniper sniper1 at 692, 430
+retarget sniper1
+retarget sniper1
+retarget sniper1
+upgrade sniper1 path 0
+upgrade sub0 path 2
+retarget hero0
+retarget hero0
+place spike spike0 at 411, 1056
+place spike spike1 at 1632, 286
+upgrade spike1 path 0
+upgrade spike1 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+retarget sub0
+retarget sub0
+retarget sub0
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 1
+place ice ice0 at 1334, 259
+upgrade wizard0 path 2
+upgrade wizard0 path 1
+place village village0 at 666, 1169
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+place village village1 at 1433, 322
+upgrade village1 path 0
+upgrade village1 path 0
+upgrade village1 path 2
+upgrade village1 path 2
+place alchemist alchemist0 at 1759, 248
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade village0 path 0
+upgrade village0 path 0
+place alchemist alchemist1 at 348, 1133
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+place ice ice1 at 954, 1066
+upgrade ice1 path 2
+place alchemist alchemist2 at 1771, 325
+place spike spike2 at 1705, 392
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 1
+upgrade spike2 path 1
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+place spike spike3 at 516, 1133
+upgrade spike3 path 0
+upgrade spike3 path 0
+upgrade spike3 path 0
+upgrade spike3 path 1
+upgrade spike3 path 1
+place alchemist alchemist3 at 457, 1239
+upgrade alchemist3 path 0
+upgrade alchemist3 path 0
+upgrade alchemist3 path 0
+upgrade ice0 path 0
+upgrade ice0 path 0
+upgrade ice0 path 0
+upgrade ice0 path 2
+upgrade ice1 path 0
+upgrade ice1 path 0
+upgrade ice1 path 0
+upgrade ice1 path 2
+upgrade ice0 path 2
+upgrade ice0 path 0
+upgrade village1 path 0
+upgrade village1 path 0
+place ice ice2 at 1527, 601
+upgrade ice2 path 1 with 100% discount
+upgrade ice2 path 2 with 100% discount
+upgrade ice2 path 2
+upgrade ice2 path 2
+upgrade village0 path 0
+upgrade village0 path 0
+place ice ice3 at 658, 871
+upgrade ice3 path 1 with 100% discount
+upgrade ice3 path 2 with 100% discount
+upgrade ice3 path 2
+upgrade ice3 path 2
+place bomb bomb0 at 1428, 553
+upgrade bomb0 path 2 with 100% discount
+upgrade bomb0 path 2
+upgrade bomb0 path 2
+upgrade bomb0 path 0 with 100% discount
+upgrade bomb0 path 0
+retarget bomb0
+retarget bomb0
+place bomb bomb1 at 754, 880
+upgrade bomb1 path 2 with 100% discount
+upgrade bomb1 path 2
+upgrade bomb1 path 2
+upgrade bomb1 path 0 with 100% discount
+upgrade bomb1 path 0
+retarget bomb1
+retarget bomb1
+remove obstacle at 1110, 77 for 1500
+place tack tack0 at 1114, 260
+upgrade tack0 path 0 with 100% discount
+upgrade tack0 path 0
+upgrade tack0 path 2 with 100% discount
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+remove obstacle at 1118, 1349 for 1500
+place glue glue0 at 900, 1230
+place tack tack1 at 833, 1182
+upgrade tack1 path 0 with 100% discount
+upgrade tack1 path 0
+upgrade tack1 path 2 with 100% discount
+upgrade tack1 path 2
+upgrade tack1 path 2
+upgrade tack1 path 2
+place glue glue1 at 1123, 446
+upgrade glue1 path 1 with 100% discount
+upgrade glue1 path 2 with 100% discount
+upgrade glue1 path 2
+upgrade glue1 path 2
+retarget glue1
+retarget glue1
+retarget glue1
+upgrade glue0 path 1 with 100% discount
+upgrade glue0 path 2 with 100% discount
+upgrade glue0 path 2
+upgrade glue0 path 2
+retarget glue0
+retarget glue0
+retarget glue0

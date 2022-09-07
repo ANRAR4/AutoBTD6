@@ -1,0 +1,65 @@
+place psi hero0 at 1167, 777
+retarget hero0
+retarget hero0
+retarget hero0
+place buccaneer buccaneer0 at 836, 914
+place sub sub0 at 1626, 583
+upgrade sub0 path 2
+upgrade sub0 path 0
+upgrade sub0 path 0
+place village village0 at 611, 906
+upgrade sub0 path 2
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade buccaneer0 path 0
+place heli heli0 at 625, 1074
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 0
+upgrade heli0 path 0
+place tack tack0 at 1386, 603
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+place tack tack1 at 1756, 919
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 0
+upgrade tack1 path 2
+upgrade tack1 path 2
+place tack tack2 at 905, 587
+upgrade tack2 path 0
+upgrade tack2 path 0
+upgrade tack2 path 0
+upgrade tack2 path 0
+upgrade tack2 path 2
+upgrade tack2 path 2
+place wizard wizard0 at 784, 455
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+place village village1 at 718, 559
+upgrade village1 path 1
+upgrade village1 path 1
+place spike spike0 at 870, 1204
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1

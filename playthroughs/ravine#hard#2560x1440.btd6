@@ -1,0 +1,86 @@
+place dart dart0 at 997, 1092
+place dart dart1 at 375, 898
+upgrade dart0 path 2
+upgrade dart0 path 1
+place benjamin hero0 at 2084, 755
+upgrade dart1 path 1
+upgrade dart1 path 1
+upgrade dart1 path 2
+upgrade dart0 path 1
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart0 path 2
+upgrade dart1 path 2
+place sniper sniper0 at 331, 991
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place wizard wizard0 at 933, 352
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+place wizard wizard1 at 1624, 654
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 0
+upgrade wizard1 path 0
+place spike spike0 at 1473, 1391
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1
+place spike spike1 at 444, 964
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 0
+place alchemist alchemist0 at 1694, 1384
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+place alchemist alchemist1 at 688, 1080
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+upgrade alchemist0 path 0
+upgrade alchemist1 path 0
+place spike spike2 at 861, 1110
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 0
+upgrade spike2 path 1
+upgrade spike2 path 1
+upgrade spike2 path 0
+place ice ice0 at 952, 146
+upgrade ice0 path 1
+upgrade ice0 path 1
+upgrade ice0 path 1
+upgrade ice0 path 2
+upgrade ice0 path 2
+place heli heli0 at 1736, 472
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade sniper0 path 0

@@ -1,0 +1,67 @@
+place quincy hero0 at 1120, 927
+place dart dart0 at 634, 371
+place sub sub0 at 1573, 359
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+place sniper sniper0 at 1637, 1177
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+place village village0 at 119, 645
+place heli heli0 at 137, 800
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 0
+place alchemist alchemist0 at 84, 929
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 2
+upgrade alchemist0 path 0
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade village0 path 0
+upgrade village0 path 0
+place wizard wizard0 at 1085, 498
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade heli0 path 0
+upgrade wizard0 path 2
+upgrade heli0 path 0
+place alchemist alchemist1 at 1097, 402
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 2
+place dart dart1 at 1065, 1016
+upgrade dart1 path 1
+upgrade dart1 path 1
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+place alchemist alchemist2 at 1158, 1026
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 2
+place spike spike0 at 2113, 916
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1

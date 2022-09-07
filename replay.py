@@ -1,5 +1,5 @@
 from helper import *
-from ocr import new_custom_ocr
+from ocr import custom_ocr
 
 smallActionDelay = 0.05
 actionDelay = 0.2
@@ -975,7 +975,7 @@ def main():
                 thisIterationAction = None
                 skippingIteration = False
 
-                currentValues['money'] = new_custom_ocr(images[2])
+                currentValues['money'] = custom_ocr(images[2])
                 
                 # to prevent random explosion particles that were recognized as digits from messing up the game
                 # still possible: if it habens 2 times in a row

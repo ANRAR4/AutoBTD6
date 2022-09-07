@@ -1,0 +1,74 @@
+place sub sub0 at 1237, 223
+upgrade sub0 path 2
+place psi hero0 at 127, 1114
+retarget hero0
+retarget hero0
+retarget hero0
+upgrade sub0 path 2
+place buccaneer buccaneer0 at 1485, 653
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+place spike spike0 at 991, 842
+upgrade spike0 path 2
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade sub0 path 2
+place sub sub1 at 1331, 1025
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade spike0 path 2
+retarget spike0
+upgrade spike0 path 0
+upgrade sub1 path 2
+place spike spike1 at 854, 307
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 0
+upgrade spike1 path 0
+upgrade spike1 path 0
+retarget spike1
+place village village0 at 904, 575
+upgrade village0 path 0
+upgrade village0 path 2
+upgrade village0 path 2
+place alchemist alchemist0 at 854, 833
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 2
+place alchemist alchemist1 at 714, 370
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 2
+upgrade village0 path 0
+place sniper sniper0 at 310, 1038
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade alchemist0 path 0
+upgrade spike0 path 0
+place sniper sniper1 at 288, 185
+upgrade sniper1 path 1
+upgrade sniper1 path 1
+upgrade sniper1 path 1
+upgrade sniper1 path 0
+place wizard wizard0 at 1007, 743
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade sub1 path 2
+upgrade sub0 path 2
+upgrade wizard0 path 0
+upgrade spike1 path 0
