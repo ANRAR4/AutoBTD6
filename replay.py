@@ -581,37 +581,30 @@ def main():
         activeWindow = ahk.get_active_window()
         if not activeWindow or activeWindow.title.decode() != 'BloonsTD6':
             screen = Screen.BTD6_UNFOCUSED
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["startmenu"], imageAreas["compare"]["screens"]["startmenu"]):
-            screen = Screen.STARTMENU
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["map_selection"], imageAreas["compare"]["screens"]["map_selection"]):
-            screen = Screen.MAP_SELECTION
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["difficulty_selection"], imageAreas["compare"]["screens"]["difficulty_selection"]):
-            screen = Screen.DIFFICULTY_SELECTION
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["gamemode_selection"], imageAreas["compare"]["screens"]["gamemode_selection"]):
-            screen = Screen.GAMEMODE_SELECTION
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["hero_selection"], imageAreas["compare"]["screens"]["hero_selection"]):
-            screen = Screen.HERO_SELECTION
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["ingame"], imageAreas["compare"]["screens"]["ingame"]):
-            screen = Screen.INGAME
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["ingame_paused"], imageAreas["compare"]["screens"]["ingame_paused"]):
-            screen = Screen.INGAME_PAUSED
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["victory_summary"], imageAreas["compare"]["screens"]["victory_summary"]):
-            screen = Screen.VICTORY_SUMMARY
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["victory"], imageAreas["compare"]["screens"]["victory"]):
-            screen = Screen.VICTORY
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["defeat"], imageAreas["compare"]["screens"]["defeat"]):
-            screen = Screen.DEFEAT
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["overwrite_save"], imageAreas["compare"]["screens"]["overwrite_save"]):
-            screen = Screen.OVERWRITE_SAVE
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["levelup"], imageAreas["compare"]["screens"]["levelup"]):
-            screen = Screen.LEVELUP
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["apopalypse_hint"], imageAreas["compare"]["screens"]["apopalypse_hint"]):
-            screen = Screen.APOPALYPSE_HINT
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["round_100_insta"], imageAreas["compare"]["screens"]["round_100_insta"]):
-            screen = Screen.ROUND_100_INSTA
-        elif imageAreasEqual(screenshot, comparisonImages["screens"]["collection_claim_chest"], imageAreas["compare"]["screens"]["collection_claim_chest"]):
-            screen = Screen.COLLECTION_CLAIM_CHEST
-        
+        else:
+            bestMatchDiff = None
+            for screenCfg in [
+                (Screen.STARTMENU, comparisonImages["screens"]["startmenu"], imageAreas["compare"]["screens"]["startmenu"]),
+                (Screen.MAP_SELECTION, comparisonImages["screens"]["map_selection"], imageAreas["compare"]["screens"]["map_selection"]),
+                (Screen.DIFFICULTY_SELECTION, comparisonImages["screens"]["difficulty_selection"], imageAreas["compare"]["screens"]["difficulty_selection"]),
+                (Screen.GAMEMODE_SELECTION, comparisonImages["screens"]["gamemode_selection"], imageAreas["compare"]["screens"]["gamemode_selection"]),
+                (Screen.HERO_SELECTION, comparisonImages["screens"]["hero_selection"], imageAreas["compare"]["screens"]["hero_selection"]),
+                (Screen.INGAME, comparisonImages["screens"]["ingame"], imageAreas["compare"]["screens"]["ingame"]),
+                (Screen.INGAME_PAUSED, comparisonImages["screens"]["ingame_paused"], imageAreas["compare"]["screens"]["ingame_paused"]),
+                (Screen.VICTORY_SUMMARY, comparisonImages["screens"]["victory_summary"], imageAreas["compare"]["screens"]["victory_summary"]),
+                (Screen.VICTORY, comparisonImages["screens"]["victory"], imageAreas["compare"]["screens"]["victory"]),
+                (Screen.DEFEAT, comparisonImages["screens"]["defeat"], imageAreas["compare"]["screens"]["defeat"]),
+                (Screen.OVERWRITE_SAVE, comparisonImages["screens"]["overwrite_save"], imageAreas["compare"]["screens"]["overwrite_save"]),
+                (Screen.LEVELUP, comparisonImages["screens"]["levelup"], imageAreas["compare"]["screens"]["levelup"]),
+                (Screen.APOPALYPSE_HINT, comparisonImages["screens"]["apopalypse_hint"], imageAreas["compare"]["screens"]["apopalypse_hint"]),
+                (Screen.ROUND_100_INSTA, comparisonImages["screens"]["round_100_insta"], imageAreas["compare"]["screens"]["round_100_insta"]),
+                (Screen.COLLECTION_CLAIM_CHEST, comparisonImages["screens"]["collection_claim_chest"], imageAreas["compare"]["screens"]["collection_claim_chest"]),
+            ]:
+                diff = cv2.matchTemplate(cutImage(screenshot, screenCfg[2]), cutImage(screenCfg[1], screenCfg[2]), cv2.TM_SQDIFF_NORMED)[0][0]
+                if diff < 0.05 and (not bestMatchDiff or diff < bestMatchDiff):
+                    bestMatchDiff = diff
+                    screen = screenCfg[0]
+                    
         if screen != lastScreen:
             customPrint("screen " + screen.name + "!")
 
