@@ -601,10 +601,10 @@ def main():
                 (Screen.COLLECTION_CLAIM_CHEST, comparisonImages["screens"]["collection_claim_chest"], imageAreas["compare"]["screens"]["collection_claim_chest"]),
             ]:
                 diff = cv2.matchTemplate(cutImage(screenshot, screenCfg[2]), cutImage(screenCfg[1], screenCfg[2]), cv2.TM_SQDIFF_NORMED)[0][0]
-                if diff < 0.05 and (not bestMatchDiff or diff < bestMatchDiff):
+                if diff < 0.05 and (bestMatchDiff is None or diff < bestMatchDiff):
                     bestMatchDiff = diff
                     screen = screenCfg[0]
-                    
+
         if screen != lastScreen:
             customPrint("screen " + screen.name + "!")
 
@@ -1053,15 +1053,25 @@ def main():
                     state = State.UNDEFINED
 
                 if (not doAllStepsBeforeStart and mapConfig['gamemode'] != 'deflation' and not skippingIteration) or len(mapConfig['steps']) == 0:
-                    if imageAreasEqual(screenshot, comparisonImages['game_state']['game_playing_fast'], imageAreas["compare"]["game_state"]):
-                        NOP
-                    elif imageAreasEqual(screenshot, comparisonImages['game_state']['game_playing_slow'], imageAreas["compare"]["game_state"]):
-                        ahk.send_event(keybinds['others']['play'])
-                    elif imageAreasEqual(screenshot, comparisonImages['game_state']['game_paused'], imageAreas["compare"]["game_state"]):
-                        ahk.send_event(keybinds['others']['play'])
-                    else:
-                        customPrint('game speed unrecognizable!')
+                    bestMatchDiff = None
+                    gameState = None
+                    for screenCfg in [
+                        ('game_playing_fast', comparisonImages['game_state']['game_playing_fast'], imageAreas["compare"]["game_state"]),
+                        ('game_playing_slow', comparisonImages['game_state']['game_playing_slow'], imageAreas["compare"]["game_state"]),
+                        ('game_paused', comparisonImages['game_state']['game_paused'], imageAreas["compare"]["game_state"]),
+                    ]:
+                        diff = cv2.matchTemplate(cutImage(screenshot, screenCfg[2]), cutImage(screenCfg[1], screenCfg[2]), cv2.TM_SQDIFF_NORMED)[0][0]
+                        if bestMatchDiff is None or diff < bestMatchDiff:
+                            bestMatchDiff = diff
+                            gameState = screenCfg[0]
 
+                    if gameState == 'game_playing_fast':
+                        NOP
+                    elif gameState == 'game_playing_slow':
+                        ahk.send_event(keybinds['others']['play'])
+                    elif gameState == 'game_paused':
+                        ahk.send_event(keybinds['others']['play'])
+                    
                 lastIterationScreenshotAreas = images
                 lastIterationBalance = currentValues['money']
                 lastIterationCost = thisIterationCost
