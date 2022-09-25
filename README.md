@@ -377,6 +377,8 @@ The most importants segments are `heros` where you can specify whether you have 
 
 The default configuration has all maps and heros unlocked.
 
+**Additionally you should make sure to move or ideally disable popups that may appear in the lower right corner of the screen (e. g. from Steam) as they might interfere with the script and cause you to lose playthroughs.**
+
 # Currently supported maps
 
 The following table lists which gamemodes for which maps have recorded playthroughs available.
