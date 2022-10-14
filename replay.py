@@ -1,4 +1,3 @@
-from copy import deepcopy
 from helper import *
 from ocr import custom_ocr
 
