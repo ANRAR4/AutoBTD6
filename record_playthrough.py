@@ -1,7 +1,7 @@
 from helper import *
 
 keybinds = json.load(open('keybinds.json'))
-costs = json.load(open('costs.json'))
+towers = json.load(open('costs.json'))
 maps = json.load(open('maps.json'))
 gamemodes = json.load(open('gamemodes.json'))
 
@@ -119,7 +119,7 @@ while True:
 while True:
     print('hero > ')
     config['hero'] = input()
-    if config['hero'] in costs['heros']:
+    if config['hero'] in towers['heros']:
         break
     else:
         print('unknown hero!')

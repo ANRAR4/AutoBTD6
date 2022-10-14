@@ -8,6 +8,7 @@ extraComments = {
 mapComments = {
     'geared': 'changing monkey positions (1)',
     'sanctuary': 'changing monkey positions (1)',
+    'covered_garden': 'positions and monkeys not always accessible (2)',
 }
 
 output = ''
@@ -80,7 +81,7 @@ for category in mapsByCategory:
                     description += ', ' + singleGroup + ' monkeys only'
                 
                 if noLL:
-                    NOP
+                    pass
                 elif noLLwMK:
                     description += ', (*)'
                 else:
@@ -90,7 +91,7 @@ for category in mapsByCategory:
                     for extraComment in extraComments[playthrough['filename']]:
                         description += ', ' + extraComment
                 
-                description += ', native: ' + playthrough['fileConfig']['resolution'] + (', tested for: ' + ', '.join(filter(lambda x: 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys())) if playthrough['filename'] in playthroughStats and len(playthroughStats[playthrough['filename']].keys()) and len(list(filter(lambda x: 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys()))) else '')
+                description += ', native: ' + playthrough['fileConfig']['resolution'] + (', tested for: ' + ', '.join(filter(lambda x: type(playthroughStats[playthrough['filename']][x]) is dict and 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys())) if playthrough['filename'] in playthroughStats and len(playthroughStats[playthrough['filename']].keys()) and len(list(filter(lambda x: type(playthroughStats[playthrough['filename']][x]) is dict and 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys()))) else '')
 
                 title = ''
                 monkeyUpgradeRequirements = getMonkeyUpgradeRequirements(mapConfig['monkeys'])

@@ -5,18 +5,18 @@
                 "startmenu": [2082, 1238, 2102, 1238],
                 "map_selection": [732, 1310, 744, 1310],
                 "difficulty_selection": [844, 609, 869, 609],
-                "gamemode_selection": [845, 91, 877, 91],
+                "gamemode_selection": [803, 835, 859, 835],
                 "hero_selection": [853, 54, 853, 80],
                 "ingame": [2366, 1343, 2387, 1343],
                 "ingame_paused": [1653, 1056, 1676, 1056],
-                "victory_summary": [970, 250, 980, 250],
-                "victory": [1106, 601, 1266, 601],
-                "defeat": [1035, 503, 1075, 503],
-                "overwrite_save": [1034, 522, 1072, 522],
-                "levelup": [1125, 751, 1186, 751],
+                "victory_summary": [841, 182, 905, 182],
+                "victory": [818, 605, 925, 605],
+                "defeat": [1170, 264, 1230, 264],
+                "overwrite_save": [857, 79, 890, 79],
+                "levelup": [1020, 689, 1070, 689],
                 "apopalypse_hint": [1229, 289, 1263, 298],
-                "round_100_insta": [1033, 868, 1100, 875],
-                "collection_claim_chest": [1136, 65, 1293, 69]
+                "round_100_insta": [913, 837, 976, 837],
+                "collection_claim_chest": [2193, 91, 2217, 91]
             },
             "game_state": [2412, 1347, 2445, 1347],
             "selected_hero": [110, 1320, 130, 1320]
@@ -87,6 +87,7 @@
             "screen_overwrite_save_button_ok": [1520, 980],
             "gamemode_deflation_message_confirmation": [1260, 1010],
             "gamemode_apopalypse_message_confirmation": [1280, 1000],
+            "paragon_message_confirmation": [1520, 980],
             "collection_claim_chest": [1270, 900]
         }
     }

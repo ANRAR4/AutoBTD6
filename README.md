@@ -9,6 +9,12 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
+The config files(list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v33.0**.
+<br>
+If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
+<br>
+For more information refer to [supporting new versions of Bloons TD6](#supporting-new-versions-of-bloons-td6).
+
 **Please be aware Ninja Kiwi doesn't support modding or use of external scripts for automated farming and may flag or ban accounts as a result when using this or similar scripts (although this hasn't happend to any of my accounts yet).**
 
 # Table of contents
@@ -22,13 +28,14 @@ The scripts have only been tested on Windows.
    6. [Play the most efficient maps for player xp farming](#xp---play-the-most-efficient-maps-for-player-xp-farming)<br>
    7. [Play the most efficient maps for monkey money farming](#mm---play-the-most-efficient-maps-for-monkey-money-farming)<br>
    8. [Validate playthroughs](#validate---validate-playthroughs)<br>
-   9. [Gamemode parameter](#gamemode-parameter)
-   10. [Category parameter](#category-parameter)
-   11. [Map parameter](#map-parameter)
-   12. [Hero parameter](#hero-parameter)
-   13. [Optional arguments](#flags--optional-arguments)<br>
-   14. [Examples](#examples)<br>
-   15. [Pausing / Stopping execution](#pausing--stopping-execution)<br>
+   9. [Determine cost of each monkey, upgrade and hero](#costs---determine-cost-of-each-monkey-upgrade-and-hero)<br>
+   10. [Gamemode parameter](#gamemode-parameter)
+   11. [Category parameter](#category-parameter)
+   12. [Map parameter](#map-parameter)
+   13. [Hero parameter](#hero-parameter)
+   14. [Optional arguments](#flags--optional-arguments)<br>
+   15. [Examples](#examples)<br>
+   16. [Pausing / Stopping execution](#pausing--stopping-execution)<br>
 3. [Requirements / Installation](#requirements)<br>
    1. [Installation](#installation)<br>
    2. [Ingame settings](#ingame-settings)<br>
@@ -39,7 +46,13 @@ The scripts have only been tested on Windows.
 6. [Additional scripts](#additional-scripts)<br>
 7. [Supported resolutions](#supported-resolutions)<br>
 8. [Supporting new collection events](#supporting-new-collection-events)<br>
-9. [Known issues](#known-issues)<br>
+9. [Supporting new versions of Bloons TD6](#supporting-new-versions-of-bloons-td6)<br>
+   1.  [Adding new maps](#adding-new-maps)<br>
+   2.  [Incorporating balance changes in regards to tower/upgrade cost](#incorporating-balance-changes-in-regards-to-towerupgrade-cost)<br>
+   3.  [Adding new towers](#adding-new-towers)<br>
+   4.  [Adding new heros](#adding-new-heros)<br>
+   5.  [Major GUI changes](#major-gui-changes)<br>
+10. [Known issues](#known-issues)<br>
 
 
 # How the replay of a playthrough works
@@ -145,6 +158,22 @@ Validates all playthroughs which fullfill the category and gamemode requirement 
 
 `-r` flag has no effect for this mode.
 
+## `costs` - Determine cost of each monkey, upgrade and hero
+
+Usage: `py replay.py costs [+heros]`
+
+Determines the cost of each monkey and each upgrade of each monkey. Additionally determines the base cost of each hero if `+hero` is specified.
+
+If `+hero` is set all heros will be tested.
+
+**This mode requires monkey knowledge to be disabled!**<br>
+**This mode requires all upgrades to be unlocked!**
+
+Can be used after an update to BTD6 to automatically update `towers.json`.
+
+Creates a backup of the old `towers.json` file under `towers_backup.json`.
+
+
 ## `gamemode` parameter
 
 The `gamemode` parameter can be one of the following:
@@ -195,6 +224,7 @@ The `map` parameter can be one of the following:
 - `hedge`
 - `end_of_the_road`
 - `logs`
+- `covered_garden`
 - `quarry`
 - `quiet_street`
 - `bloonarius prime`
@@ -213,6 +243,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `midnight_mansion`
 - `sunken_columns`
 - `x_factor`
 - `mesa`
@@ -801,8 +832,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Covered garden</th>
+	<td rowspan=19>intermediate</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>positions and monkeys not always accessible (2)</td>
+	</tr>
+	<tr>
 	<th>Quarry</th>
-	<td rowspan=18>intermediate</th>
 		<td><a href="playthroughs%2Fquarry%23magic_monkeys_only%232560x1440%23noMK%23noLL.btd6"title="required monkeys: wizard(4-2-5)"><i>supported, Sauda, wizard only, magic monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
@@ -1126,8 +1175,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Midnight mansion</th>
+	<td rowspan=14>advanced</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Sunken columns</th>
-	<td rowspan=13>advanced</th>
 		<td><a href="playthroughs%2Fsunken_columns%23hard%232560x1440%23noLL.btd6"title="required monkeys: engineer(4-2-0), heli(4-0-4), sniper(4-0-2), tack(4-0-2), buccaneer(4-2-0)"><i>with MK, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Fsunken_columns%23hard%232560x1440%23noMK%23noLLwMK.btd6"title="required monkeys: wizard(0-2-4), heli(4-0-3), sniper(4-0-2), village(2-2-0), buccaneer(4-2-0)"><i>supported, Sauda, (*), native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
@@ -1545,6 +1612,8 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 </div>
 
 (1): Maps with changing monkey positions are currently not recordable/replayable in any mode other than deflation
+<br>
+(2): Maps with changing position and monkey accessibility are currently not recordable/replayable in any mode other than deflation
 
 # Recording playthroughs
 
@@ -1565,7 +1634,7 @@ Actions are only recorded when BTD6 is your active window and your cursor is ins
 
 To place a monkey first select it in the GUI and hover to the position you want to place it at (to check whether it can be placed there). After that press escape to unselect the monkey and then press the keybind corresponding to the monkey you want to place and place it. When pressing the keybind the position of your cursor will be logged as the monkeys position. 
 
-If your keybinds are different from the default keybinds you will need to change them in `keybinds.json` (see [Keybinds](#keybinds)).
+If your keybinds differ from the default keybinds you will need to change them in `keybinds.json` (see [Keybinds](#keybinds)).
 
 ### Removing an obstacle
 
@@ -1629,7 +1698,7 @@ To stop recording press `ctrl` + `c` while in the console `record_playthrough.py
 
 ### Editing a playthrough afterwards
 
-The playthrough file can be edited after recording (e. g. to correct/remove accidental keypresses). The corresponding file is saved under `own_playthroughs/<map>#<gamemode>#<resolution>.btd6` (e. g. `own_playthroughs/cornfield#hard.btd6`).
+The playthrough file can be edited after recording (e. g. to correct/remove accidental keypresses). The corresponding file is saved under `own_playthroughs/<map>#<gamemode>#<resolution>.btd6` (e. g. `own_playthroughs/cornfield#hard#2560x1440.btd6`).
 
 Valid entries in a file are:
 - placing a monkey (e. g. `place ninja ninja0 at 1212, 641` or for heros `place etienne hero0 at 1212, 641`)
@@ -1691,6 +1760,52 @@ Currently only screen resolutions of `1920x1080` and `2560x1440` are supported. 
 # Supporting new collection events
 
 Supporting a new collection event only requires adding a `.png` image of the symbol on a map to the `images/<resolution>/collection_events` folder. Similar to `images/<resolution>/collection_events/totem.png`. The collection event name will be the filename without `.png`.
+
+# Supporting new versions of Bloons TD6
+
+Most changes that get introduced in updates can be incorporated by adapting the corresponding config files:
+
+Update `version.txt` to contain the new version.
+
+**Please be aware that balance changes in major as well as minor updates to BTD6 could cause the provided playthroughs to no longer work.**<br>
+Regardless newly recorded playthroughs will work.
+
+## Adding new maps
+
+New Maps can be added by running `insert_new_map.py`.<br>
+Usage: `py insert_new_map.py "<name of the new map>" <before|after> "<name of adjacent map>"`<br>
+e. g. `py insert_new_map.py "Midnight mansion" before "Sunken columns"`<br>
+This will update `maps.json` by inserting the new map and shifting all following maps of the same category by one position.
+
+## Incorporating balance changes in regards to tower/upgrade cost
+
+The prices can be automatically updated by running the [`costs`](#costs---determine-cost-of-each-monkey-upgrade-and-hero) mode.
+
+## Adding new towers
+
+Adding a new tower requires adding it to `towers.json` -> `monkeys`.
+- `base` refers to the towers base cost
+- `class` describes where the tower can be placed (`land`, `water` or `any` (meaning both, like pat futsy))
+- `upgrades` refer to the cost of each upgrade (cost on medium difficulty with monkey knowledge disabled)
+- (optional) `upgrade_confirmation` describes whether the upgrade has a confirmation dialog (currently only used for super monkeys)(no dialog if omitted)
+
+Additionally you need to provide the corresponding hotkey in `keybinds.json`.
+
+The addition is only required if you plan to use said tower.
+
+## Adding new heros
+
+Adding a new tower requires adding it to `towers.json` -> `heros`.
+- `base` refers to the towers base cost
+- `class` describes where the tower can be placed (`land`, `water` or `any` (meaning both, like pat futsy))
+
+Additionally you need to provide the coordinates in the hero selection menu in `image_areas.json` for a resolution of 2560x1440.<br>
+If the hero shifts the positions of other heros the positions of affected heros will need to be changed as well.<br>
+If the hero selection menu gets reorganized for the 16th+ hero all coordinates will need to be updated.
+
+## Major GUI changes
+
+If the GUI of BTD6 changes majorly you might need to recreate the screenshots in `images/<resolution>` for your resolution or even redefine the characteristic areas in `image_areas.json` for said screenshots. If you define a new resolution in `image_areas.json` all attributes present in `2560x1440` must be defined!
 
 # Known issues
 

@@ -1,5 +1,4 @@
 import datetime
-from telnetlib import NOP
 import keyboard
 import cv2
 import pyautogui
@@ -189,23 +188,26 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
         if not matches:
             continue
 
-        step = None
+        newStep = None
+        newSteps = []
 
         if matches.group('action') == 'place':
             if monkeys.get(matches.group('name')):
                 print(filename + ': monkey ' + matches.group('name') + ' placed twice! skipping!')
                 continue
-            if matches.group('type') in costs['monkeys']:
-                step = {'action': 'place', 'type': matches.group('type'), 'name': matches.group('name'), 'key': keybinds['monkeys'][matches.group('type')], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+            if matches.group('type') in towers['monkeys']:
+                newStep = {'action': 'place', 'type': matches.group('type'), 'name': matches.group('name'), 'key': keybinds['monkeys'][matches.group('type')], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(towers['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
                 if matches.group('discount'):
-                    step['discount'] = matches.group('discount')
-                monkeys[matches.group('name')] = {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
-            elif matches.group('type') in costs['heros']:
-                step = {'action': 'place', 'type': 'hero', 'name': matches.group('name'), 'key': keybinds['monkeys']['hero'], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                    newStep['discount'] = matches.group('discount')
+                monkeys[matches.group('name')] = {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(towers['monkeys'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': matches.group('type'), 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                newSteps.append(newStep)
+            elif matches.group('type') in towers['heros']:
+                newStep = {'action': 'place', 'type': 'hero', 'name': matches.group('name'), 'key': keybinds['monkeys']['hero'], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': adjustPrice(towers['heros'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
                 if matches.group('discount'):
-                    step['discount'] = matches.group('discount')
+                    newStep['discount'] = matches.group('discount')
                 newMapConfig['hero'] = matches.group('type')
-                monkeys[matches.group('name')] = {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(costs['heros'][matches.group('type')], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                monkeys[matches.group('name')] = {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0], 'pos': (int(matches.group('x')), int(matches.group('y'))), 'value': adjustPrice(towers['heros'][matches.group('type')]['base'], newMapConfig['difficulty'], gamemode, {'action': 'place'}, {'type': 'hero', 'name': matches.group('name'), 'upgrades': [0, 0, 0]}, matches.group('discount'))}
+                newSteps.append(newStep)
             else:
                 print(filename + ': monkey/hero ' + matches.group('name') + ' has unknown type: ' + matches.group('type') + '! skipping!')
                 continue
@@ -219,38 +221,45 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
                 print(filename + ': monkey ' + matches.group('name') + ' has invalid upgrade path! skipping!')
                 monkeyUpgrades[int(matches.group('path'))] -= 1
                 continue
-            step = {'action': 'upgrade', 'name': matches.group('name'), 'key': keybinds['path'][str(matches.group('path'))], 'pos': monkeys[matches.group('name')]['pos'], 'path': int(matches.group('path')), 'cost': adjustPrice(costs['monkeys'][monkeys[matches.group('name')]['type']]['paths'][int(matches.group('path'))][monkeyUpgrades[int(matches.group('path'))] - 1], newMapConfig['difficulty'], gamemode, {'action': 'upgrade', 'path': int(matches.group('path'))}, monkeys[matches.group('name')], matches.group('discount'))}
+            newStep = {'action': 'upgrade', 'name': matches.group('name'), 'key': keybinds['path'][str(matches.group('path'))], 'pos': monkeys[matches.group('name')]['pos'], 'path': int(matches.group('path')), 'cost': adjustPrice(towers['monkeys'][monkeys[matches.group('name')]['type']]['upgrades'][int(matches.group('path'))][monkeyUpgrades[int(matches.group('path'))] - 1], newMapConfig['difficulty'], gamemode, {'action': 'upgrade', 'path': int(matches.group('path'))}, monkeys[matches.group('name')], matches.group('discount'))}
             if matches.group('discount'):
-                step['discount'] = matches.group('discount')
-            monkeys[matches.group('name')]['value'] += adjustPrice(costs['monkeys'][monkeys[matches.group('name')]['type']]['paths'][int(matches.group('path'))][monkeyUpgrades[int(matches.group('path'))] - 1], newMapConfig['difficulty'], gamemode, {'action': 'upgrade', 'path': int(matches.group('path'))}, monkeys[matches.group('name')], matches.group('discount'))
+                newStep['discount'] = matches.group('discount')
+            monkeys[matches.group('name')]['value'] += adjustPrice(towers['monkeys'][monkeys[matches.group('name')]['type']]['upgrades'][int(matches.group('path'))][monkeyUpgrades[int(matches.group('path'))] - 1], newMapConfig['difficulty'], gamemode, {'action': 'upgrade', 'path': int(matches.group('path'))}, monkeys[matches.group('name')], matches.group('discount'))
+            newSteps.append(newStep)
+            if upgradeRequiresConfirmation(monkeys[matches.group('name')], int(matches.group('path'))):
+                newSteps.append({'action': 'click', 'name': matches.group('name'), 'pos': imageAreas['click']['paragon_message_confirmation'], 'cost': 0})
         elif matches.group('action') == 'retarget':
             if not monkeys.get(matches.group('name')):
                 print(filename + ': monkey ' + matches.group('name') + ' unplaced! skipping!')
                 continue
-            step = {'action': 'retarget', 'name': matches.group('name'), 'key': keybinds['others']['retarget'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': 0}
+            newStep = {'action': 'retarget', 'name': matches.group('name'), 'key': keybinds['others']['retarget'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': 0}
             if matches.group('x'):
-                step['to'] = (int(matches.group('x')), int(matches.group('y')))
+                newStep['to'] = (int(matches.group('x')), int(matches.group('y')))
             elif monkeys[matches.group('name')]['type'] == 'mortar':
                 print('mortar can only be retargeted to a position! skipping!')
                 continue
+            newSteps.append(newStep)
         elif matches.group('action') == 'special':
             if not monkeys.get(matches.group('name')):
                 print(filename + ': monkey ' + matches.group('name') + ' unplaced! skipping!')
                 continue
-            step = {'action': 'special', 'name': matches.group('name'), 'key': keybinds['others']['special'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': 0}
+            newStep = {'action': 'special', 'name': matches.group('name'), 'key': keybinds['others']['special'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': 0}
+            newSteps.append(newStep)
         elif matches.group('action') == 'sell':
             if not monkeys.get(matches.group('name')):
                 print(filename + ': monkey ' + matches.group('name') + ' unplaced! skipping!')
                 continue
-            step = {'action': 'sell', 'name': matches.group('name'), 'key': keybinds['others']['sell'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': -getMonkeySellValue(monkeys[matches.group('name')]['value'])}
+            newStep = {'action': 'sell', 'name': matches.group('name'), 'key': keybinds['others']['sell'], 'pos': monkeys[matches.group('name')]['pos'], 'cost': -getMonkeySellValue(monkeys[matches.group('name')]['value'])}
+            newSteps.append(newStep)
         elif matches.group('action') == 'remove':
             if matches.group('price') == '???':
                 print('remove obstacle without price specified: ' + line)
                 continue
-            step = {'action': 'remove', 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': int(matches.group('price'))}
+            newStep = {'action': 'remove', 'pos': (int(matches.group('x')), int(matches.group('y'))), 'cost': int(matches.group('price'))}
+            newSteps.append(newStep)
         
-        if step:
-            newMapConfig['steps'].append(step)
+        if len(newSteps):
+            newMapConfig['steps'] += newSteps
 
     newMapConfig['monkeys'] = monkeys
     return newMapConfig
@@ -309,6 +318,8 @@ def getAveragePlaythroughTime(playthrough):
 
     times = []
     for resolution in playthroughStats[playthrough['filename']]:
+        if not re.search(r'\d+x\d+', resolution):
+            continue
         if playthrough['gamemode'] in playthroughStats[playthrough['filename']][resolution]:
             times = [*times, *playthroughStats[playthrough['filename']][resolution][playthrough['gamemode']]['win_times']]
     return np.average(times or [-1])
@@ -383,6 +394,7 @@ def updateStatsFile(playthroughFile, thisPlaythroughStats, resolution=getResolut
     if thisPlaythroughStats['result'] == PlaythroughResult.WIN:
         playthroughStats[playthroughFile][resolution][thisPlaythroughStats['gamemode']]['attempts'] += 1
         playthroughStats[playthroughFile][resolution][thisPlaythroughStats['gamemode']]['wins'] += 1
+        playthroughStats[playthroughFile]['version'] = version
         totalTime = 0
         lastStart = -1
         for stateChange in thisPlaythroughStats['time']:
@@ -401,7 +413,7 @@ def updateStatsFile(playthroughFile, thisPlaythroughStats, resolution=getResolut
 
 
 def checkForSingleMonkeyGroup(monkeys):
-    types = list(filter(lambda x: x != '-', list(map(lambda monkey: costs['monkeys'][monkeys[monkey]['type']]['type'] if monkeys[monkey]['type'] != 'hero' else '-', monkeys))))
+    types = list(filter(lambda x: x != '-', list(map(lambda monkey: towers['monkeys'][monkeys[monkey]['type']]['type'] if monkeys[monkey]['type'] != 'hero' else '-', monkeys))))
     
     if len(set(types)) == 1:
         return types[0]
@@ -508,8 +520,8 @@ def canUserAccessGamemode(mapname, gamemode):
     return False
 
 
-def getAvailableSandbox(mapname):
-    for gamemode in sandboxGamemodes:
+def getAvailableSandbox(mapname, restricted_to = None):
+    for gamemode in (restricted_to if not restricted_to is None else sandboxGamemodes):
         if canUserAccessGamemode(mapname, gamemode):
             return gamemode
     return None
@@ -719,6 +731,31 @@ def getMonkeyKnowledgeStatus():
 def keyToAHK(x):
     return '{sc' + hex(x).replace('0x', '') + '}' if type(x) == type(int()) else x
 
+def mapnameToKeyname(mapname):
+    return ''.join([(x if not x in ['\'', '#'] else '') for x in mapname]).replace(' ', '_').lower()
+
+def mapsByCategoryToMaplist(mapsByCategory, maps):
+    newMaps = {}
+    for category in mapsByCategory:
+        currentPos = 0
+        currentPage = 0
+        for mapname in mapsByCategory[category]:
+            newMaps[mapname] = {'category': category, 'name': maps[mapname]['name'], 'page': currentPage, 'pos': currentPos}
+            currentPos += 1
+            if currentPos >= 6:
+                currentPos = 0
+                currentPage += 1
+    return newMaps
+
+def upgradeRequiresConfirmation(monkey, path):
+    if not 'upgrade_confirmation' in towers['monkeys'][monkey['type']]:
+        return False
+    if monkey['upgrades'][path] - 1 == -1:
+        return False
+    if monkey['upgrades'][path] - 1 >= 5: # paragons
+        return True
+    return towers['monkeys'][monkey['type']]['upgrade_confirmation'][path][monkey['upgrades'][path] - 1]
+
 monkeyKnowledgeEnabled = False
 
 sandboxGamemodes = {
@@ -727,10 +764,14 @@ sandboxGamemodes = {
     'hard_sandbox': {'group': 'hard'}
 }
 
+fp = open('version.txt')
+version = float(fp.read())
+fp.close()
+
 maps = json.load(open('maps.json'))
 gamemodes = json.load(open('gamemodes.json'))
 keybinds = json.load(open('keybinds.json')) # https://www.autohotkey.com/docs/commands/Send.htm
-costs = json.load(open('costs.json'))
+towers = json.load(open('towers.json'))
 allImageAreas = json.load(open('image_areas.json'))
 if getResolutionString() in allImageAreas:
     imageAreas = allImageAreas[getResolutionString()]

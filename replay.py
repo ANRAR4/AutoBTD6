@@ -1,3 +1,4 @@
+from copy import deepcopy
 from helper import *
 from ocr import custom_ocr
 
@@ -139,7 +140,8 @@ class Mode(Enum):
     XP_FARMING = 6
     MM_FARMING = 7
     MISSING_STATS = 8
-    VALIDATE = 9
+    VALIDATE_PLAYTHROUGHS = 9
+    VALIDATE_COSTS = 10
 
 def getGamemodePosition(gamemode):
     while not isinstance(imageAreas["click"]["gamemode_positions"][gamemode], list):
@@ -406,7 +408,7 @@ def main():
     # userconfig.json can be used to specify which achievements have already been unlocked or to document progress(e. g. games won only using primary monkeys)
     # refer to userconfig.example.json for an example
     elif argv[iArg] == 'achievements':
-        NOP
+        pass
     # py replay.py missing [category]
     # plays all playthroughs with missing medals
     # if category is not provided from easiest category to hardest
@@ -414,7 +416,7 @@ def main():
     # requires userconfig.json to specify which medals have already been earned
     # unlocking of maps has do be done manually
     elif argv[iArg] == 'missing':
-        NOP
+        pass
     # py replay.py xp [int n=1]
     # plays one of the n most efficient(in terms of xp/hour) playthroughs
     # with -r: plays indefinitely
@@ -501,7 +503,80 @@ def main():
 
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         usesAllAvailablePlaythroughsList = True
-        mode = Mode.VALIDATE
+        mode = Mode.VALIDATE_PLAYTHROUGHS
+    # py replay.py costs [+heros]
+    # determines the base cost and cost of each upgrade for each monkey as well as the base cost for each hero if '+heros' is specified
+    elif argv[iArg] == 'costs':
+        if getMonkeyKnowledgeStatus():
+            customPrint('Mode validate costs only works with monkey knowledge disabled!')
+            return
+
+        includeHeros = False
+
+        if len(argv) >= iArg + 2 and argv[iArg + 1] == '+heros':
+            includeHeros = True
+            parsedArguments.append(argv[iArg + 1])
+
+        customPrint('Mode: validating monkey costs' + (' including heros' if includeHeros else '') + '!')
+
+        allTestPositions = json.load(open('test_positions.json'))
+        if getResolutionString() in allTestPositions:
+            testPositions = allTestPositions[getResolutionString()]
+        else:
+            testPositions = json.loads(convertPositionsInString(json.dumps(testPositions['2560x1440']), (2560, 1440), pyautogui.size()))
+
+        selectedMap = None
+        for mapname in testPositions:
+            if getAvailableSandbox(mapname, ['medium_sandbox']):
+                selectedMap = mapname
+                break
+        
+        if selectedMap is None:
+            customPrint('This mode requires access to medium sandbox for one of the maps in "test_positions.json"!')
+            return
+
+        costs = {'monkeys': {}}
+
+        baseMapConfig = {'category': maps[selectedMap]['category'], 'map': selectedMap, 'page': maps[selectedMap]['page'], 'pos': maps[selectedMap]['pos'], 'difficulty': 'medium', 'gamemode': 'medium_sandbox', 'steps': [], 'extrainstructions': 1, 'filename': None}
+
+        monkeySteps = []
+        monkeySteps.append({'action': 'click', 'pos': imageAreas['click']['gamemode_deflation_message_confirmation'], 'cost': 0})
+        pos = testPositions[selectedMap]
+        pos['any'] = pos['land']
+        for monkeyType in towers['monkeys']:
+            costs['monkeys'][monkeyType] = {'base': 0, 'upgrades': np.zeros((3, 5))}
+            for iPath in range(0, 3):
+                monkeySteps.append({'action': 'place', 'type': monkeyType, 'name': f"{monkeyType}{iPath}", 'key': keybinds['monkeys'][monkeyType], 'pos': pos[towers['monkeys'][monkeyType]['class']], 'cost': 1, 'extra': {'group': 'monkeys', 'type': monkeyType}})
+                for iUpgrade in range(1, 6):
+                    monkeySteps.append({'action': 'upgrade', 'name': f"{monkeyType}{iPath}", 'key': keybinds['path'][str(iPath)], 'pos': pos[towers['monkeys'][monkeyType]['class']], 'path': iPath, 'cost': 1, 'extra': {'group': 'monkeys', 'type': monkeyType, 'upgrade': (iPath, iUpgrade)}})
+                    if upgradeRequiresConfirmation({'type': monkeyType, 'upgrades': [(iUpgrade if iTmp == iPath else 0) for iTmp in range(0, 3)]}, iPath):
+                        monkeySteps.append({'action': 'click', 'name': f"{monkeyType}{iPath}", 'pos': imageAreas['click']['paragon_message_confirmation'], 'cost': 0})
+                monkeySteps.append({'action': 'sell', 'name': f"{monkeyType}{iPath}", 'key': keybinds['others']['sell'], 'pos': pos[towers['monkeys'][monkeyType]['class']], 'cost': -1})
+        
+        monkeyMapConfig = copy.deepcopy(baseMapConfig)
+        monkeyMapConfig['steps'] = monkeySteps
+        
+        originalObjectives.append({'type': State.GOTO_HOME})
+        originalObjectives.append({'type': State.GOTO_INGAME, 'mapConfig': monkeyMapConfig})
+        originalObjectives.append({'type': State.INGAME, 'mapConfig': monkeyMapConfig})
+
+        if includeHeros:
+            costs['heros'] = {}
+            
+            for hero in towers['heros']:
+                costs['heros'][hero] = {'base' : 0}
+                heroMapConfig = copy.deepcopy(baseMapConfig)
+                heroMapConfig['hero'] = hero
+                heroMapConfig['steps'] = [{'action': 'click', 'pos': imageAreas['click']['gamemode_deflation_message_confirmation'], 'cost': 0}, {'action': 'place', 'type': 'hero', 'name': 'hero0', 'key': keybinds['monkeys']['hero'], 'pos': pos[towers['heros'][hero]['class']], 'cost': 1, 'extra': {'group': 'heros', 'type': hero}}]
+                originalObjectives.append({'type': State.GOTO_HOME})
+                originalObjectives.append({'type': State.SELECT_HERO, 'mapConfig': heroMapConfig})
+                originalObjectives.append({'type': State.GOTO_HOME})
+                originalObjectives.append({'type': State.GOTO_INGAME, 'mapConfig': heroMapConfig})
+                originalObjectives.append({'type': State.INGAME, 'mapConfig': heroMapConfig})
+
+        originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
+        usesAllAvailablePlaythroughsList = False
+        mode = Mode.VALIDATE_COSTS
 
     if mode == Mode.ERROR:
         customPrint('invalid arguments! exiting!')
@@ -609,10 +684,10 @@ def main():
             customPrint("screen " + screen.name + "!")
 
         if screen == Screen.BTD6_UNFOCUSED:
-            NOP
+            pass
         # don't do anything when ctrl is pressed: useful for alt + tab / sending SIGINT(ctrl + c) to the script
         elif keyboard.is_pressed('ctrl'):
-            NOP
+            pass
         elif state == State.MANAGE_OBJECTIVES:
             customPrint("entered objective management!")
             
@@ -620,7 +695,7 @@ def main():
                 state = State.EXIT
                 continue
             
-            if mode == Mode.VALIDATE:
+            if mode == Mode.VALIDATE_PLAYTHROUGHS:
                 if validationResult != None:
                     customPrint('validation result: playthrough ' + lastPlaythrough['filename'] + ' is ' + ('valid' if validationResult else 'invalid') + '!')
                     updatePlaythroughValidationStatus(lastPlaythrough['filename'], validationResult)
@@ -649,6 +724,39 @@ def main():
                 else:
                     objectives = []
                     objectives.append({'type': State.EXIT})
+            elif mode == Mode.VALIDATE_COSTS:
+                oldTowers = copy.deepcopy(towers)
+                changes = 0
+                for monkeyType in costs['monkeys']:
+                    if costs['monkeys'][monkeyType]['base'] and costs['monkeys'][monkeyType]['base'] != oldTowers['monkeys'][monkeyType]['base']:
+                        print(f"{monkeyType} base cost: {oldTowers['monkeys'][monkeyType]['base']} -> {costs['monkeys'][monkeyType]['base']}")
+                        towers['monkeys'][monkeyType]['base'] = costs['monkeys'][monkeyType]['base']
+                        changes += 1
+                    for iPath in range(0, 3):
+                        for iUpgrade in range(0, 5):
+                            if costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] and costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] != oldTowers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]:
+                                print(f"{monkeyType} path {iPath + 1} upgrade {iUpgrade + 1} cost: {oldTowers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]} -> {costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]}")
+                                towers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] = costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]
+                                changes += 1
+                if 'heros' in costs:
+                    for hero in costs['heros']:
+                        if costs['heros'][hero]['base'] and costs['heros'][hero]['base'] != oldTowers['heros'][hero]['base']:
+                            print(f"hero {hero} base cost: {oldTowers['heros'][hero]['base']} -> {costs['heros'][hero]['base']}")
+                            towers['heros'][hero]['base'] = costs['heros'][hero]['base']
+                            changes += 1
+
+                if changes:
+                    print(f"updating \"towers.json\" with {changes}!")
+                    fp = open('towers_backup.json', "w")
+                    fp.write(json.dumps(oldTowers, indent=4))
+                    fp.close()
+                    fp = open('towers.json', "w")
+                    fp.write(json.dumps(towers, indent=4))
+                    fp.close()
+                else:
+                    print(f"no price changes in comparison to \"towers.json\" detected!")
+                
+                return
             elif repeatObjectives or gamesPlayed == 0:
                 if mode == Mode.SINGLE_MAP:
                     objectives = copy.deepcopy(originalObjectives)
@@ -718,7 +826,7 @@ def main():
             else:
                 state = State.EXIT
         elif state == State.IDLE:
-            NOP
+            pass
         elif state == State.EXIT:
             customPrint("goal EXIT! exiting!")
             return
@@ -818,7 +926,7 @@ def main():
                 lastIterationCost = 0
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
-                NOP
+                pass
             else:
                 customPrint("task GOTO_INGAME, but not in startmenu!")
                 state = State.GOTO_HOME
@@ -834,7 +942,7 @@ def main():
                 lastHeroSelected = mapConfig['hero']
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
-                NOP
+                pass
             else:
                 customPrint("task SELECT_HERO, but not in startmenu!")
                 state = State.GOTO_HOME
@@ -897,7 +1005,7 @@ def main():
                         return
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
-                NOP
+                pass
             else:
                 customPrint("task FIND_HARDEST_INCREASED_REWARDS_MAP, but not in startmenu!")
                 state = State.GOTO_HOME
@@ -982,7 +1090,7 @@ def main():
                     else:
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True)
 
-                if mode == Mode.VALIDATE:
+                if mode == Mode.VALIDATE_PLAYTHROUGHS:
                     if lastIterationBalance != -1 and currentValues['money'] != lastIterationBalance - lastIterationCost:
                         if currentValues['money'] == lastIterationBalance:
                             customPrint('action: ' + str(lastIterationAction) + ' failed!')
@@ -990,11 +1098,16 @@ def main():
                             mapConfig['steps'] = []
                         else:
                             customPrint('pricing error! expected cost: ' + str(lastIterationCost) + ', detected cost: ' + str(lastIterationBalance - currentValues['money']) + '. Is monkey knowledge disabled?')
-                        
+                elif mode == Mode.VALIDATE_COSTS:
+                    if lastIterationBalance != -1 and lastIterationAction:
+                        if lastIterationAction['action'] == 'place':
+                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['base'] = lastIterationBalance - currentValues['money']
+                        elif lastIterationAction['action'] == 'upgrade':
+                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['upgrades'][lastIterationAction['extra']['upgrade'][0]][lastIterationAction['extra']['upgrade'][1] - 1] = lastIterationBalance - currentValues['money']
 
                 if currentValues['money'] == -1:
-                    NOP
-                elif lastIterationBalance - lastIterationCost > currentValues['money']:
+                    pass
+                elif mode != Mode.VALIDATE_COSTS and lastIterationBalance - lastIterationCost > currentValues['money']:
                     customPrint('potentioal recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']))
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(lastIterationBalance) + '.png', lastIterationScreenshotAreas[2])
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(currentValues['money']) + '.png', images[2])
@@ -1022,12 +1135,18 @@ def main():
                             if 'to' in action:
                                 pyautogui.moveTo(action['to'])
                                 time.sleep(smallActionDelay)
-                            ahk.send_event(keyToAHK(action['key']))
+                            if action['action'] == 'click':
+                                time.sleep(actionDelay)
+                                pyautogui.moveTo(action['pos'])
+                                pyautogui.click()
+                                time.sleep(actionDelay)
+                            else:
+                                ahk.send_event(keyToAHK(action['key']))
                             if 'to' in action and mapConfig['monkeys'][action['name']]['type'] == 'mortar':
                                 pyautogui.click()
                             time.sleep(smallActionDelay)
                             actionTmp = action
-                            if len(mapConfig['steps']) and 'name' in mapConfig['steps'][0] and mapConfig['steps'][0]['name'] == action['name'] and (mapConfig['steps'][0]['action'] == 'retarget' or mapConfig['steps'][0]['action'] == 'special'):
+                            if len(mapConfig['steps']) and 'name' in mapConfig['steps'][0] and mapConfig['steps'][0]['name'] == action['name'] and (mapConfig['steps'][0]['action'] == 'retarget' or mapConfig['steps'][0]['action'] == 'special' or mapConfig['steps'][0]['action'] == 'click'):
                                 action = mapConfig['steps'].pop(0)
                                 customPrint('+' + action['action'])
                             else:
@@ -1049,7 +1168,9 @@ def main():
                     elif action['action'] == 'click':
                         pyautogui.moveTo(action['pos'])
                         pyautogui.click()
-                elif mode == Mode.VALIDATE and len(mapConfig['steps']) == 0 and lastIterationCost == 0:
+                    elif action['action'] == 'press':
+                        ahk.send_event(keyToAHK(action['key']))
+                elif mode in [Mode.VALIDATE_PLAYTHROUGHS, Mode.VALIDATE_COSTS] and len(mapConfig['steps']) == 0 and lastIterationCost == 0:
                     state = State.UNDEFINED
 
                 if (not doAllStepsBeforeStart and mapConfig['gamemode'] != 'deflation' and not skippingIteration) or len(mapConfig['steps']) == 0:
@@ -1066,7 +1187,7 @@ def main():
                             gameState = screenCfg[0]
 
                     if gameState == 'game_playing_fast':
-                        NOP
+                        pass
                     elif gameState == 'game_playing_slow':
                         ahk.send_event(keybinds['others']['play'])
                     elif gameState == 'game_paused':
