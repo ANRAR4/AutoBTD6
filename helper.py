@@ -215,6 +215,9 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
             if not monkeys.get(matches.group('name')):
                 print(filename + ': monkey ' + matches.group('name') + ' unplaced! skipping!')
                 continue
+            if monkeys[matches.group('name')]['type'] == 'hero':
+                print(filename + ': tried to upgrade hero ' + matches.group('name') + '! skipping instruction!')
+                continue
             monkeyUpgrades = monkeys[matches.group('name')]['upgrades']
             monkeyUpgrades[int(matches.group('path'))] += 1
             if sum(map(lambda x: x > 2, monkeyUpgrades)) > 1 or sum(map(lambda x: x > 0, monkeyUpgrades)) > 2 or monkeyUpgrades[int(matches.group('path'))] > 5:
