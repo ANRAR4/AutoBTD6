@@ -1,10 +1,5 @@
 from helper import *
 
-keybinds = json.load(open('keybinds.json'))
-towers = json.load(open('costs.json'))
-maps = json.load(open('maps.json'))
-gamemodes = json.load(open('gamemodes.json'))
-
 monkeysByTypeCount = {'hero': 0}
 
 for type in keybinds['monkeys']:
