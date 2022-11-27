@@ -64,50 +64,50 @@ Outside of a playthrough the script is able to navigate through BTD6 e. g. to se
 
 # Usage / Modes of operation
 
-The general command structure is `py replay.py <mode> <mode arguments...> <flags>`
+The general command structure is `py replay.py <mode> <mode arguments...> [flags]`
 
 ## `file` - Playing a specific playthrough
 
-Usage: `py replay.py file <filename> [gamemode] [continue <(int start|-)> [until (int end)]] <flags>`
+Usage: `py replay.py file <--file> [--gamemode] [continue <(int start|-)> [until (int end)]] [flags]`
 
 Replays the specified file. Navigates to ingame if continue is not set.
+
 <br>
-If `filename` contains `/` or `\` `filename` is used as the path. otherwise the script lookes for `filename` in `own_playthroughs`, then in `playthroughs`
-<br>
-<br>
+
 `gamemode` can be specified to overwrite the gamemode in the files title. (e. g. `py replay.py dark_castle#chimps#2560x1440#noMK#noLL.btd6 medium` to play dark castle on medium using the recorded playthrough for chimps)
 <br>
-if continue is set:
-- it is assumed you are already in the correct game
-- the script starts with instruction start (0 for first instruction)
-- if `start` = `-` all instructions are executed before the game is started
-- if `until` is specified the script ends before instruction `end` (e. g. start=0, end=1 -> only first instruction is executed)
-- continue is mostly useful for debugging playthroughs
 
-flag `-r` only works if `continue` is not specified
+If continue is set:
+- It is assumed you are already in the correct game
+- The script starts with instruction start (0 for first instruction)
+- If `start` = `-` all instructions are executed before the game is started
+- If `until` is specified the script ends before instruction `end` (e. g. start=0, end=1 -> only first instruction is executed)
+- Note: Continue is mostly useful for debugging playthroughs
+
+The flag `-r` only works if `continue` is not specified
 
 
 ## `random` - Playing a random map
 
-Usage: `py replay.py random [category] [gamemode] <flags>`
+Usage: `py replay.py random [--category] [--gamemode] [flags]`
 
 Plays a random game from all available playthroughs (which fullfill the category and gamemode requirement if specified)
 <br>
 Combined with the `-r` flag a playthrough is selected at random each iteration.
 
-## `chase` - Play a map with increased collection event rewards
+## `collect` - Play a map with increased collection event rewards
 
-Usage: `py replay.py chase <event> [category] [gamemode] <flags>`
+Usage: `py replay.py collect <--event> [--category] [--gamemode] [flags]`
 
 Chases increased rewards for the specified event. Currently supported events are: 
 - `totem`: Totem collection event
 - `halloween`: Halloween collection event
   
-If category is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
+If `category` is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
 <br>
-If category is provided only said category is searched.
+If `category` is provided only said category is searched.
 
-Category and gamemode can be specified to restrict the considered playthroughs.
+`Category` and `gamemode` can be specified to restrict the considered playthroughs.
 <br>
 If there are no suitable playthroughs available the script exits.
 
@@ -123,7 +123,7 @@ To be implemented
 
 ## `xp` - Play the most efficient maps for player xp farming
 
-Usage: `py replay.py xp [int n=1]`
+Usage: `py replay.py xp [-n]`
 
 Plays a random playthrough out of the `n` most efficient (in terms of xp/hour) playthroughs.
 
@@ -133,7 +133,7 @@ For some context: currently the most efficient of the included playthroughs is d
 
 ## `mm` - Play the most efficient maps for monkey money farming
 
-Usage: `py replay.py mm [int n=1]`
+Usage: `py replay.py mm [-n]`
 
 Plays a random playthrough out of the `n` most efficient (in terms of monkey money/hour) playthroughs.
 
@@ -143,9 +143,9 @@ For some context: currently the most efficient of the included playthroughs is b
 
 ## `validate` - Validate playthroughs
 
-Usage: `py replay.py validate file <filename>` or `py replay.py validate all [category] [gamemode]`
+Usage: `py replay.py validate file <--file>` or `py replay.py validate all [--category] [--gamemode]`
 
-Validates a or multiple playthroughs in regards to monkey positions by setting them up in sandbox mode and checking if all actions have been performed correctly. Validation is restricted to your screens resolution, different resolutions must be validated seperately.
+Validates one or more playthroughs in regards to monkey positions by setting them up in sandbox mode and checking if all actions have been performed correctly. Validation is restricted to your screens resolution, different resolutions must be validated seperately.
 
 When run as `py replay.py validate all` all playthroughs will be validated. When appending the `-nv` flag only non validated playthroughs will be validated!
 
@@ -161,11 +161,11 @@ Validates all playthroughs which fullfill the category and gamemode requirement 
 
 ## `costs` - Determine cost of each monkey, upgrade and hero
 
-Usage: `py replay.py costs [+heros]`
+Usage: `py replay.py costs [--hero]`
 
-Determines the cost of each monkey and each upgrade of each monkey. Additionally determines the base cost of each hero if `+hero` is specified.
+Determines the cost of each monkey and each upgrade of each monkey. Additionally determines the base cost of each hero if `--hero` is specified.
 
-If `+hero` is set all heros will be tested.
+If `--hero` is set all heros will be tested.
 
 **This mode requires monkey knowledge to be disabled!**<br>
 **This mode requires all upgrades to be unlocked!**
@@ -307,10 +307,6 @@ The `hero` parameter can be one of the following:
 <td>consider playthroughs with arbitrary monkey knowledge as a requirement. also adjust monkey pricing according to your monkey knowledge (`userconfig.json`)</td>
 </tr>
 <tr>
-<td>-nomk</td>
-<td>ignore playthroughs with monkey knowledge as a requirement. also don't adjust monkey pricing according to your monkey knowledge (`userconfig.json`)</td>
-</tr>
-<tr>
 <td>-nv</td>
 <td>include non validated playthroughs in selection. not recommended as non validated playthroughs might not work due to invalid monkey positions.</td>
 </tr>
@@ -324,17 +320,17 @@ The `hero` parameter can be one of the following:
 
 Play dark castle on chimps. Pricing in chimps is identical with and without monkey knowledge: 
 <br>
-`py replay.py file dark_castle#chimps#2560x1440#noMK#noLL.btd6 -mk`
+`py replay.py file --file dark_castle#chimps#2560x1440#noMK#noLL.btd6 -mk`
 
 
 Indefinitely farm XP on the 3 most efficient maps:
 <br>
-`py replay.py xp 3 -mk -r`
+`py replay.py xp -n 3 -mk -r`
 
 
 Indefinitely farm XP on the 3 most efficient maps that don't require any monkey knowledge:
 <br>
-`py replay.py xp 3 -nomk -r`
+`py replay.py xp -n 3 -r`
 
 Indefinitely farm monkey money on the most efficient map:
 <br>
@@ -343,29 +339,29 @@ Indefinitely farm monkey money on the most efficient map:
 
 Indefinitely farm increased totem collection event rewards on the most rewarding maps even considering playthroughs that aren't reproducable without monkey knowledge:
 <br>
-`py replay.py chase totem -r -mk`
+`py replay.py collect --event totem -r -mk`
 
 
 Play a random map on double hp moabs in beginner category that doesn't require any monkey knowledge:
 <br>
-`py replay.py random beginner double_hp_maobs -nomk`
+`py replay.py random --category beginner --gamemode double_hp_moabs -nomk`
 
 Validate all unvalidated playthroughs in category beginner:
 <br>
-`py replay.py validate all beginner -nomk -nv`
+`py replay.py validate all --category beginner -nv`
 
 
 Validate playthrough file `dark_castle#chimps#2560x1440#noMK#noLL.btd6`:
 <br>
-`py replay.py validate file dark_castle#chimps#2560x1440#noMK#noLL.btd6 -nomk`
+`py replay.py validate file --file dark_castle#chimps#2560x1440#noMK#noLL.btd6`
 
 ## Pausing / Stopping execution
 
-While `ctrl` is pressed or Bloons TD6 is not your active window the execution of the script will be paused.
+While `Ctrl` is pressed or Bloons TD6 is not your active window the execution of the script will be paused.
 
-Furthermore you can order the script to exit after finishing the current playthrough by pressing `ctrl` and `space` while in Bloons TD6.
+Furthermore you can order the script to exit after finishing the current playthrough by pressing `Ctrl` and `Space` while in Bloons TD6.
 
-You can immediately stop execution by sending SIGINT to the script (pressing `ctrl` + `c` while in the command window the script is running in).
+You can immediately stop execution by pressing `Ctrl` + `C` while in the command window the script is running in.
 
 # Requirements
 
@@ -378,23 +374,21 @@ This can be achieved by running:
 <br>
 `pip install -r requirements.txt --user`
 
-The required packages also include Tensorflow which requires additional DLLs (Microsoft C++ Redistributable for Visual Studio [...]) to run. When running replay.py for the first time Tensorflow will output an error and list what dlls are missing and where they can be downloaded from.
+The required packages also include Tensorflow which requires additional DLLs (Microsoft C++ Redistributable for Visual Studio [...]) to run. When running `replay.py` for the first time Tensorflow will output an error and list what dlls are missing and where they can be downloaded from.
 
 Additionally the python `ahk` library requires AutoHotkey ([www.autohotkey.com](https://www.autohotkey.com)) to be installed.
-
-For some reason keystrokes send using `PyAutoGUI` don't get registered by BTD6, thats why the script also requires the `ahk` library even if `PyAutoGUI` theoretically provides the required functions.
 
 ## Ingame Settings
 
 Additionally some specific ingame settings are required:
 
-- setting your ingame language to english (under settings -> language)
+- Setting your ingame language to English (under Settings -> Language)
 - BTD6 running at your screens native resolution and on your primary screen
-- disabling any big/small tower or bloon effects (under settings -> extras)(they get unlocked by specific achievements, if not unlocked they are disabled)
-- in the escape menu while ingame:
-  - placement mode: drag & drop
-  - game hints: off
-  - auto start: on (optional but recommended)
+- Disabling any big/small tower or bloon effects (under Settings -> Extras)(they get unlocked by specific achievements, if not unlocked they are disabled)
+- In the escape menu while ingame:
+  - Placement Mode: Drag & Drop
+  - Game Hints: Off
+  - Auto Start: On (optional but recommended)
 
 ### Keybinds
 If you changed your keybinds for placing or upgrading towers, retargeting, monkey special or selling they should be reset or you need to specify them inside `keybinds.json`.
@@ -402,10 +396,10 @@ Latter requires the python keyboard library names of the corresponding keys or t
 
 The entries in category "others" require the AHK Keynames.
 
-## Other prerequisites
+## Other Prerequisites
 
-When using the script in a mode other than `file` configurating `userconfig.json` is required so the script can tell which playthroughs you can play.
-The most importants segments are `heros` where you can specify whether you have a specific hero unlocked (`true` = unlocked, `false` = not unlocked), `unlocked_maps` where you can specify whether you have a specific map unlocked (`true` = unlocked, `false` = not unlocked) and `medals` where you can specify whether you have a specific medal for a specific map already (`true` = medal acquired, `false` = medal not acquired). The `medals` section will be updated automatically when the script gets a new medal.
+When using the script in a mode other than `file`, configurating `userconfig.json` is required so the script can tell which playthroughs you can play.
+The most importants segments are `heros` where you specify whether or not you have a specific hero unlocked, `unlocked_maps` where you specify whether or not you have a specific map unlocked, and `medals` where you specify whether or not you have a specific medal for a specific map already. The `medals` section will be updated automatically when the script gets a new medal.
 
 The default configuration has all maps and heros unlocked.
 
@@ -425,8 +419,8 @@ Listings follow the following format:
 Format: `status, hero, comments/flags, native: <playthroughs native resolution>, tested: <resolutions the playthrough has been tested for>`
 
 Status:
-- supported: playthrough works with Monkey Knowledge disabled
-- with MK: playthrough uses arbitrary Monkey Knowledge, not necessarily reproducable
+- Supported: playthrough works with Monkey Knowledge disabled
+- With MK: playthrough uses arbitrary Monkey Knowledge, not necessarily reproducable
 
 Hero: hero used for playthrough
 - `Heroname`: hero `Heroname` required
@@ -444,7 +438,7 @@ Flags:
 </tr>
 <tr>
 <td>(*)</td>
-<td>lifes lost without monkey knowledge, no lifes lost with specific monkey knowledge (mainly mana lives and free roadspikes)</td>
+<td>lives lost without monkey knowledge, no lives lost with specific monkey knowledge (mainly mana lives and free roadspikes)</td>
 </tr>
 </table>
 
@@ -1641,7 +1635,7 @@ If your keybinds differ from the default keybinds you will need to change them i
 
 To log the removal of an obstacle you must press the right shift button while at a position the obstacle is clickable from.
 
-After finishing the recording (by pressing ctrl + c) you are prompted to enter the cost of each obstacle removal in the order they were removed.
+After finishing the recording (by pressing `Ctrl + `C`) you are prompted to enter the cost of each obstacle removal in the order they were removed.
 
 ### Selecting a monkey
 
@@ -1695,7 +1689,7 @@ Types are:
 
 ### Stop recording
 
-To stop recording press `ctrl` + `c` while in the console `record_playthrough.py` is running in.
+To stop recording press `Ctrl` + `C` while in the console `record_playthrough.py` is running in.
 
 ### Editing a playthrough afterwards
 
@@ -1752,7 +1746,7 @@ Prints the data of key events including keyname and scancode. Used for changing 
 
 `generate_supported_maps_table.py`<br>
 Usage `py generate_supported_maps_table.py`<br>
-Updates the table of supported playthroughs in `README.md` by scaning the `playthroughs` folder.
+Updates the table of supported playthroughs in `README.md` by scanning the `playthroughs` folder.
 
 # Supported resolutions
 
@@ -1810,5 +1804,5 @@ If the GUI of BTD6 changes majorly you might need to recreate the screenshots in
 
 # Known issues
 
-- abilities can't be used as they require timing
-- the price calculation currently doesn't fully factor in monkey knowledge. (currently only `hero favors` for reduced hero cost)
+- Abilities can't be used as they require timing
+- The price calculation currently doesn't fully factor in monkey knowledge. (currently only `hero favors` for reduced hero cost)

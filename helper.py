@@ -15,6 +15,10 @@ from os.path import exists
 import math
 import copy
 import random
+from colorama import Fore, Style, init
+
+init()
+
 from functools import reduce
 
 ahk = AHK()
@@ -130,13 +134,13 @@ def writeBTD6InstructionsFile(thisConfig, folder = 'own_playthroughs', resolutio
         elif action['action'] == 'remove':
             cost = ''
             while True:
-                print('enter cost of obstacle removal at ' + tupleToStr(action['pos']) + ' >')
+                print('Enter cost of obstacle removal at ' + tupleToStr(action['pos']) + ' >')
                 cost = input()
                 if len(cost) and cost.isdigit():
                     break
                 else:
-                    print('non integer provided!')
-            fp.write('remove obstacle at ' + tupleToStr(action['pos']) + ' for ' + str(cost) + '\n')
+                    print('Non integer provided!')
+            fp.write('Remove obstacle at ' + tupleToStr(action['pos']) + ' for ' + str(cost) + '\n')
 
     fp.close()
 
@@ -167,7 +171,7 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
     rawInputFile = fp.read()
 
     if not targetResolution and fileConfig['resolution'] != getResolutionString():
-        customPrint("tried parsing playthrough for non native resolution with rescaling disabled!")
+        customPrint("Tried parsing playthrough for non native resolution with rescaling disabled!",  infoType=InfoType.INFO)
         return None
     elif fileConfig['resolution'] != getResolutionString(targetResolution):
         # customPrint("rescaling " + filename + " from " + fileConfig['resolution'] + " to " + getResolutionString(targetResolution))
@@ -711,11 +715,19 @@ def findMapForPxPos(category, page, pxpos):
 
 lastLineRewrite = False
 
-def customPrint(text, end="\n", rewriteLine = False):
+
+class InfoType(Enum):
+    INFO = Fore.CYAN + "[INFO] " + Fore.RESET
+    WARN = Fore.YELLOW + "[WARN] " + Fore.RESET
+    ERROR = Fore.RED + "[ERROR] " + Fore.RESET
+    ACTION = Fore.MAGENTA + "[ACTION] " + Fore.RESET
+    DEFAULT = Fore.RESET
+
+def customPrint(text, end="\n", rewriteLine = False, infoType=InfoType.DEFAULT):
     global lastLineRewrite
     if lastLineRewrite and not rewriteLine:
         print()
-    print(('\r' if rewriteLine else '') + time.strftime("[%Y-%m-%d %H:%M:%S] ") + str(text), end=end)
+    print(('\r' if rewriteLine else '') + time.strftime("[%Y-%m-%d %H:%M:%S] ") + infoType.value + str(text), end=end)
     lastLineRewrite = rewriteLine
 
 
@@ -807,3 +819,5 @@ for mapname in maps:
 categoryPages = {}
 for category in mapsByCategory:
     categoryPages[category] = max(map(lambda x: maps[x]['page'], mapsByCategory[category])) + 1
+
+
