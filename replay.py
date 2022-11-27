@@ -4,6 +4,7 @@ import argparse
 import colorama #i like colors
 
 
+
 smallActionDelay = 0.05
 actionDelay = 0.2
 menuChangeDelay = 1
@@ -251,10 +252,7 @@ def main():
     #     costs
     #       hero: bool
 
-    def checkPositive(value : int) -> int: #used for input validation
-        if value <= 0:
-            raise argparse.ArgumentTypeError("%s is an invalid positive integer value")
-        return value
+
 
     parser = argparse.ArgumentParser(description="Automation of BTD6")
     
@@ -286,10 +284,10 @@ def main():
     collectionParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), default=None)
 
     xpParser = subparsers.add_parser('xp', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
-    xpParser.add_argument('-n', type=checkPositive, required=False, default=1)
+    xpParser.add_argument('-n', type=int, required=False, default=1)
     
     mmParser = subparsers.add_parser('mm', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
-    mmParser.add_argument('-n', type=checkPositive, required=False, default=1)
+    mmParser.add_argument('-n', type=int, required=False, default=1)
 
     validateParser = subparsers.add_parser('validate', help='validates a playthrough by setting up the monkeys in sandbox mode and checking if all actions are performed correctly', parents=[base_subparser])
     validateSubparser = validateParser.add_subparsers(dest='validate_func')
@@ -369,36 +367,7 @@ def main():
                     pass # Do nothing because instructionLast is already -1    
                 else:
                     instructionLast = args.until
-        #NOTE: how did you live with yourself after writing this code
-
-        # if len(argv) > iAdditional + 1 and argv[iAdditional] == 'continue':
-        #     parsedArguments.append(argv[iAdditional])
-
-        #     isContinue = True
-
-        #     if str(argv[iAdditional + 1]) == '-':
-        #         instructionOffset = 0
-        #         doAllStepsBeforeStart = True
-        #     elif str(argv[iAdditional + 1]).isdigit():
-        #         instructionOffset = int(argv[iAdditional + 1])
-        #     else:
-        #         customPrint('Continue of playthrough requested but no instruction offset provided!',  infoType=InfoType.ERROR)
-        #         return
-        #     customPrint('Stats logging disabled!',  infoType=InfoType.INFO)
-        #     logStats = False
-        #     parsedArguments.append(argv[iAdditional + 1])
-        #     iAdditional += 2
-
-        #     if len(argv) >= iAdditional + 1 and argv[iAdditional] == 'until':
-        #         if str(argv[iAdditional + 1]).isdigit():
-        #             instructionLast = int(argv[iAdditional + 1])
-        #         else:
-        #             customPrint('Cutting of instructions for playthrough requested but no index provided!', infoType=InfoType.ERROR)
-        #             return
-        #         parsedArguments.append(argv[iAdditional])
-        #         parsedArguments.append(argv[iAdditional + 1])
-        #         iAdditional += 2
-        
+                
         if instructionOffset == -1:
             originalObjectives.append({'type': State.GOTO_HOME})
             if 'hero' in mapConfig:
@@ -430,7 +399,8 @@ def main():
         mode = Mode.RANDOM_MAP
         usesAllAvailablePlaythroughsList = True
 
-    if args.command == 'chase':
+    if args.command == 'collect':
+        collectionEvent = args.event
         customPrint('Playing games with increased ' + args.event + ' collection event rewards' + (' on ' + args.gamemode if args.gamemode else '') + (' on ' + args.category + ' maps' if args.category else '') + '!', infoType=InfoType.INFO)
 
         allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
@@ -454,6 +424,8 @@ def main():
     # unlocking of maps has do be done manually (Could potentially be done automatically)
     
     if args.command == 'xp':
+        if args.n <= 0:
+            return
         allAvailablePlaythroughsList = sortPlaythroughsByXPGain(allAvailablePlaythroughsList)[:args.n] #This should never be a problem since args.n defaults to 1 and we validated it to be non-negative
 
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
@@ -462,6 +434,8 @@ def main():
         usesAllAvailablePlaythroughsList = True
 
     if args.command == 'mm':
+        if args.n <= 0:
+            return
         allAvailablePlaythroughsList = sortPlaythroughsByMonkeyMoneyGain(allAvailablePlaythroughsList)[:args.n] 
 
         
