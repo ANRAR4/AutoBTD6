@@ -1,5 +1,8 @@
 from helper import *
 from ocr import custom_ocr
+import argparse
+import colorama #i like colors
+
 
 smallActionDelay = 0.05
 actionDelay = 0.2
@@ -168,11 +171,11 @@ def setExitAfterGame():
     activeWindow = ahk.get_active_window()
     if not activeWindow or activeWindow.title.decode() != 'BloonsTD6':
         return
-    customPrint("script will stop after finishing the current game!")
+    customPrint("Script will stop after finishing the current game!",  infoType=InfoType.INFO)
     exitAfterGame = True
 
 def signalHandler(signum, frame):
-    customPrint('received SIGINT! exiting!')
+    customPrint('Received SIGINT! exiting!',  infoType=InfoType.INFO)
     sys.exit(0)
 
 
@@ -182,7 +185,7 @@ def main():
     data = getResolutionDependentData()
 
     if not data:
-        print('unsupported resolution! reference images missing!')
+        print('Unsupported resolution! Reference images missing!')
         return
 
     comparisonImages = data['comparisonImages']
@@ -212,123 +215,356 @@ def main():
     categoryRestriction = None
     gamemodeRestriction = None
 
-    argv = np.array(sys.argv)
 
-    parsedArguments = []
+    # PARSER TREE
+    #
+    # parser
+    #     -mk
+    #     -r
+    #     -l
+    #     -nv
+    #     -ns
+    #     file
+    #         filename: argparse.FileType
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #         continue: int
+    #             until: int
+    #     random
+    #         category{easy, intermediate, advanced, expert}
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     collection
+    #         event: <totem | halloween>
+    #         category{easy, intermediate, advanced, expert}
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     achievement
+    #         throw NotImplemented
+    #     missing
+    #         throw NotImplemented
+    #     xp
+    #         n: int
+    #     validate
+    #         file
+    #           file: argparse.FileType
+    #         all
+    #           category{easy, intermediate, advanced, expert}
+    #           gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     costs
+    #       hero: bool
 
+    def checkPositive(value : int) -> int: #used for input validation
+        if value <= 0:
+            raise argparse.ArgumentTypeError("%s is an invalid positive integer value")
+        return value
 
-    # Additional flags:
-    # -ns: disable stats logging
-    if len(np.where(argv == '-ns')[0]):
-        customPrint('stats logging disabled!')
-        parsedArguments.append('-ns')
-        logStats = False
-    else:
-        customPrint('stats logging enabled!')
-    # -r: after finishing all objectives the program restarts with the first objective
-    if len(np.where(argv == '-r')[0]):
-        customPrint('repeating objective indefinitely! cancel with ctrl + c!')
-        parsedArguments.append('-r')
-        repeatObjectives = True
+    parser = argparse.ArgumentParser(description="Automation of BTD6")
+    
+    #this trick allows for global flags
+    base_subparser = argparse.ArgumentParser(add_help=False)
+    base_subparser.add_argument('-r', '--repeat', action='store_true', required=False, help="repeat indefinitely") #Repeat?
+    base_subparser.add_argument('-mk', '--monkeyknowledge', action='store_true', required=False, help="include playthroughs with monkey knowledge as a requirement") #Removes the whole need for the -noMK flag, assumes no MK if flag not specified, it doesn't really hurt if we assume they don't have monkey knowledge and they do
+    base_subparser.add_argument('-l', '--list', action="store_true", required=False, help='list all found playthroughs') # NOTE: can only be used if not file mode
+    base_subparser.add_argument('-nv', '--nonvalidated', action="store_true", required=False, help='include nonvalidated playthroughs') # include nonvalidated playthrus
+    base_subparser.add_argument('-ns', '--nostats', action="store_false", required=False, help="disable stats logging (not recommended)")
+    subparsers = parser.add_subparsers(dest='command')
+    # achievementParser = subparsers.add_parser('achievements')
+    # missingParser = subparsers.add_parser('missing')
 
-    # -mk: after finishing all objectives the program restarts with the first objective
-    if len(np.where(argv == '-mk')[0]):
-        customPrint('including playthroughs with monkey knowledge enabled and adjusting prices according to userconfig.json!')
-        parsedArguments.append('-mk')
-        setMonkeyKnowledgeStatus(True)
-    # -nomk: after finishing all objectives the program restarts with the first objective
-    elif len(np.where(argv == '-nomk')[0]):
-        customPrint('ignoring playthroughs with monkey knowledge enabled!')
-        parsedArguments.append('-nomk')
-        setMonkeyKnowledgeStatus(False)
-    else:
-        customPrint('"-mk" (for monkey knowledge enabled) or "-nomk" (for monkey knowledge disabled) must be specified! exiting!')
-        return
+    fileParser = subparsers.add_parser('file', help='plays the playthrough in the specified file', parents=[base_subparser])
+    fileParser.add_argument('-f', '--file', required=True, type=argparse.FileType('r'), help='file where .btd6 run is stored')
+    fileParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), help='can be specified to overwrite the gamemode in the files title', default=None)
+    fileParser.add_argument('--continue', required=False, help="if specified, starts from instruction. if -1, all instructions are executed before the game starts", type=int, dest="_continue", default=-2)
+    fileParser.add_argument('--until', required=False, help="script will end at this instruction number", type=int, default=-1)
+    # fuck all this continue bs whos actually gonna use that
+    # fileParser.add_argument('continue', required=False)
+   
+    randomParser = subparsers.add_parser('random', help='plays a random playthrough from all available playthroughs',parents=[base_subparser])
+    randomParser.add_argument('-c', '--category', required=False, choices=mapsByCategory, default=None)
+    randomParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), default=None)
 
-    # -l: list all available playthroughs(only works with specific modes)
-    if len(np.where(argv == '-l')[0]):
-        parsedArguments.append('-l')
-        listAvailablePlaythroughs = True
+    collectionParser = subparsers.add_parser('collect', help='plays for most optimal rewards for collection event',parents=[base_subparser])
+    collectionParser.add_argument('-e', '--event', required=True, choices=['halloween', 'totem'])
+    collectionParser.add_argument('-c', '--category', required=False, choices=mapsByCategory, default=None)
+    collectionParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), default=None)
 
-    # -nv: include non validated playthroughs. ignored when mode = validate
-    if len(np.where(argv == '-nv')[0]):
-        parsedArguments.append('-nv')
+    xpParser = subparsers.add_parser('xp', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
+    xpParser.add_argument('-n', type=checkPositive, required=False, default=1)
+    
+    mmParser = subparsers.add_parser('mm', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
+    mmParser.add_argument('-n', type=checkPositive, required=False, default=1)
+
+    validateParser = subparsers.add_parser('validate', help='validates a playthrough by setting up the monkeys in sandbox mode and checking if all actions are performed correctly', parents=[base_subparser])
+    validateSubparser = validateParser.add_subparsers(dest='validate_func')
+    
+    file_validateSubparser = validateSubparser.add_parser('file', help='file of a playthrough to validate')
+    file_validateSubparser.add_argument('-f', '--file', required=True, type=argparse.FileType('r'))
+
+<<<<<<< Updated upstream
+    all_validateSubparser = validateSubparser.add_parser('all', help="validates all playthroughs")
+    all_validateSubparser.add_argument('-c', '--category', required=False, choices=mapsByCategory, help="only validate playthroughs in this category", default=None)
+    all_validateSubparser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), help="only validate playthroughs in this gamemode", default=None)
+
+    costsParser = subparsers.add_parser('costs', help="determines the cost of each monkey and each upgrade of each monkey",parents=[base_subparser])
+    costsParser.add_argument('-hr', '--hero', required=False, action='store_true', help="additionally determines the base cost of each hero, if specified")
+
+    args = parser.parse_args(sys.argv[1:])
+    
+
+    #Handle flags
+
+    #Monkey knowledge
+    setMonkeyKnowledgeStatus(args.monkeyknowledge)
+    customPrint(f"Using playthoughs {colorama.Fore.GREEN +'with' if args.monkeyknowledge else colorama.Fore.RED + 'without'}{colorama.Fore.RESET} monkey knowledge enabled!", infoType=InfoType.INFO)
+    
+    #Stat logging
+    logStats = args.nostats
+    customPrint(f"Stats logging {colorama.Fore.GREEN +'enabled!' if args.nostats else colorama.Fore.RED + 'disabled (not recommended!)'}{colorama.Fore.RESET}", infoType=InfoType.INFO)
+    
+    #Repeat objectives
+    repeatObjectives = args.repeat
+    if args.repeat:
+        customPrint(f"Repeating playthrough indefintely! Cancel with {colorama.Fore.MAGENTA}ctrl + c{colorama.Fore.RESET}!", infoType=InfoType.INFO)
+    
+    #nonvalidated playthroughs    
+    if args.nonvalidated:
         handlePlaythroughValidation = ValidatedPlaythroughs.INCLUDE_ALL
+    
+    #list available playthrus
+    listAvailablePlaythroughs = args.list
 
-
-    iArg = 1
-    if len(argv) <= iArg:
-        customPrint('arguments missing! Usage: py replay.py <mode> <mode arguments...> <flags>')
-        return
-    # py replay.py file <filename> [continue <(int start)|-> [until (int end)]]
-    # replays the specified file
-    # if continue is specified it is assumed you are already in game. the script starts with instruction start(0 for first instruction)
-    #   if the value for continue equals "-" all instructions are executed before the game is started
-    # if until is specified the script only executes instructions until instruction end(start=0, end=1 -> only first instruction is executed)
-    # the continue option is mainly for creating/debugging playthroughs
-    # -r for indefinite playing only works if continue is not set
-    elif argv[iArg] == 'file':
-        # run single map, next argument should be the filename
-        iAdditionalStart = iArg + 2
-        iAdditional = iAdditionalStart
-        if len(argv) <= iArg + 1:
-            customPrint('requested running a playthrough but no playthrough provided! exiting!')
+    #HANDLE COMMANDS
+    if args.command == "file":
+        #Alert user if they are trying to repeat playthrough, disable repeat
+        if args.__contains__('until') and not args.__contains__('_continue'):
+            customPrint("Invalid argument setup", infoType=InfoType.ERROR)
             return
+        if args.repeat and args.__contains__('_continue'):
+            repeatObjectives = False
+            customPrint("Repeating playthroughs is unavailable if you are continuing a game! Disabling repeats", infoType=InfoType.WARN)
 
-        parsedArguments.append(argv[iArg + 1])
+
+        filename = args.file.name
         instructionOffset = -1
         instructionLast = -1
-        gamemode = None
-
-        if len(argv) > iAdditional and argv[iAdditional] in gamemodes:
-            gamemode = argv[iAdditional]
-            parsedArguments.append(argv[iAdditional])
-            iAdditional += 1
+        gamemode = args.gamemode
+        if not parseBTD6InstructionFileName(filename): 
+            customPrint('"' + filename + '" can\'t be recognized as a playthrough filename! Exiting!', infoType=InfoType.ERROR)
+            return
         
-        if len(argv) > iAdditional + 1 and argv[iAdditional] == 'continue':
-            parsedArguments.append(argv[iAdditional])
+        mapConfig = parseBTD6InstructionsFile(filename, gamemode=gamemode)
+        mode = Mode.SINGLE_MAP
 
+        if args.__contains__('_continue'):
             isContinue = True
-
-            if str(argv[iAdditional + 1]) == '-':
+            if args._continue == -1:
                 instructionOffset = 0
                 doAllStepsBeforeStart = True
-            elif str(argv[iAdditional + 1]).isdigit():
-                instructionOffset = int(argv[iAdditional + 1])
-            else:
-                customPrint('continue of playthrough requested but no instruction offset provided!')
-                return
-            customPrint('stats logging disabled!')
-            logStats = False
-            parsedArguments.append(argv[iAdditional + 1])
-            iAdditional += 2
+            elif args._continue == -2: 
+                pass #do nothing because instructionOffset is already -1
+            else: 
+                instructionOffset = args._continue
 
-            if len(argv) >= iAdditional + 1 and argv[iAdditional] == 'until':
-                if str(argv[iAdditional + 1]).isdigit():
-                    instructionLast = int(argv[iAdditional + 1])
+            customPrint(f"Stats logging {colorama.Fore.RED}disabled{colorama.Fore.RESET}!", infoType=InfoType.INFO)
+            logStats = False
+
+            if args.__contains__("until"):
+                if args.until == -1:
+                    pass # Do nothing because instructionLast is already -1    
                 else:
-                    customPrint('cutting of instructions for playthrough requested but no index provided!')
-                    return
-                parsedArguments.append(argv[iAdditional])
-                parsedArguments.append(argv[iAdditional + 1])
-                iAdditional += 2
-        if not parseBTD6InstructionFileName(argv[iArg + 1]):
-            customPrint('"' + str(argv[iArg + 1]) + '" can\'t be recognized as a playthrough filename! exiting!')
-            return
-        elif str(argv[iArg + 1]).count('/') or str(argv[iArg + 1]).count('\\') and exists(argv[iArg + 1]):
-            filename = argv[iArg + 1]
-        elif exists('own_playthroughs/' + argv[iArg + 1]):
-            filename = 'own_playthroughs/' + argv[iArg + 1]
-        elif exists('playthroughs/' + argv[iArg + 1]):
-            filename = 'playthroughs/' + argv[iArg + 1]
-        elif exists('unvalidated_playthroughs/' + argv[iArg + 1]):
-            filename = 'unvalidated_playthroughs/' + argv[iArg + 1]
-        else:
-            customPrint('requested playthrough ' + str(argv[iArg + 1]) + ' not found! exiting!')
-            return
-        mapConfig = parseBTD6InstructionsFile(filename, gamemode=gamemode)
+                    instructionLast = args.until
+        #NOTE: how did you live with yourself after writing this code
+
+        # if len(argv) > iAdditional + 1 and argv[iAdditional] == 'continue':
+        #     parsedArguments.append(argv[iAdditional])
+
+        #     isContinue = True
+
+        #     if str(argv[iAdditional + 1]) == '-':
+        #         instructionOffset = 0
+        #         doAllStepsBeforeStart = True
+        #     elif str(argv[iAdditional + 1]).isdigit():
+        #         instructionOffset = int(argv[iAdditional + 1])
+        #     else:
+        #         customPrint('Continue of playthrough requested but no instruction offset provided!',  infoType=InfoType.ERROR)
+        #         return
+        #     customPrint('Stats logging disabled!',  infoType=InfoType.INFO)
+        #     logStats = False
+        #     parsedArguments.append(argv[iAdditional + 1])
+        #     iAdditional += 2
+
+        #     if len(argv) >= iAdditional + 1 and argv[iAdditional] == 'until':
+        #         if str(argv[iAdditional + 1]).isdigit():
+        #             instructionLast = int(argv[iAdditional + 1])
+        #         else:
+        #             customPrint('Cutting of instructions for playthrough requested but no index provided!', infoType=InfoType.ERROR)
+        #             return
+        #         parsedArguments.append(argv[iAdditional])
+        #         parsedArguments.append(argv[iAdditional + 1])
+        #         iAdditional += 2
         
+=======
+    # PARSER TREE
+    #
+    # parser
+    #     -mk
+    #     -r
+    #     -l
+    #     -nv
+    #     -ns
+    #     file
+    #         filename: argparse.FileType
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #         continue: int
+    #             until: int
+    #     random
+    #         category{easy, intermediate, advanced, expert}
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     collection
+    #         event: <totem | halloween>
+    #         category{easy, intermediate, advanced, expert}
+    #         gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     achievement
+    #         throw NotImplemented
+    #     missing
+    #         throw NotImplemented
+    #     xp
+    #         n: int
+    #     validate
+    #         file
+    #           file: argparse.FileType
+    #         all
+    #           category{easy, intermediate, advanced, expert}
+    #           gamemode{easy, medium, hard, chimps, impoppable, etc}
+    #     costs
+    #       hero: bool
+
+    def checkPositive(value : int) -> int: #used for input validation
+        if value <= 0:
+            raise argparse.ArgumentTypeError("%s is an invalid positive integer value")
+        return value
+
+    parser = argparse.ArgumentParser(description="Automation of BTD6")
+    
+    #this trick allows for global flags
+    base_subparser = argparse.ArgumentParser(add_help=False)
+    base_subparser.add_argument('-r', '--repeat', action='store_true', required=False, help="repeat indefinitely") #Repeat?
+    base_subparser.add_argument('-mk', '--monkeyknowledge', action='store_true', required=False, help="include playthroughs with monkey knowledge as a requirement") #Removes the whole need for the -noMK flag, assumes no MK if flag not specified, it doesn't really hurt if we assume they don't have monkey knowledge and they do
+    base_subparser.add_argument('-l', '--list', action="store_true", required=False, help='list all found playthroughs') # NOTE: can only be used if not file mode
+    base_subparser.add_argument('-nv', '--nonvalidated', action="store_true", required=False, help='include nonvalidated playthroughs') # include nonvalidated playthrus
+    base_subparser.add_argument('-ns', '--nostats', action="store_false", required=False, help="disable stats logging (not recommended)")
+    subparsers = parser.add_subparsers(dest='command')
+    # achievementParser = subparsers.add_parser('achievements')
+    # missingParser = subparsers.add_parser('missing')
+
+    fileParser = subparsers.add_parser('file', help='plays the playthrough in the specified file', parents=[base_subparser])
+    fileParser.add_argument('-f', '--file', required=True, type=argparse.FileType('r'), help='file where .btd6 run is stored')
+    fileParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), help='can be specified to overwrite the gamemode in the files title', default=None)
+    # fuck all this continue bs whos actually gonna use that
+    # fileParser.add_argument('continue', required=False)
+   
+    randomParser = subparsers.add_parser('random', help='plays a random playthrough from all available playthroughs',parents=[base_subparser])
+    randomParser.add_argument('-c', '--category', required=False, choices=mapsByCategory, default=None)
+    randomParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), default=None)
+
+    collectionParser = subparsers.add_parser('collect', help='plays for most optimal rewards for collection event',parents=[base_subparser])
+    collectionParser.add_argument('-e', '--event', required=True, choices=['halloween', 'totem'])
+    collectionParser.add_argument('-c', '--category', required=False, choices=mapsByCategory, default=None)
+    collectionParser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), default=None)
+
+    xpParser = subparsers.add_parser('xp', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
+    xpParser.add_argument('-n', type=checkPositive, required=False, default=1)
+    
+    mmParser = subparsers.add_parser('mm', help='plays a random playthrough out of n most efficient playthroughs',parents=[base_subparser])
+    mmParser.add_argument('-n', type=checkPositive, required=False, default=1)
+
+    validateParser = subparsers.add_parser('validate', help='validates a playthrough by setting up the monkeys in sandbox mode and checking if all actions are performed correctly', parents=[base_subparser])
+    validateSubparser = validateParser.add_subparsers(dest='validate_func')
+    
+    file_validateSubparser = validateSubparser.add_parser('file', help='file of a playthrough to validate')
+    file_validateSubparser.add_argument('-f', '--file', required=True, type=argparse.FileType('r'))
+
+    all_validateSubparser = validateSubparser.add_parser('all', help="validates all playthroughs")
+    all_validateSubparser.add_argument('-c', '--category', required=False, choices=mapsByCategory, help="only validate playthroughs in this category", default=None)
+    all_validateSubparser.add_argument('-gm', '--gamemode', required=False, choices=gamemodes.keys(), help="only validate playthroughs in this gamemode", default=None)
+
+    costsParser = subparsers.add_parser('costs', help="determines the cost of each monkey and each upgrade of each monkey",parents=[base_subparser])
+    costsParser.add_argument('-hr', '--hero', required=False, action='store_true', help="additionally determines the base cost of each hero, if specified")
+
+    args = parser.parse_args(sys.argv[1:])
+    
+
+    #Handle flags
+
+    #Monkey knowledge
+    setMonkeyKnowledgeStatus(args.monkeyknowledge)
+    customPrint(f"Using playthoughs {colorama.Fore.GREEN +'with' if args.monkeyknowledge else colorama.Fore.RED + 'without'}{colorama.Fore.RESET} monkey knowledge enabled!", infoType=InfoType.INFO)
+    
+    #Stat logging
+    logStats = args.nostats
+    customPrint(f"Stats logging {colorama.Fore.GREEN +'enabled!' if args.nostats else colorama.Fore.RED + 'disabled (not recommended!)'}{colorama.Fore.RESET}", infoType=InfoType.INFO)
+    
+    #Repeat objectives
+    repeatObjectives = args.repeat
+    if args.repeat:
+        customPrint(f"Repeating playthrough indefintely! Cancel with {colorama.Fore.MAGENTA}ctrl + c{colorama.Fore.RESET}!", infoType=InfoType.INFO)
+    
+    #nonvalidated playthroughs    
+    if args.nonvalidated:
+        handlePlaythroughValidation = ValidatedPlaythroughs.INCLUDE_ALL
+    
+    #list available playthrus
+    listAvailablePlaythroughs = args.list
+
+    #HANDLE MODE
+
+    if args.command == "file":
+        #Alert user if they are trying to repeat playthrough, disable repeat
+        if args.repeat:
+            repeatObjectives = False
+            customPrint("Repeating playthroughs is unavailable with the selected mode! Disabling repeats", infoType=InfoType.WARN)
+
+
+        filename = args.file.name
+
+        gamemode = args.gamemode
+        if not parseBTD6InstructionFileName(filename): 
+            customPrint('"' + filename + '" can\'t be recognized as a playthrough filename! Exiting!', infoType=InfoType.ERROR)
+            return
+        
+        mapConfig = parseBTD6InstructionsFile(filename, gamemode=gamemode)
         mode = Mode.SINGLE_MAP
+
+        #NOTE: how did you live with yourself after writing this code
+
+        # if len(argv) > iAdditional + 1 and argv[iAdditional] == 'continue':
+        #     parsedArguments.append(argv[iAdditional])
+
+        #     isContinue = True
+
+        #     if str(argv[iAdditional + 1]) == '-':
+        #         instructionOffset = 0
+        #         doAllStepsBeforeStart = True
+        #     elif str(argv[iAdditional + 1]).isdigit():
+        #         instructionOffset = int(argv[iAdditional + 1])
+        #     else:
+        #         customPrint('Continue of playthrough requested but no instruction offset provided!',  infoType=InfoType.ERROR)
+        #         return
+        #     customPrint('Stats logging disabled!',  infoType=InfoType.INFO)
+        #     logStats = False
+        #     parsedArguments.append(argv[iAdditional + 1])
+        #     iAdditional += 2
+
+        #     if len(argv) >= iAdditional + 1 and argv[iAdditional] == 'until':
+        #         if str(argv[iAdditional + 1]).isdigit():
+        #             instructionLast = int(argv[iAdditional + 1])
+        #         else:
+        #             customPrint('Cutting of instructions for playthrough requested but no index provided!', infoType=InfoType.ERROR)
+        #             return
+        #         parsedArguments.append(argv[iAdditional])
+        #         parsedArguments.append(argv[iAdditional + 1])
+        #         iAdditional += 2
+        instructionOffset = -1
+        instructionLast = -1
+>>>>>>> Stashed changes
         if instructionOffset == -1:
             originalObjectives.append({'type': State.GOTO_HOME})
             if 'hero' in mapConfig:
@@ -337,63 +573,31 @@ def main():
             originalObjectives.append({'type': State.GOTO_INGAME, 'mapConfig': mapConfig})
         else:
             if instructionOffset >= len(mapConfig['steps']) or (instructionLast != -1 and instructionOffset >= instructionLast):
-                customPrint('instruction offset > last instruction (' + (str(instructionLast) if instructionLast != -1 else str(len(mapConfig['steps']))) + ')')
+                customPrint(f'Instruction offset > last instruction ({str(instructionLast) if instructionLast != 1 else len(mapConfig["steps"])})', infoType=InfoType.ERROR)
                 return
-
+        
             if instructionLast != -1:
                 mapConfig['steps'] = mapConfig['steps'][(instructionOffset + mapConfig['extrainstructions']):instructionLast]
             else:
                 mapConfig['steps'] = mapConfig['steps'][(instructionOffset + mapConfig['extrainstructions']):]
-            customPrint('continuing playthrough. first instruction:')
+            customPrint('Continuing playthrough. first instruction:', infoType=InfoType.INFO)
             customPrint(mapConfig['steps'][0])
         originalObjectives.append({'type': State.INGAME, 'mapConfig': mapConfig})
-        originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
-    # py replay.py random [category] [gamemode]
-    # plays a random game from all available playthroughs (which fullfill the category and gamemode requirement if specified)
-    elif argv[iArg] == 'random':
-        iAdditional = iArg + 1
-        if len(argv) > iAdditional and argv[iAdditional] in mapsByCategory:
-            categoryRestriction = argv[iAdditional]
-            parsedArguments.append(argv[iAdditional])
-            iAdditional += 1
-        
-        if len(argv) > iAdditional and argv[iAdditional] in gamemodes:
-            gamemodeRestriction = argv[iAdditional]
-            parsedArguments.append(argv[iAdditional])
-            iAdditional += 1
-        
-        customPrint('Mode: playing random games' + (' on ' + gamemodeRestriction if gamemodeRestriction else '') + (' in ' + categoryRestriction + ' category' if categoryRestriction else '') + '!')
+        originalObjectives.append({'type':  State.MANAGE_OBJECTIVES})
 
-        allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
+    if args.command == 'random':
+        categoryRestriction = args.category
+        gamemodeRestriction = args.gamemode
+        customPrint('Playing random games' + (' on ' + args.gamemode if args.gamemode else '') + (' on ' + args.category + ' maps' if args.category else '') + '!',  infoType=InfoType.INFO)
+
+        allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, args.category, args.gamemode)
         allAvailablePlaythroughsList = allPlaythroughsToList(allAvailablePlaythroughs)
-
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         mode = Mode.RANDOM_MAP
         usesAllAvailablePlaythroughsList = True
-    # py replay.py chase <event> [category] [gamemode]
-    # chases increased rewards for the specified event
-    # if category is not provided it finds the map with increased rewards in expert category and plays the most valuable available playthrough and downgrades category if no playthrough is available
-    # use -r to farm indefinitely
-    elif argv[iArg] == 'chase':
-        if len(argv) <= iArg + 1 or not argv[iArg + 1] in locateImages['collection']:
-            customPrint('requested chasing event rewards but no event specified or unknown event! exiting!')
-            return
-        
-        collectionEvent = argv[iArg + 1]
-        parsedArguments.append(argv[iArg + 1])
 
-        iAdditional = iArg + 2
-        if len(argv) > iAdditional and argv[iAdditional] in mapsByCategory:
-            categoryRestriction = argv[iAdditional]
-            parsedArguments.append(argv[iAdditional])
-            iAdditional += 1
-        
-        if len(argv) > iAdditional and argv[iAdditional] in gamemodes:
-            gamemodeRestriction = argv[iAdditional]
-            parsedArguments.append(argv[iAdditional])
-            iAdditional += 1
-
-        customPrint('Mode: playing games with increased ' + collectionEvent + ' collection event rewards' + (' on ' + gamemodeRestriction if gamemodeRestriction else '') + (' in ' + categoryRestriction + ' category' if categoryRestriction else '') + '!')
+    if args.command == 'chase':
+        customPrint('Playing games with increased ' + args.event + ' collection event rewards' + (' on ' + args.gamemode if args.gamemode else '') + (' on ' + args.category + ' maps' if args.category else '') + '!', infoType=InfoType.INFO)
 
         allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
         allAvailablePlaythroughsList = allPlaythroughsToList(allAvailablePlaythroughs)
@@ -401,126 +605,78 @@ def main():
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         mode = Mode.CHASE_REWARDS
         usesAllAvailablePlaythroughsList = True
+
     # py replay.py achievements [achievement]
     # plays all achievement related playthroughs
     # if achievement is provided it just plays plays until said achievement is unlocked
     # userconfig.json can be used to specify which achievements have already been unlocked or to document progress(e. g. games won only using primary monkeys)
     # refer to userconfig.example.json for an example
-    elif argv[iArg] == 'achievements':
-        pass
+
     # py replay.py missing [category]
     # plays all playthroughs with missing medals
     # if category is not provided from easiest category to hardest
     # if category is provided in said category
     # requires userconfig.json to specify which medals have already been earned
-    # unlocking of maps has do be done manually
-    elif argv[iArg] == 'missing':
-        pass
-    # py replay.py xp [int n=1]
-    # plays one of the n most efficient(in terms of xp/hour) playthroughs
-    # with -r: plays indefinitely
-    elif argv[iArg] == 'xp':
-        allAvailablePlaythroughsList = sortPlaythroughsByXPGain(allAvailablePlaythroughsList)
+    # unlocking of maps has do be done manually (Could potentially be done automatically)
+    
+    if args.command == 'xp':
+        allAvailablePlaythroughsList = sortPlaythroughsByXPGain(allAvailablePlaythroughsList)[:args.n] #This should never be a problem since args.n defaults to 1 and we validated it to be non-negative
 
-        if len(argv) > iArg + 1 and argv[iArg + 1].isdigit():
-            allAvailablePlaythroughsList = allAvailablePlaythroughsList[:int(argv[iArg + 1])]
-            parsedArguments.append(argv[iArg + 1])
-        else:
-            allAvailablePlaythroughsList = allAvailablePlaythroughsList[:1]
-        
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         mode = Mode.XP_FARMING
         valueUnit = 'XP/h'
         usesAllAvailablePlaythroughsList = True
-    # py replay.py mm [int n=1]
-    # plays one of the n most efficient(in terms of mm/hour) playthroughs
-    # with -r: plays indefinitely
-    elif argv[iArg] == 'mm' or argv[iArg] == 'monkey_money':
-        allAvailablePlaythroughsList = sortPlaythroughsByMonkeyMoneyGain(allAvailablePlaythroughsList)
 
-        if len(argv) > iArg + 1 and argv[iArg + 1].isdigit():
-            allAvailablePlaythroughsList = allAvailablePlaythroughsList[:int(argv[iArg + 1])]
-            parsedArguments.append(argv[iArg + 1])
-        else:
-            allAvailablePlaythroughsList = allAvailablePlaythroughsList[:1]
+    if args.command == 'mm':
+        allAvailablePlaythroughsList = sortPlaythroughsByMonkeyMoneyGain(allAvailablePlaythroughsList)[:args.n] 
+
         
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         mode = Mode.MM_FARMING
         valueUnit = 'MM/h'
         usesAllAvailablePlaythroughsList = True
-    # py replay.py validate file <filename>
-    # or
-    # py replay.py validate all [category]
-    elif argv[iArg] == 'validate':
+    
+    if args.command == 'validate':
+        if args.repeat:
+            repeatObjectives = False
+            customPrint("Repeating playthroughs is unavailable with the selected mode! Disabling repeats", infoType=InfoType.WARN)
+
+        if args.monkeyknowledge or getMonkeyKnowledgeStatus():
+            customPrint('Validate only works with monkey knowledge disabled!',  infoType=InfoType.ERROR)
+            return
         
-        if len(argv) <= iArg + 1:
-            customPrint('requested validation but arguments missing!')
-            return
-
-        parsedArguments.append(argv[iArg + 1])
-
-        if getMonkeyKnowledgeStatus():
-            customPrint('Mode validate only works with monkey knowledge disabled!')
-            return
-
-        if argv[iArg + 1] == 'file':
-            if len(argv) <= iArg + 2:
-                customPrint('no filename provided!')
+        
+        if args.validate_func == 'file':
+            if not parseBTD6InstructionFileName(args.file.name): 
+                customPrint('"' + args.file.name + '" can\'t be recognized as a playthrough filename! Exiting!', infoType=InfoType.ERROR)
                 return
-
-            if not parseBTD6InstructionFileName(argv[iArg + 2]):
-                customPrint('"' + str(argv[iArg + 2]) + '" can\'t be recognized as a playthrough filename! exiting!')
-                return
-            elif str(argv[iArg + 1]).count('/') or str(argv[iArg + 2]).count('\\') and exists(argv[iArg + 2]):
-                filename = argv[iArg + 1]
-            elif exists('own_playthroughs/' + argv[iArg + 2]):
-                filename = 'own_playthroughs/' + argv[iArg + 2]
-            elif exists('playthroughs/' + argv[iArg + 2]):
-                filename = 'playthroughs/' + argv[iArg + 2]
-            elif exists('unvalidated_playthroughs/' + argv[iArg + 2]):
-                filename = 'unvalidated_playthroughs/' + argv[iArg + 2]
-            else:
-                customPrint('requested playthrough ' + str(argv[iArg + 2]) + ' not found! exiting!')
-                return
-
-            parsedArguments.append(argv[iArg + 2])
-            
-            fileConfig = parseBTD6InstructionFileName(filename)
-            allAvailablePlaythroughsList = [{'filename': filename, 'fileConfig': fileConfig, 'gamemode': fileConfig['gamemode'], 'isOriginalGamemode': True}]
-        elif argv[iArg + 1] == 'all':
-            iAdditional = iArg + 2
-
-            if len(argv) > iAdditional and argv[iAdditional] in mapsByCategory:
-                categoryRestriction = argv[iAdditional]
-                parsedArguments.append(argv[iAdditional])
-                iAdditional += 1
-
-            customPrint('Mode: validating all playthroughs' + (' in ' + categoryRestriction + ' category' if categoryRestriction else '') + '!')
-
-            allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, True, ValidatedPlaythroughs.EXCLUDE_VALIDATED if handlePlaythroughValidation == ValidatedPlaythroughs.INCLUDE_ALL else ValidatedPlaythroughs.INCLUDE_ALL, categoryRestriction, gamemodeRestriction, onlyOriginalGamemodes=True)
+            fileConfig = parseBTD6InstructionFileName(args.file.name)
+            allAvailablePlaythroughsList = [{'filename': filename, 'fileConfig': fileConfig, 'gamemode': fileConfig['gamemode', 'isOriginalGamemode': True]}]
+        if args.validate_func == 'all':
+            customPrint('Validating all playthroughs' + (' on ' + args.gamemode if args.gamemode else '') + (' on ' + args.category + ' maps' if args.category else '') + '!', infoType=InfoType.INFO)
+            allAvailablePlaythroughs = filterAllAvailablePlaythroughs(
+                    allAvailablePlaythroughs,
+                    True,
+                    ValidatedPlaythroughs.EXCLUDE_VALIDATED if handlePlaythroughValidation == ValidatedPlaythroughs.INCLUDE_ALL else ValidatedPlaythroughs.INCLUDE_ALL,
+                    args.category,
+                    args.gamemode,
+                    onlyOriginalGamemodes=True)
             allAvailablePlaythroughsList = allPlaythroughsToList(allAvailablePlaythroughs)
+
 
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
         usesAllAvailablePlaythroughsList = True
         mode = Mode.VALIDATE_PLAYTHROUGHS
-    # py replay.py costs [+heros]
-    # determines the base cost and cost of each upgrade for each monkey as well as the base cost for each hero if '+heros' is specified
-    elif argv[iArg] == 'costs':
-        if getMonkeyKnowledgeStatus():
-            customPrint('Mode validate costs only works with monkey knowledge disabled!')
+    
+    if args.command == 'costs':
+        if args.mk or getMonkeyKnowledgeStatus():
+            customPrint('Validating costs only works with monkey knowledge disabled!',  infoType=InfoType.ERROR)
             return
-
-        includeHeros = False
-
-        if len(argv) >= iArg + 2 and argv[iArg + 1] == '+heros':
-            includeHeros = True
-            parsedArguments.append(argv[iArg + 1])
-
-        customPrint('Mode: validating monkey costs' + (' including heros' if includeHeros else '') + '!')
+        customPrint('Validating monkey costs' + (' including heros' if args.hero else '') + '!', infoType=InfoType.INFO)
 
         allTestPositions = json.load(open('test_positions.json'))
         if getResolutionString() in allTestPositions:
-            testPositions = allTestPositions[getResolutionString()]
+            testPositions = allTestPositions(getResolutionString())
         else:
             testPositions = json.loads(convertPositionsInString(json.dumps(testPositions['2560x1440']), (2560, 1440), pyautogui.size()))
 
@@ -531,9 +687,9 @@ def main():
                 break
         
         if selectedMap is None:
-            customPrint('This mode requires access to medium sandbox for one of the maps in "test_positions.json"!')
+            customPrint('This mode requires access to medium sandbox for one of the maps in "test_positions.json"!', infoType = InfoType.ERROR)
             return
-
+        
         costs = {'monkeys': {}}
 
         baseMapConfig = {'category': maps[selectedMap]['category'], 'map': selectedMap, 'page': maps[selectedMap]['page'], 'pos': maps[selectedMap]['pos'], 'difficulty': 'medium', 'gamemode': 'medium_sandbox', 'steps': [], 'extrainstructions': 1, 'filename': None}
@@ -559,7 +715,7 @@ def main():
         originalObjectives.append({'type': State.GOTO_INGAME, 'mapConfig': monkeyMapConfig})
         originalObjectives.append({'type': State.INGAME, 'mapConfig': monkeyMapConfig})
 
-        if includeHeros:
+        if args.hero:
             costs['heros'] = {}
             
             for hero in towers['heros']:
@@ -577,42 +733,32 @@ def main():
         usesAllAvailablePlaythroughsList = False
         mode = Mode.VALIDATE_COSTS
 
+        
+
     if mode == Mode.ERROR:
-        customPrint('invalid arguments! exiting!')
+        customPrint('Invalid arguments! Exiting!', infoType=InfoType.ERROR)
         return
 
     if not mode.name in supportedModes:
-        customPrint('mode not supported due to missing images!')
-        return
-
-    parsedArguments.append(argv[0])
-    parsedArguments.append(argv[1])
-
-    unparsedArguments = []
-    parsedArgumentsTmp = np.array(parsedArguments)
-    for arg in sys.argv:
-        if len(np.where(parsedArgumentsTmp == arg)[0]):
-            parsedArgumentsTmp = np.delete(parsedArgumentsTmp, np.where(parsedArgumentsTmp == arg)[0])
-        else:
-            unparsedArguments.append(arg)
-
-    if len(unparsedArguments):
-        customPrint('unrecognized arguments:')
-        customPrint(unparsedArguments)
-        customPrint('exiting!')
+        customPrint('Mode not supported due to missing images!', infoType=InfoType.ERROR)
         return
 
     if listAvailablePlaythroughs:
         if usesAllAvailablePlaythroughsList:
-            customPrint(str(len(allAvailablePlaythroughsList)) + ' playthroughs found:')
+            customPrint(str(len(allAvailablePlaythroughsList)) + ' playthroughs found:', infoType=InfoType.INFO)
             for playthrough in allAvailablePlaythroughsList:
                 customPrint(playthrough['filename'] + ': ' + playthrough['fileConfig']['map'] + ' - ' + playthrough['gamemode'] + (' with ' + str(playthrough['value']) + (' ' + valueUnit if len(valueUnit) else '') if 'value' in playthrough else ''))
         else:
-            customPrint('Mode doesn\'t qualify for listing all available playthroughs')
+            customPrint('Mode doesn\'t qualify for listing all available playthroughs', infoType=InfoType.ERROR)
+<<<<<<< Updated upstream
         return
+=======
+            return
+>>>>>>> Stashed changes
 
     if usesAllAvailablePlaythroughsList and len(allAvailablePlaythroughsList) == 0:
-        customPrint('no playthroughs matching requirements found!')
+        customPrint('No playthroughs matching requirements found!', infoType=InfoType.ERROR)
+        return
 
     keyboard.add_hotkey('ctrl+space', setExitAfterGame)
 
@@ -657,6 +803,11 @@ def main():
             screen = Screen.BTD6_UNFOCUSED
         else:
             bestMatchDiff = None
+<<<<<<< Updated upstream
+            # TODO: not 100%, but would using smaller images make this more efficient?
+=======
+            # TODO: could be way more optimized by using smaller pictures
+>>>>>>> Stashed changes
             for screenCfg in [
                 (Screen.STARTMENU, comparisonImages["screens"]["startmenu"], imageAreas["compare"]["screens"]["startmenu"]),
                 (Screen.MAP_SELECTION, comparisonImages["screens"]["map_selection"], imageAreas["compare"]["screens"]["map_selection"]),
@@ -680,7 +831,7 @@ def main():
                     screen = screenCfg[0]
 
         if screen != lastScreen:
-            customPrint("screen " + screen.name + "!")
+            customPrint("Screen " + screen.name + "!", infoType=InfoType.INFO)
 
         if screen == Screen.BTD6_UNFOCUSED:
             pass
@@ -688,7 +839,7 @@ def main():
         elif keyboard.is_pressed('ctrl'):
             pass
         elif state == State.MANAGE_OBJECTIVES:
-            customPrint("entered objective management!")
+            customPrint("Entered objective management!", infoType=InfoType.INFO)
             
             if exitAfterGame:
                 state = State.EXIT
@@ -696,11 +847,11 @@ def main():
             
             if mode == Mode.VALIDATE_PLAYTHROUGHS:
                 if validationResult != None:
-                    customPrint('validation result: playthrough ' + lastPlaythrough['filename'] + ' is ' + ('valid' if validationResult else 'invalid') + '!')
+                    customPrint('Validation result: playthrough ' + lastPlaythrough['filename'] + ' is ' + ('valid' if validationResult else 'invalid') + '!',  infoType=InfoType.INFO)
                     updatePlaythroughValidationStatus(lastPlaythrough['filename'], validationResult)
                 if len(allAvailablePlaythroughsList):
                     playthrough = allAvailablePlaythroughsList.pop(0)
-                    customPrint('validation playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
+                    customPrint('validation playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')', infoType=InfoType.INFO)
                     
                     gamemode = getAvailableSandbox(playthrough['fileConfig']['map'])
                     if gamemode:
@@ -717,7 +868,7 @@ def main():
                         validationResult = True
                         lastPlaythrough = playthrough
                     else:
-                        customPrint('missing sandbox access for ' + playthrough['fileConfig']['map'])
+                        customPrint('Missing sandbox access for ' + playthrough['fileConfig']['map'], infoType=InfoType.WARN)
                         objectives = []
                         objectives.append({'type': State.MANAGE_OBJECTIVES})
                 else:
@@ -762,9 +913,8 @@ def main():
                 elif mode == Mode.RANDOM_MAP or mode == Mode.XP_FARMING or mode == Mode.MM_FARMING:
                     objectives = []
                     playthrough = random.choice(allAvailablePlaythroughsList)
-                    customPrint('random playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
+                    customPrint('Random playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')', infoType=InfoType.INFO)
                     mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
-
                     objectives.append({'type': State.GOTO_HOME})
                     if 'hero' in mapConfig and lastHeroSelected != mapConfig['hero']:
                         objectives.append({'type': State.SELECT_HERO, 'mapConfig': mapConfig})
@@ -777,7 +927,7 @@ def main():
                     objectives = []
                     if increasedRewardsPlaythrough:
                         playthrough = increasedRewardsPlaythrough
-                        customPrint('highest reward playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
+                        customPrint('Highest reward playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')', infoType=InfoType.INFO)
                         mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
 
                         objectives.append({'type': State.GOTO_HOME})
@@ -803,11 +953,11 @@ def main():
             lastStateTransitionSuccessful = True
             objectiveFailed = False
         elif state == State.UNDEFINED:
-            customPrint("entered state management!")
+            customPrint("Entered state management!", infoType=InfoType.INFO)
             if exitAfterGame:
                 state = State.EXIT
             if objectiveFailed:
-                customPrint("objective failed on step " + objectives[0]['type'].name + "(screen " + lastScreen.name + ")!")
+                customPrint("Objective failed on step " + objectives[0]['type'].name + "(screen " + lastScreen.name + ")!", infoType=InfoType.WARN)
                 if repeatObjectives:
                     state = State.MANAGE_OBJECTIVES
                 else:
@@ -827,11 +977,11 @@ def main():
         elif state == State.IDLE:
             pass
         elif state == State.EXIT:
-            customPrint("goal EXIT! exiting!")
+            customPrint("Goal EXIT! Exiting!", infoType=InfoType.INFO)
             return
         elif state == State.GOTO_HOME:
             if screen == Screen.STARTMENU:
-                customPrint("goal GOTO_HOME fullfilled!")
+                customPrint("Goal GOTO_HOME fullfilled!", infoType=InfoType.INFO)
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
                 if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
@@ -915,8 +1065,8 @@ def main():
             elif screen == Screen.APOPALYPSE_HINT:
                 pyautogui.click(imageAreas["click"]["gamemode_apopalypse_message_confirmation"])
             elif screen == Screen.INGAME:
-                customPrint("goal GOTO_INGAME fullfilled!")
-                customPrint("game: " + mapConfig['map'] + ' - ' + mapConfig['difficulty'])
+                customPrint("Goal GOTO_INGAME fullfilled!", infoType=InfoType.INFO)
+                customPrint("Game: " + mapConfig['map'] + ' - ' + mapConfig['difficulty'], infoType=InfoType.INFO)
                 iterationBalances = []
                 if logStats:
                     lastPlaythroughStats = {'gamemode': mapConfig['gamemode'], 'time': [], 'result': PlaythroughResult.UNDEFINED}
@@ -927,7 +1077,11 @@ def main():
             elif screen == Screen.UNKNOWN:
                 pass
             else:
-                customPrint("task GOTO_INGAME, but not in startmenu!")
+<<<<<<< Updated upstream
+                customPrint("Task GOTO_INGAME, but not in Start Menu!", infoType=InfoType.WARN)
+=======
+                customPrint("Task GOTO_INGAME, but not in startmenu!", infoType=InfoType.WARN)
+>>>>>>> Stashed changes
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         elif state == State.SELECT_HERO:
@@ -937,13 +1091,13 @@ def main():
                 pyautogui.click(imageAreas["click"]["hero_positions"][mapConfig['hero']])
                 time.sleep(menuChangeDelay)
                 pyautogui.click(imageAreas["click"]["screen_hero_selection_select_hero"])
-                customPrint("goal SELECT_HERO " + mapConfig['hero'] + " fullfilled!")
+                customPrint("Goal SELECT_HERO " + mapConfig['hero'] + " fullfilled!", infoType=InfoType.INFO)
                 lastHeroSelected = mapConfig['hero']
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
                 pass
             else:
-                customPrint("task SELECT_HERO, but not in startmenu!")
+                customPrint("Task SELECT_HERO, but not in startmenu!", infoType=InfoType.WARN)
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         elif state == State.FIND_HARDEST_INCREASED_REWARDS_MAP:
@@ -965,12 +1119,12 @@ def main():
                             mapname = findMapForPxPos(categoryRestriction, page, result[1])
                             break
                     if not mapname:
-                        customPrint('no maps with increased rewards found! exiting!')
+                        customPrint('No maps with increased rewards found! Exiting!', infoType=InfoType.ERROR)
                         return
-                    customPrint('best map: ' + mapname)
+                    customPrint('Best map: ' + mapname, infoType=InfoType.INFO)
                     increasedRewardsPlaythrough = getHighestValuePlaythrough(allAvailablePlaythroughs, mapname, playthroughLog)
                     if not increasedRewardsPlaythrough:
-                        customPrint('no playthroughs for map found! exiting!')
+                        customPrint('No playthroughs for map found! Exiting!', infoType=InfoType.ERROR)
                         return
                 else:
                     iTmp = 0
@@ -989,24 +1143,24 @@ def main():
                                 mapname = findMapForPxPos(category, page, result[1])
                                 break
                         if not mapname:
-                            customPrint('no maps with increased rewards found! exiting!')
+                            customPrint('No maps with increased rewards found! Exiting!', infoType=InfoType.ERROR)
                             return
-                        customPrint('best map in ' + category + ': ' + mapname)
+                        customPrint('Best map in ' + category + ': ' + mapname, infoType=InfoType.INFO)
                         increasedRewardsPlaythrough = getHighestValuePlaythrough(allAvailablePlaythroughs, mapname, playthroughLog)
                         if increasedRewardsPlaythrough:
                             break
                         else:
-                            customPrint('no playthroughs for map found! searching lower map tiers!')
+                            customPrint('No playthroughs for map found! Searching lower map tiers!', infoType=InfoType.WARN)
                         iTmp += 1
                     
                     if not increasedRewardsPlaythrough:
-                        customPrint('no available playthrough found! exiting!')
+                        customPrint('No available playthrough found! Exiting!', infoType=InfoType.ERROR)
                         return
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
                 pass
             else:
-                customPrint("task FIND_HARDEST_INCREASED_REWARDS_MAP, but not in startmenu!")
+                customPrint("Task FIND_HARDEST_INCREASED_REWARDS_MAP, but not in startmenu!", infoType=InfoType.WARN)
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         elif state == State.INGAME:
@@ -1085,18 +1239,18 @@ def main():
 
                 if len(mapConfig['steps']):
                     if mapConfig['steps'][0]['action'] == 'sell':
-                        customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True)
+                        customPrint('Detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True, infoType=InfoType.INFO)
                     else:
-                        customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True)
+                        customPrint('Detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True, infoType=InfoType.INFO)
 
                 if mode == Mode.VALIDATE_PLAYTHROUGHS:
                     if lastIterationBalance != -1 and currentValues['money'] != lastIterationBalance - lastIterationCost:
                         if currentValues['money'] == lastIterationBalance:
-                            customPrint('action: ' + str(lastIterationAction) + ' failed!')
+                            customPrint('Action: ' + str(lastIterationAction) + ' failed!', infoType=InfoType.WARN)
                             validationResult = False
                             mapConfig['steps'] = []
                         else:
-                            customPrint('pricing error! expected cost: ' + str(lastIterationCost) + ', detected cost: ' + str(lastIterationBalance - currentValues['money']) + '. Is monkey knowledge disabled?')
+                            customPrint('Pricing error! expected cost: ' + str(lastIterationCost) + ', detected cost: ' + str(lastIterationBalance - currentValues['money']) + '. Is monkey knowledge disabled?', infoType=InfoType.WARN)
                 elif mode == Mode.VALIDATE_COSTS:
                     if lastIterationBalance != -1 and lastIterationAction:
                         if lastIterationAction['action'] == 'place':
@@ -1107,7 +1261,7 @@ def main():
                 if currentValues['money'] == -1:
                     pass
                 elif mode != Mode.VALIDATE_COSTS and lastIterationBalance - lastIterationCost > currentValues['money']:
-                    customPrint('potentioal recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']))
+                    customPrint('Potential recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']), infoType=InfoType.WARN)
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(lastIterationBalance) + '.png', lastIterationScreenshotAreas[2])
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(currentValues['money']) + '.png', images[2])
                     skippingIteration = True
@@ -1118,7 +1272,7 @@ def main():
                     thisIterationAction = action
                     if action['action'] != 'sell':
                         thisIterationCost = action['cost']
-                    customPrint('performing action: ' + str(action))
+                    customPrint('Performing action: ' + str(action), infoType=InfoType.ACTION)
                     if action['action'] == 'place':
                         pyautogui.moveTo(action['pos'])
                         time.sleep(actionDelay)
@@ -1147,7 +1301,7 @@ def main():
                             actionTmp = action
                             if len(mapConfig['steps']) and 'name' in mapConfig['steps'][0] and mapConfig['steps'][0]['name'] == action['name'] and (mapConfig['steps'][0]['action'] == 'retarget' or mapConfig['steps'][0]['action'] == 'special' or mapConfig['steps'][0]['action'] == 'click'):
                                 action = mapConfig['steps'].pop(0)
-                                customPrint('+' + action['action'])
+                                customPrint('+' + action['action'], infoType=InfoType.ACTION)
                             else:
                                 action = None
                         action = actionTmp
@@ -1158,7 +1312,7 @@ def main():
                         time.sleep(actionDelay)
                         ahk.send_event(keyToAHK(action['key']))
                     elif action['action'] == 'remove':
-                        customPrint('removing obstacle at ' + tupleToStr(action['pos']) + ' for ' + str(action['cost']))
+                        customPrint('Removing obstacle at ' + tupleToStr(action['pos']) + ' for ' + str(action['cost']),infoType=InfoType.ACTION)
                         pyautogui.moveTo(action['pos'])
                         pyautogui.click()
                         time.sleep(menuChangeDelay)
@@ -1199,7 +1353,7 @@ def main():
 
                 iterationBalances.append((currentValues['money'], thisIterationCost))
             else:
-                customPrint("task INGAME, but not in related screen!")
+                customPrint("Task INGAME, but not in related screen!",infoType=InfoType.WARN)
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         else:
@@ -1207,7 +1361,7 @@ def main():
             lastStateTransitionSuccessful = False
 
         if state != lastState:
-            customPrint("new state " + state.name + "!")
+            customPrint("New state " + state.name + "!",infoType=InfoType.INFO)
 
         lastScreen = screen
         lastState = state
