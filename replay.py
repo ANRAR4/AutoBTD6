@@ -362,7 +362,7 @@ def main():
             parsedArguments.append(argv[iAdditional])
             iAdditional += 1
         
-        customPrint('Mode: playing random games' + (' on ' + gamemodeRestriction if gamemodeRestriction else '') + (' in ' + categoryRestriction + ' category' if categoryRestriction else '') + '!')
+        customPrint('Mode: playing random games' + (f' on {gamemodeRestriction}' if gamemodeRestriction else '') + (f' in {categoryRestriction} category' if categoryRestriction else '') + '!')
 
         allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
         allAvailablePlaythroughsList = allPlaythroughsToList(allAvailablePlaythroughs)
@@ -393,9 +393,13 @@ def main():
             parsedArguments.append(argv[iAdditional])
             iAdditional += 1
 
-        customPrint('Mode: playing games with increased ' + collectionEvent + ' collection event rewards' + (' on ' + gamemodeRestriction if gamemodeRestriction else '') + (' in ' + categoryRestriction + ' category' if categoryRestriction else '') + '!')
 
-        allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
+        if collectionEvent == 'golden_bloon':
+            allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction, requiredFlags=['gB'])
+            customPrint(f'Mode: playing games with golden bloons using special playthroughs' + (f' on {gamemodeRestriction}' if gamemodeRestriction else '') + (f' in {categoryRestriction} category' if categoryRestriction else '') + '!')
+        else:
+            allAvailablePlaythroughs = filterAllAvailablePlaythroughs(allAvailablePlaythroughs, getMonkeyKnowledgeStatus(), handlePlaythroughValidation, categoryRestriction, gamemodeRestriction)
+            customPrint(f'Mode: playing games with increased {collectionEvent} collection event rewards' + (f' on {gamemodeRestriction}' if gamemodeRestriction else '') + (f' in {categoryRestriction} category' if categoryRestriction else '') + '!')
         allAvailablePlaythroughsList = allPlaythroughsToList(allAvailablePlaythroughs)
 
         originalObjectives.append({'type': State.MANAGE_OBJECTIVES})
@@ -728,24 +732,24 @@ def main():
                 changes = 0
                 for monkeyType in costs['monkeys']:
                     if costs['monkeys'][monkeyType]['base'] and costs['monkeys'][monkeyType]['base'] != oldTowers['monkeys'][monkeyType]['base']:
-                        print(f"{monkeyType} base cost: {oldTowers['monkeys'][monkeyType]['base']} -> {costs['monkeys'][monkeyType]['base']}")
-                        towers['monkeys'][monkeyType]['base'] = costs['monkeys'][monkeyType]['base']
+                        print(f"{monkeyType} base cost: {oldTowers['monkeys'][monkeyType]['base']} -> {int(costs['monkeys'][monkeyType]['base'])}")
+                        towers['monkeys'][monkeyType]['base'] = int(costs['monkeys'][monkeyType]['base'])
                         changes += 1
                     for iPath in range(0, 3):
                         for iUpgrade in range(0, 5):
                             if costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] and costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] != oldTowers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]:
-                                print(f"{monkeyType} path {iPath + 1} upgrade {iUpgrade + 1} cost: {oldTowers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]} -> {costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]}")
-                                towers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] = costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]
+                                print(f"{monkeyType} path {iPath + 1} upgrade {iUpgrade + 1} cost: {oldTowers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade]} -> {int(costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade])}")
+                                towers['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade] = int(costs['monkeys'][monkeyType]['upgrades'][iPath][iUpgrade])
                                 changes += 1
                 if 'heros' in costs:
                     for hero in costs['heros']:
                         if costs['heros'][hero]['base'] and costs['heros'][hero]['base'] != oldTowers['heros'][hero]['base']:
-                            print(f"hero {hero} base cost: {oldTowers['heros'][hero]['base']} -> {costs['heros'][hero]['base']}")
-                            towers['heros'][hero]['base'] = costs['heros'][hero]['base']
+                            print(f"hero {hero} base cost: {oldTowers['heros'][hero]['base']} -> {int(costs['heros'][hero]['base'])}")
+                            towers['heros'][hero]['base'] = int(costs['heros'][hero]['base'])
                             changes += 1
 
                 if changes:
-                    print(f"updating \"towers.json\" with {changes}!")
+                    print(f"updating \"towers.json\" with {changes} changes!")
                     fp = open('towers_backup.json', "w")
                     fp.write(json.dumps(oldTowers, indent=4))
                     fp.close()
@@ -958,7 +962,10 @@ def main():
                     mapname = None
                     for page in range(0, categoryPages[categoryRestriction]):
                         pyautogui.click(imageAreas["click"]["map_categories"][categoryRestriction])
-                        time.sleep(menuChangeDelay)
+                        if collectionEvent == 'golden_bloon':
+                            time.sleep(4)
+                        else:
+                            time.sleep(menuChangeDelay)
                         newScreenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
                         result = findImageInImage(newScreenshot, locateImages['collection'][collectionEvent])
                         if result[0] < 0.05:
@@ -982,7 +989,10 @@ def main():
                         mapname = None
                         for page in range(0, categoryPages[category]):
                             pyautogui.click(imageAreas["click"]["map_categories"][category])
-                            time.sleep(menuChangeDelay)
+                            if collectionEvent == 'golden_bloon':
+                                time.sleep(4)
+                            else:
+                                time.sleep(menuChangeDelay)
                             newScreenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
                             result = findImageInImage(newScreenshot, locateImages['collection'][collectionEvent])
                             if result[0] < 0.05:
@@ -1100,9 +1110,9 @@ def main():
                 elif mode == Mode.VALIDATE_COSTS:
                     if lastIterationBalance != -1 and lastIterationAction:
                         if lastIterationAction['action'] == 'place':
-                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['base'] = lastIterationBalance - currentValues['money']
+                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['base'] = int(lastIterationBalance - currentValues['money'])
                         elif lastIterationAction['action'] == 'upgrade':
-                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['upgrades'][lastIterationAction['extra']['upgrade'][0]][lastIterationAction['extra']['upgrade'][1] - 1] = lastIterationBalance - currentValues['money']
+                            costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['upgrades'][lastIterationAction['extra']['upgrade'][0]][lastIterationAction['extra']['upgrade'][1] - 1] = int(lastIterationBalance - currentValues['money'])
 
                 if currentValues['money'] == -1:
                     pass

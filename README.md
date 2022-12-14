@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v33.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v34.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -102,6 +102,7 @@ Usage: `py replay.py chase <event> [category] [gamemode] <flags>`
 Chases increased rewards for the specified event. Currently supported events are: 
 - `totem`: Totem collection event
 - `halloween`: Halloween collection event
+- `present`: Christmas collection event
   
 If category is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
 <br>
@@ -208,6 +209,7 @@ The `map` parameter can be one of the following:
 - `monkey_meadow`
 - `tree_stump`
 - `town_center`
+- `one_two_tree`
 - `scrapyard`
 - `the_cabin`
 - `resort`
@@ -473,7 +475,7 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr style="border-top: 2px solid white">
 	<th>Monkey meadow</th>
-	<td rowspan=20>beginner</th>
+	<td rowspan=21>beginner</th>
 		<td><a href="playthroughs%2Fmonkey_meadow%23easy%232560x1440%23noMK%23noLL.btd6"title="required monkeys: engineer(4-2-0)">supported, Sauda, engineer only, support monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a><br><br><a href="playthroughs%2Fmonkey_meadow%23hard%232560x1440%23noMK%23noLL.btd6"title="required monkeys: engineer(4-2-5)"><i>supported, Etienne, engineer only, support monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td><a href="playthroughs%2Fmonkey_meadow%23deflation%232560x1440%23noMK%23ninjaOnly%23noLL.btd6"title="required monkeys: ninja(4-0-4)">supported, Sauda, ninja only, magic monkeys only, native: 2560x1440, tested for: 1920x1080</a></td>
@@ -511,6 +513,24 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	<tr>
 	<th>Town center</th>
 		<td><a href="playthroughs%2Ftown_center%23easy%232560x1440%23noMK%23noLL.btd6"title="required monkeys: boomerang(4-0-2), wizard(0-2-4), bomb(2-4-0)">supported, -, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+	<th>One Two Tree</th>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>

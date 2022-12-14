@@ -94,13 +94,15 @@ def parseBTD6InstructionFileName(filename):
     matches['noMK'] = False
     matches['noLL'] = False
     matches['noLLwMK'] = False
-    for m in re.finditer('(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?', matches['comment'] if 'comment' in matches and matches['comment'] else ''):
+    for m in re.finditer('(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?(?P<gB>gB(?:#|$))?', matches['comment'] if 'comment' in matches and matches['comment'] else ''):
         if m.group('noMK'):
             matches['noMK'] = True
         if m.group('noLL'):
             matches['noLL'] = True
         if m.group('noLLwMK'):
             matches['noLLwMK'] = True
+        if m.group('gB'):
+            matches['gB'] = True
     return matches
 
 
@@ -553,7 +555,7 @@ def getAllAvailablePlaythroughs(additionalDirs = [], considerUserConfig = False)
     return playthroughs
 
 
-def filterAllAvailablePlaythroughs(playthroughs, monkeyKnowledgeEnabled, handlePlaythroughValidation, categoryRestriction, gamemodeRestriction, heroWhitelist = None, onlyOriginalGamemodes = False, resolution = getResolutionString()):
+def filterAllAvailablePlaythroughs(playthroughs, monkeyKnowledgeEnabled, handlePlaythroughValidation, categoryRestriction, gamemodeRestriction, heroWhitelist = None, requiredFlags = None, onlyOriginalGamemodes = False, resolution = getResolutionString()):
     filteredPlaythroughs = {}
 
     for mapname in playthroughs:
@@ -569,6 +571,8 @@ def filterAllAvailablePlaythroughs(playthroughs, monkeyKnowledgeEnabled, handleP
                     mapConfig = parseBTD6InstructionsFile(playthrough['filename'])
                     if 'hero' in mapConfig and not mapConfig['hero'] in heroWhitelist:
                         continue
+                if requiredFlags and not all([x in playthrough['fileConfig'] for x in requiredFlags]):
+                    continue
                 if onlyOriginalGamemodes and not playthrough['isOriginalGamemode']:
                     continue
                 if (handlePlaythroughValidation != ValidatedPlaythroughs.INCLUDE_ALL and ((handlePlaythroughValidation == ValidatedPlaythroughs.EXCLUDE_NON_VALIDATED and (not playthrough['filename'] in playthroughStats or not resolution in playthroughStats[playthrough['filename']] or not 'validation_result' in playthroughStats[playthrough['filename']][resolution] or playthroughStats[playthrough['filename']][resolution]['validation_result'] == False)) or (handlePlaythroughValidation == ValidatedPlaythroughs.EXCLUDE_VALIDATED and (playthrough['filename'] in playthroughStats and resolution in playthroughStats[playthrough['filename']] and 'validation_result' in playthroughStats[playthrough['filename']][resolution] and playthroughStats[playthrough['filename']][resolution]['validation_result'] == True)))):
