@@ -372,7 +372,7 @@ You can immediately stop execution by sending SIGINT to the script (pressing `ct
 # Requirements
 
 ## Installation
-To run the scripts you must have Python 3 ([www.python.org](https://www.python.org)) installed. 
+To run the scripts you must have Python 3 (3.5 or higher) ([www.python.org](https://www.python.org)) installed. 
 <br>
 Aditionally all pip packages listed in `requirements.txt` must be installed.
 <br>

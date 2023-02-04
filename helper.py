@@ -684,7 +684,7 @@ def getPlaythroughMonkeyMoneyPerHour(playthrough):
 
 
 def sortPlaythroughsByGain(playthroughs, gainFunc):
-    return sorted(map(lambda x: x | {'value': gainFunc(x)}, playthroughs), key=lambda x: x['value'], reverse=True)
+    return sorted(map(lambda x: {**x, 'value': gainFunc(x)}, playthroughs), key=lambda x: x['value'], reverse=True)
 
 
 def sortPlaythroughsByMonkeyMoneyGain(playthroughs):
@@ -762,6 +762,9 @@ def upgradeRequiresConfirmation(monkey, path):
     if monkey['upgrades'][path] - 1 >= 5: # paragons
         return True
     return towers['monkeys'][monkey['type']]['upgrade_confirmation'][path][monkey['upgrades'][path] - 1]
+
+def isBTD6Window(name):
+    return name in ['BloonsTD6', 'BloonsTD6-Epic']
 
 monkeyKnowledgeEnabled = False
 

@@ -166,7 +166,7 @@ exitAfterGame = False
 def setExitAfterGame():
     global exitAfterGame
     activeWindow = ahk.get_active_window()
-    if not activeWindow or activeWindow.title.decode() != 'BloonsTD6':
+    if not activeWindow or not isBTD6Window(activeWindow.title.decode()):
         return
     customPrint("script will stop after finishing the current game!")
     exitAfterGame = True
@@ -657,7 +657,7 @@ def main():
 
         screen = Screen.UNKNOWN
         activeWindow = ahk.get_active_window()
-        if not activeWindow or activeWindow.title.decode() != 'BloonsTD6':
+        if not activeWindow or not isBTD6Window(activeWindow.title.decode()):
             screen = Screen.BTD6_UNFOCUSED
         else:
             bestMatchDiff = None
@@ -1024,7 +1024,7 @@ def main():
                 if lastScreen != screen and logStats:
                     lastPlaythroughStats['time'].append(('stop', time.time()))
                 time.sleep(2)
-                if ahk.get_active_window().title.decode() == 'BloonsTD6':
+                if isBTD6Window(ahk.get_active_window().title.decode()):
                     ahk.send_event('{Esc}')
             elif screen == Screen.UNKNOWN:
                 if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
