@@ -41,7 +41,7 @@ def custom_ocr(img, resolution=pyautogui.size()):
         # images.append()
         chrImg = img[minY:maxY, minX:maxX]
 
-        if chrImg.shape[0] >= 25 * resolution[0] / 2560 and chrImg.shape[0] <= 60 * resolution[0] / 2560 and chrImg.shape[1] >= 15 * resolution[1] / 1440 and chrImg.shape[1] <= 40 * resolution[1] / 1440:
+        if chrImg.shape[0] >= 25 * resolution[0] / 2560 and chrImg.shape[0] <= 60 * resolution[0] / 2560 and chrImg.shape[1] >= 14 * resolution[1] / 1440 and chrImg.shape[1] <= 40 * resolution[1] / 1440:
             chrImg = cv2.resize(chrImg, (50, 50))
             chrImg = cv2.copyMakeBorder(chrImg, 5, 5, 5, 5, cv2.BORDER_CONSTANT, value=(0, 0, 0))
             chrImg = chrImg[:,:,0]

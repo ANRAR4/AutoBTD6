@@ -1812,6 +1812,10 @@ Prints the data of key events including keyname and scancode. Used for changing 
 Usage `py generate_supported_maps_table.py`<br>
 Updates the table of supported playthroughs in `README.md` by scaning the `playthroughs` folder.
 
+`ocr_image.py`<br>
+Usage `py ocr_image.py <filename>`<br>
+Outputs the detected balance and saves the relevant area of the image as seen by the programm under the same filename with `_area` appended.
+
 # Supported resolutions
 
 Currently only screen resolutions of `1920x1080` and `2560x1440` are supported. Supporting a resolution requires the images in the folder `images/<resolution>` (as well as tested rescaled or native playthroughs).

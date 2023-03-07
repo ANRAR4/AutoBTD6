@@ -14,14 +14,16 @@ def getResolutionDependentData(resolution = pyautogui.size()):
 
     rawSegmentCoordinates = {
         "2560x1440": {
-            'lives': (158, 32, 330, 84),
-            # 'mana_lives': (90, 81, 154, 131),
-            'mana_lives': (60, 74, 173, 142),
-            # 'money': (458, 32, 955, 84),
-            # 'money': (455, 18, 955, 99),
-            'money': (459, 31, 959, 80),
-            # 'round': (1900, 43, 2075, 87),
-            'round': (1847, 39, 2084, 95),
+            # pre v35.0
+            # 'lives': (158, 32, 330, 84),
+            # 'mana_lives': (60, 74, 173, 142),
+            # 'money': (459, 31, 959, 80),
+            # 'round': (1847, 39, 2084, 95),
+
+            'lives': (187, 32, 350, 84),
+            'mana_lives': (89, 78, 185, 132),
+            'money': (486, 25, 959, 90),
+            'round': (1912, 39, 2080, 95),
         }
     }
 
