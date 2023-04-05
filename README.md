@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v35.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v36.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -43,6 +43,7 @@ For more information refer to [supporting new versions of Bloons TD6](#supportin
 4. [Supported maps](#currently-supported-maps)<br>
 5. [Recording playthroughs](#recording-playthroughs)<br>
    1. [Contributing playthroughs](#contributing-playthroughs)<br>
+   2. [Beast Handler](#beast-handler)<br>
 6. [Additional scripts](#additional-scripts)<br>
 7. [Supported resolutions](#supported-resolutions)<br>
 8. [Supporting new collection events](#supporting-new-collection-events)<br>
@@ -103,6 +104,7 @@ Chases increased rewards for the specified event. Currently supported events are
 - `totem`: Totem collection event
 - `halloween`: Halloween collection event
 - `present`: Christmas collection event
+- `easter`: Easter collection event
   
 If category is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
 <br>
@@ -873,8 +875,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Polyphemus</th>
+	<td rowspan=20>intermediate</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Covered garden</th>
-	<td rowspan=19>intermediate</th>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -1750,6 +1770,7 @@ Types are:
 - `engineer`
 - `spike`
 - `village`
+- `beasthandler`
 
 ### Stop recording
 
@@ -1786,6 +1807,10 @@ Playthroughs for contribution should be recorded with monkey knowledge disabled.
 Additionally playthroughs should ideally use popular screen resolutions (like 1920x1080, 2560x1440 or 3840x2160) as rescaled playthroughs may not work (due to impossible placements etc.).
 
 If you want to contribute playthroughs you can do it by either forking the repository and creating a pull request with the playthrough files added or you can create an issue with the playthrough file content as a code block.
+
+## Beast Handler
+
+Due to a lack of hotkeys features like merging beast handlers or targeting beasts are currently unsupported. As a result tier 5 beast handlers can't be used, as they require merging.
 
 # Additional scripts
 
