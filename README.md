@@ -105,6 +105,7 @@ Chases increased rewards for the specified event. Currently supported events are
 - `halloween`: Halloween collection event
 - `present`: Christmas collection event
 - `easter`: Easter collection event
+- `birthday`: BTD6 Birthday collection event
   
 If category is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
 <br>
@@ -230,6 +231,7 @@ The `map` parameter can be one of the following:
 - `hedge`
 - `end_of_the_road`
 - `logs`
+- `polyphemus`
 - `covered_garden`
 - `quarry`
 - `quiet_street`
@@ -249,6 +251,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `erosion`
 - `midnight_mansion`
 - `sunken_columns`
 - `x_factor`
@@ -1236,8 +1239,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Erosion</th>
+	<td rowspan=15>advanced</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Midnight mansion</th>
-	<td rowspan=14>advanced</th>
 		<td></td>
 		<td></td>
 		<td></td>
