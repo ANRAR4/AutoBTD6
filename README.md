@@ -105,6 +105,7 @@ Chases increased rewards for the specified event. Currently supported events are
 - `halloween`: Halloween collection event
 - `present`: Christmas collection event
 - `easter`: Easter collection event
+- `independence`: Independence day collection event
 - `birthday`: BTD6 Birthday collection event
   
 If category is not provided it finds the map with increased rewards in expert category and if a playthrough is available plays it. If not it searches the advanced category and so on.
