@@ -37,7 +37,7 @@ def onRecordingEvent(e):
     pos = pyautogui.position()
     
     activeWindow = ahk.get_active_window()
-    if not activeWindow or activeWindow.title.decode() != 'BloonsTD6':
+    if not activeWindow or not isBTD6Window(activeWindow.title):
         print('BTD6 not focused')
         return
     if not pyautogui.onScreen(pos):
