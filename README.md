@@ -253,6 +253,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `dark_path`
 - `erosion`
 - `midnight_mansion`
 - `sunken_columns`
