@@ -528,7 +528,7 @@ def main():
         if getResolutionString() in allTestPositions:
             testPositions = allTestPositions[getResolutionString()]
         else:
-            testPositions = json.loads(convertPositionsInString(json.dumps(testPositions['2560x1440']), (2560, 1440), pyautogui.size()))
+            testPositions = json.loads(convertPositionsInString(json.dumps(allTestPositions['2560x1440']), (2560, 1440), pyautogui.size()))
 
         selectedMap = None
         for mapname in testPositions:
