@@ -59,14 +59,14 @@ def userHasMonkeyKnowledge(name):
 def adjustPrice(price, difficulty, gamemode, action = None, monkey = None, discountPercentage = None):
     discount = int(discountPercentage) / 100 if discountPercentage and str(discountPercentage).isdigit() else 0
     priceReduction = 0
-    if(difficulty == 'easy'):
+    if(gamemode == 'impoppable'):
+        factor = 1.2
+    elif(difficulty == 'easy'):
         factor = 0.85
     elif(difficulty == 'medium'):
         factor = 1
     elif(difficulty == 'hard'):
         factor = 1.08
-    elif(difficulty == 'impoppable'):
-        factor = 1.2
     additionalFactor = 1
     
     if gamemode != 'chimps':
