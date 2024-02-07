@@ -232,6 +232,7 @@ The `map` parameter can be one of the following:
 - `hedge`
 - `end_of_the_road`
 - `logs`
+- `sulfur_springs`
 - `water_park`
 - `polyphemus`
 - `covered_garden`
@@ -883,8 +884,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Sulfur springs</th>
+	<td rowspan=22>intermediate</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Water park</th>
-	<td rowspan=21>intermediate</th>
 		<td></td>
 		<td></td>
 		<td></td>
