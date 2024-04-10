@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v38.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v42.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -254,6 +254,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `castle_revenge`
 - `dark_path`
 - `erosion`
 - `midnight_mansion`
@@ -1281,8 +1282,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Castle revenge</th>
+	<td rowspan=17>advanced</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Dark path</th>
-	<td rowspan=16>advanced</th>
 		<td></td>
 		<td></td>
 		<td></td>
