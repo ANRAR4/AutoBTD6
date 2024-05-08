@@ -95,6 +95,7 @@ def onRecordingEvent(e):
         print("place " + e["type"] + " " + monkeyName + " " + tupleToStr(pos))
         monkeysByTypeCount[e["type"]] += 1
         monkeys[monkeyName] = {"name": monkeyName, "type": e["type"], "pos": pos}
+        selectedMonkey = getClosestMonkey(pos)["monkey"]
     elif e["action"] == "upgrade":
         if selectedMonkey is None:
             print("selectedMonkey unassigned!")
