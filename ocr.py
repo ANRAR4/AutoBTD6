@@ -1,8 +1,10 @@
 from helper import *
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import keras
 
-ocr_model = keras.models.load_model('btd6_ocr_net.h5')
+ocr_model = keras.models.load_model("btd6_ocr_net.h5")
+
 
 def custom_ocr(img, resolution=pyautogui.size()):
     h = img.shape[0]
@@ -15,10 +17,12 @@ def custom_ocr(img, resolution=pyautogui.size()):
         for x in range(0, w):
             if not (img[y][x] == white).all():
                 img[y][x] = black
-    
+
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)[1]
-    cnts, _ = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cnts, _ = cv2.findContours(
+        thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+    )
 
     chrImages = []
     chrImagesMinX = {}
@@ -41,10 +45,17 @@ def custom_ocr(img, resolution=pyautogui.size()):
         # images.append()
         chrImg = img[minY:maxY, minX:maxX]
 
-        if chrImg.shape[0] >= 25 * resolution[0] / 2560 and chrImg.shape[0] <= 60 * resolution[0] / 2560 and chrImg.shape[1] >= 14 * resolution[1] / 1440 and chrImg.shape[1] <= 40 * resolution[1] / 1440:
+        if (
+            chrImg.shape[0] >= 25 * resolution[0] / 2560
+            and chrImg.shape[0] <= 60 * resolution[0] / 2560
+            and chrImg.shape[1] >= 14 * resolution[1] / 1440
+            and chrImg.shape[1] <= 40 * resolution[1] / 1440
+        ):
             chrImg = cv2.resize(chrImg, (50, 50))
-            chrImg = cv2.copyMakeBorder(chrImg, 5, 5, 5, 5, cv2.BORDER_CONSTANT, value=(0, 0, 0))
-            chrImg = chrImg[:,:,0]
+            chrImg = cv2.copyMakeBorder(
+                chrImg, 5, 5, 5, 5, cv2.BORDER_CONSTANT, value=(0, 0, 0)
+            )
+            chrImg = chrImg[:, :, 0]
 
             for y in range(0, 60):
                 for x in range(0, 60):
@@ -65,7 +76,7 @@ def custom_ocr(img, resolution=pyautogui.size()):
         return -1
     chrImages = list(map(lambda item: item[1], filteredChrImages))
     chrImages = np.array(chrImages)
-    
+
     predictions = ocr_model.predict(chrImages, verbose=0)
 
     number = 0
