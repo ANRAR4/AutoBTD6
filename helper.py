@@ -181,7 +181,7 @@ def parseBTD6InstructionsFile(filename, targetResolution = pyautogui.size(), gam
 
     newMapConfig = {'category': maps[mapname]['category'], 'map': mapname, 'page': maps[mapname]['page'], 'pos': maps[mapname]['pos'], 'difficulty': gamemodes[gamemode]['group'] if not sandboxMode else sandboxGamemodes[gamemode]['group'], 'gamemode': gamemode, 'steps': [], 'extrainstructions': 0, 'filename': filename}
 
-    if gamemode == 'deflation' or gamemode == 'half_cash' or gamemode == 'chimps' or gamemode in sandboxGamemodes:
+    if gamemode == 'deflation' or gamemode == 'half_cash' or gamemode == 'impoppable' or gamemode == 'chimps' or gamemode in sandboxGamemodes:
         newMapConfig['steps'].append({'action': 'click', 'pos': imageAreas['click']['gamemode_deflation_message_confirmation'], 'cost': 0})
         newMapConfig['extrainstructions'] = 1
 
