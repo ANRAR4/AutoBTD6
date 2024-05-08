@@ -108,7 +108,7 @@ def onRecordingEvent(e):
 
 while True:
     print("mapname > ")
-    config["map"] = input()
+    config["map"] = input().replace(" ", "_")
     if config["map"] in maps:
         break
     else:
@@ -116,7 +116,7 @@ while True:
 
 while True:
     print("gamemode > ")
-    config["gamemode"] = input()
+    config["gamemode"] = input().replace(" ", "_")
     if config["gamemode"] in gamemodes:
         break
     else:
@@ -124,7 +124,7 @@ while True:
 
 while True:
     print("hero > ")
-    config["hero"] = input()
+    config["hero"] = input().replace(" ", "_")
     if config["hero"] in towers["heros"]:
         break
     else:
