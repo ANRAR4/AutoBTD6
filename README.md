@@ -76,7 +76,7 @@ Replays the specified file. Navigates to ingame if continue is not set.
 If `filename` contains `/` or `\` `filename` is used as the path. otherwise the script lookes for `filename` in `own_playthroughs`, then in `playthroughs`
 <br>
 <br>
-`gamemode` can be specified to overwrite the gamemode in the files title. (e. g. `py replay.py dark_castle#chimps#2560x1440#noMK#noLL.btd6 medium` to play dark castle on medium using the recorded playthrough for chimps)
+`gamemode` can be specified to overwrite the gamemode in the files title. (e. g. `py replay.py file dark_castle#chimps#2560x1440#noMK#noLL.btd6 medium -nomk` to play dark castle on medium using the recorded playthrough for chimps)
 <br>
 if continue is set:
 - it is assumed you are already in the correct game
