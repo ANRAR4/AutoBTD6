@@ -898,7 +898,7 @@ def listBTD6InstructionsFileCompatability(filename):
         and singleMonkeyGroup
         and singleMonkeyGroup == "primary"
     ):
-        compatibleGamemodes.append("primary")
+        compatibleGamemodes.append("primary_only")
 
     compatibleGamemodes.append(fileConfig["gamemode"])
 
