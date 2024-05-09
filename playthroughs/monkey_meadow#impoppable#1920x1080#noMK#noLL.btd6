@@ -1,0 +1,27 @@
+place ninja ninja0 at 491, 504
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+place captain_churchill hero0 at 633, 540
+place wizard wizard0 at 714, 510
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+place druid druid0 at 771, 561
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 0
+upgrade wizard0 path 0
+retarget wizard0
+retarget wizard0
+retarget wizard0
+upgrade wizard0 path 0
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2

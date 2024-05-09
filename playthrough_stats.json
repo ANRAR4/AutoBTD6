@@ -1128,5 +1128,48 @@
         "1920x1080": {
             "validation_result": true
         }
+    },
+    "playthroughs/monkey_meadow#apopalypse#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#reverse#1920x1080#noMK#noLLwMK.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#alternate_bloons_rounds#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#chimps#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#impoppable#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true,
+            "impoppable": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1029.787966966629
+                ]
+            }
+        },
+        "version": 42.0
+    },
+    "playthroughs/monkey_meadow#half_cash#1920x1080#noMK.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#double_hp_moabs#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
     }
 }

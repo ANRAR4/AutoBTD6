@@ -1,0 +1,39 @@
+place sauda hero0 at 660, 531
+place druid druid0 at 478, 535
+upgrade druid0 path 1
+upgrade druid0 path 0
+place engineer engineer0 at 451, 396
+upgrade engineer0 path 1
+upgrade engineer0 path 1
+upgrade engineer0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+place heli heli0 at 887, 875
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 1
+upgrade heli0 path 1
+upgrade heli0 path 0
+place mortar mortar0 at 1019, 878
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade mortar0 path 1
+upgrade mortar0 path 1
+place druid druid1 at 400, 537
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 0
+place druid druid2 at 392, 678
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 0
+place druid druid3 at 479, 679
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 0

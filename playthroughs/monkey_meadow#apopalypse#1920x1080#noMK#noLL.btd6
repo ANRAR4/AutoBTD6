@@ -1,0 +1,35 @@
+place obyn_greenfoot hero0 at 651, 543
+place druid druid0 at 483, 542
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 0
+place wizard wizard0 at 744, 538
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+place wizard wizard1 at 399, 533
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard1 path 2
+upgrade wizard0 path 0
+retarget wizard0
+retarget wizard0
+retarget wizard0
+place druid druid1 at 494, 406
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 0
+place druid druid2 at 641, 399
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 0
+place druid druid3 at 642, 679
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 0
