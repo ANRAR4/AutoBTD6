@@ -1,0 +1,14 @@
+place sauda hero0 at 637, 534
+place heli heli0 at 866, 856
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 0
+place ace ace0 at 760, 542
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 1
+upgrade heli0 path 1
+upgrade ace0 path 0
+upgrade heli0 path 0

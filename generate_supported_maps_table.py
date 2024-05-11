@@ -2,35 +2,37 @@ from helper import *
 from urllib.parse import quote_plus
 
 extraComments = {
-    'playthroughs/spice_islands#alternate_bloons_rounds#2560x1440#noMK#noWaterTowers.btd6': ['no water towers(achievement)'],
+    "playthroughs/spice_islands#alternate_bloons_rounds#2560x1440#noMK#noWaterTowers.btd6": [
+        "no water towers(achievement)"
+    ],
 }
 
 mapComments = {
-    'geared': 'changing monkey positions (1)',
-    'sanctuary': 'changing monkey positions (1)',
-    'covered_garden': 'positions and monkeys not always accessible (2)',
+    "geared": "changing monkey positions (1)",
+    "sanctuary": "changing monkey positions (1)",
+    "covered_garden": "positions and monkeys not always accessible (2)",
 }
 
-output = ''
-output += '<table border=1 style="border-collapse: collapse">' + '\n'
-output += '\t<tr>' + '\n'
-output += '\t\t<th>Map</th>' + '\n'
-output += '\t\t<th>Category</th>' + '\n'
+output = ""
+output += '<table border=1 style="border-collapse: collapse">' + "\n"
+output += "\t<tr>" + "\n"
+output += "\t\t<th>Map</th>" + "\n"
+output += "\t\t<th>Category</th>" + "\n"
 
 for gamemode in gamemodes:
-    output += '\t\t<th>' + gamemodes[gamemode]['name'] + '</th>' + '\n'
+    output += "\t\t<th>" + gamemodes[gamemode]["name"] + "</th>" + "\n"
 
-output += '\t\t<th>Comment</th>' + '\n'
-output += '\t</tr>' + '\n'
+output += "\t\t<th>Comment</th>" + "\n"
+output += "\t</tr>" + "\n"
 
 playthroughs = getAllAvailablePlaythroughs()
 
 mapsByCategory = {}
 
 for mapname in maps:
-    if not maps[mapname]['category'] in mapsByCategory:
-        mapsByCategory[maps[mapname]['category']] = []
-    mapsByCategory[maps[mapname]['category']].append((mapname, maps[mapname]))
+    if not maps[mapname]["category"] in mapsByCategory:
+        mapsByCategory[maps[mapname]["category"]] = []
+    mapsByCategory[maps[mapname]["category"]].append((mapname, maps[mapname]))
 
 for category in mapsByCategory:
     firstRow = True
@@ -38,92 +40,180 @@ for category in mapsByCategory:
         mapname = mapData[0]
         mapData = mapData[1]
         if firstRow:
-            output += '\t<tr style="border-top: 2px solid white">' + '\n'
-            output += '\t<th>' + mapData['name'] + '</th>' + '\n'
-            output += '\t<td rowspan=' + str(len(mapsByCategory[category])) + '>' + category + '</th>' + '\n'
+            output += '\t<tr style="border-top: 2px solid white">' + "\n"
+            output += "\t<th>" + mapData["name"] + "</th>" + "\n"
+            output += (
+                "\t<td rowspan="
+                + str(len(mapsByCategory[category]))
+                + ">"
+                + category
+                + "</th>"
+                + "\n"
+            )
             firstRow = False
         else:
-            output += '\t<tr>' + '\n'
-            output += '\t<th>' + mapData['name'] + '</th>' + '\n'
+            output += "\t<tr>" + "\n"
+            output += "\t<th>" + mapData["name"] + "</th>" + "\n"
 
         for gamemode in gamemodes:
-            output += '\t\t<td>'
+            output += "\t\t<td>"
             firstPlaythroughRow = True
-            for playthrough in ((playthroughs[mapname] if mapname in playthroughs else {})[gamemode] if gamemode in (playthroughs[mapname] if mapname in playthroughs else {}) else []):
+            for playthrough in (
+                (playthroughs[mapname] if mapname in playthroughs else {})[gamemode]
+                if gamemode
+                in (playthroughs[mapname] if mapname in playthroughs else {})
+                else []
+            ):
                 noMK = False
                 noLL = False
                 noLLwMK = False
-                for m in re.finditer('(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?', playthrough['fileConfig']['comment'] if 'comment' in playthrough['fileConfig'] and playthrough['fileConfig']['comment'] else ''):
-                    if m.group('noMK'):
+                for m in re.finditer(
+                    "(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?",
+                    (
+                        playthrough["fileConfig"]["comment"]
+                        if "comment" in playthrough["fileConfig"]
+                        and playthrough["fileConfig"]["comment"]
+                        else ""
+                    ),
+                ):
+                    if m.group("noMK"):
                         noMK = True
-                    if m.group('noLL'):
+                    if m.group("noLL"):
                         noLL = True
-                    if m.group('noLLwMK'):
+                    if m.group("noLLwMK"):
                         noLLwMK = True
-                description = ''
+                description = ""
                 if noMK:
-                    description += 'supported'
+                    description += "supported"
                 else:
-                    description += 'with MK'
+                    description += "with MK"
 
-                mapConfig = parseBTD6InstructionsFile(playthrough['filename'])
-                
-                if 'hero' in mapConfig:
-                    description += ', ' + ' '.join([w.capitalize() for w in mapConfig['hero'].split(' ')])
+                mapConfig = parseBTD6InstructionsFile(playthrough["filename"])
+
+                if "hero" in mapConfig:
+                    description += ", " + " ".join(
+                        [w.capitalize() for w in mapConfig["hero"].split(" ")]
+                    )
                 else:
-                    description += ', -'
-                
-                singleType = checkForSingleMonkeyType(mapConfig['monkeys'])
+                    description += ", -"
+
+                singleType = checkForSingleMonkeyType(mapConfig["monkeys"])
                 if singleType:
-                    description += ', ' + singleType + ' only'
-                singleGroup = checkForSingleMonkeyGroup(mapConfig['monkeys'])
+                    description += ", " + singleType + " only"
+                singleGroup = checkForSingleMonkeyGroup(mapConfig["monkeys"])
                 if singleGroup:
-                    description += ', ' + singleGroup + ' monkeys only'
-                
+                    description += ", " + singleGroup + " monkeys only"
+
                 if noLL:
                     pass
                 elif noLLwMK:
-                    description += ', (*)'
+                    description += ", (*)"
                 else:
-                    description += ', *'
+                    description += ", *"
 
-                if playthrough['filename'] in extraComments:
-                    for extraComment in extraComments[playthrough['filename']]:
-                        description += ', ' + extraComment
-                
-                description += ', native: ' + playthrough['fileConfig']['resolution'] + (', tested for: ' + ', '.join(filter(lambda x: type(playthroughStats[playthrough['filename']][x]) is dict and 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys())) if playthrough['filename'] in playthroughStats and len(playthroughStats[playthrough['filename']].keys()) and len(list(filter(lambda x: type(playthroughStats[playthrough['filename']][x]) is dict and 'validation_result' in playthroughStats[playthrough['filename']][x] and playthroughStats[playthrough['filename']][x]['validation_result'] == True, playthroughStats[playthrough['filename']].keys()))) else '')
+                if playthrough["filename"] in extraComments:
+                    for extraComment in extraComments[playthrough["filename"]]:
+                        description += ", " + extraComment
 
-                title = ''
-                monkeyUpgradeRequirements = getMonkeyUpgradeRequirements(mapConfig['monkeys'])
+                description += (
+                    ", native: "
+                    + playthrough["fileConfig"]["resolution"]
+                    + (
+                        ", tested for: "
+                        + ", ".join(
+                            filter(
+                                lambda x: type(
+                                    playthroughStats[playthrough["filename"]][x]
+                                )
+                                is dict
+                                and "validation_result"
+                                in playthroughStats[playthrough["filename"]][x]
+                                and playthroughStats[playthrough["filename"]][x][
+                                    "validation_result"
+                                ]
+                                == True,
+                                playthroughStats[playthrough["filename"]].keys(),
+                            )
+                        )
+                        if playthrough["filename"] in playthroughStats
+                        and len(playthroughStats[playthrough["filename"]].keys())
+                        and len(
+                            list(
+                                filter(
+                                    lambda x: type(
+                                        playthroughStats[playthrough["filename"]][x]
+                                    )
+                                    is dict
+                                    and "validation_result"
+                                    in playthroughStats[playthrough["filename"]][x]
+                                    and playthroughStats[playthrough["filename"]][x][
+                                        "validation_result"
+                                    ]
+                                    == True,
+                                    playthroughStats[playthrough["filename"]].keys(),
+                                )
+                            )
+                        )
+                        else ""
+                    )
+                )
+
+                title = ""
+                monkeyUpgradeRequirements = getMonkeyUpgradeRequirements(
+                    mapConfig["monkeys"]
+                )
                 for monkey in monkeyUpgradeRequirements:
                     if len(title):
-                        title += ', '
-                    title += monkey + '(' + monkeyUpgradesToString(monkeyUpgradeRequirements[monkey]) + ')'
-                
+                        title += ", "
+                    title += (
+                        monkey
+                        + "("
+                        + monkeyUpgradesToString(monkeyUpgradeRequirements[monkey])
+                        + ")"
+                    )
+
                 if firstPlaythroughRow:
                     firstPlaythroughRow = False
                 else:
-                    output += '<br><br>'
-                output += '<a href="' + quote_plus(playthrough['filename']) + '"' + ('title="required monkeys: ' + title + '"' if len(title) else '') + '>' + ('<i>' + description + '</i>' if not playthrough['isOriginalGamemode'] else description) + '</a>'
-            output += '</td>' + '\n'
+                    output += "<br><br>"
+                output += (
+                    '<a href="'
+                    + quote_plus(playthrough["filename"])
+                    + '"'
+                    + ('title="required monkeys: ' + title + '"' if len(title) else "")
+                    + ">"
+                    + (
+                        "<i>" + description + "</i>"
+                        if not playthrough["isOriginalGamemode"]
+                        else description
+                    )
+                    + "</a>"
+                )
+            output += "</td>" + "\n"
 
         if mapname in mapComments:
-            output += '\t\t<td>' + mapComments[mapname] + '</td>' + '\n'
+            output += "\t\t<td>" + mapComments[mapname] + "</td>" + "\n"
         else:
-            output += '\t\t<td></td>' + '\n'
-        output += '\t</tr>' + '\n'
-        
-output += '</table>' + '\n'
+            output += "\t\t<td></td>" + "\n"
+        output += "\t</tr>" + "\n"
 
-fp = open('README.md')
+output += "</table>" + "\n"
+
+fp = open("README.md")
 oldREADME = fp.read()
 fp.close()
 
-output = re.sub('<div id="supported_maps">.*<\/div>', '<div id="supported_maps">\n' + output + '</div>', oldREADME, 1, re.DOTALL)
+output = re.sub(
+    '<div id="supported_maps">.*<\/div>',
+    '<div id="supported_maps">\n' + output + "</div>",
+    oldREADME,
+    1,
+    re.DOTALL,
+)
 
 if output == oldREADME:
-    print('README identical after replacement')
-
-fp = open('README.md', 'w')
-fp.write(output)
-fp.close()
+    print("README identical after replacement")
+else:
+    fp = open("README.md", "w")
+    fp.write(output)
+    fp.close()

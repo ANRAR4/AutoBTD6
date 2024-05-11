@@ -6,7 +6,7 @@ argv = np.array(sys.argv)
 if len(argv) < 2:
     print("Usage: py " + argv[0] + " <filename>")
     exit()
-if not str(argv[1]).endswith('.png'):
+if not str(argv[1]).endswith(".png"):
     print("Format must be .png!")
     exit()
 if not exists(argv[1]):
@@ -28,4 +28,4 @@ for y in range(0, h):
             img[y][x] = white
         else:
             img[y][x] = black
-cv2.imwrite(str(argv[1]).replace('.png', '_masked.png'), img)
+cv2.imwrite(str(argv[1]).replace(".png", "_masked.png"), img)

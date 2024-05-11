@@ -1,0 +1,45 @@
+place sauda hero0 at 664, 539
+place druid druid0 at 469, 539
+upgrade druid0 path 1
+upgrade druid0 path 0
+upgrade druid0 path 1
+upgrade druid0 path 1
+place heli heli0 at 875, 859
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 1
+upgrade heli0 path 1
+upgrade heli0 path 0
+upgrade heli0 path 0
+place ice ice0 at 741, 550
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 2
+upgrade ice0 path 0
+upgrade ice0 path 0
+place druid druid1 at 393, 545
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 0
+place druid druid2 at 490, 684
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 1
+upgrade druid2 path 0
+place druid druid3 at 395, 676
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 1
+upgrade druid3 path 0
+place dart dart0 at 831, 540
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 1
+upgrade dart0 path 1

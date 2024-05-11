@@ -1,0 +1,31 @@
+place tack tack0 at 480, 537
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 1
+upgrade tack0 path 1
+place sauda hero0 at 639, 531
+place boomerang boomerang0 at 713, 547
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 0
+place bomb bomb0 at 635, 390
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+upgrade bomb0 path 1
+retarget bomb0
+retarget bomb0
+retarget bomb0
+upgrade boomerang0 path 0
+place dart dart0 at 785, 528
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 1
+upgrade dart0 path 1
+place ice ice0 at 482, 405
+upgrade ice0 path 0
+upgrade ice0 path 0
+upgrade dart0 path 2
