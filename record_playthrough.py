@@ -104,6 +104,9 @@ def onRecordingEvent(e):
             {"action": "upgrade", "name": selectedMonkey["name"], "path": e["path"]}
         )
         print("upgrade " + selectedMonkey["name"] + " path " + e["path"])
+    elif e["action"] == "await_round":
+        e["round"] = input("wait for round: ")
+        config["steps"].append({"action": "await_round", "round": e["round"]})
 
 
 while True:
@@ -288,6 +291,10 @@ keyboard.on_press_key(
 keyboard.on_press_key(
     keybinds["recording"]["monkey_special"],
     lambda e: onRecordingEvent({"action": "monkey_special"}),
+)
+keyboard.on_press_key(
+    keybinds["recording"]["await_round"],
+    lambda e: onRecordingEvent({"action": "await_round", "round": "0"}),
 )
 
 while True:

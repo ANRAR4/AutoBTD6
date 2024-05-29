@@ -233,6 +233,8 @@ def writeBTD6InstructionsFile(
                 + str(cost)
                 + "\n"
             )
+        elif action["action"] == "await_round":
+            fp.write("round " + action["round"] + "\n")
 
     fp.close()
 
