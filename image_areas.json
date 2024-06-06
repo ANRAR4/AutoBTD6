@@ -67,7 +67,7 @@
                 "gwendolin": [350, 300],
                 "striker_jones": [550, 300],
                 "obyn_greenfoot": [150, 560],
-                "corvus": [350, 560],
+                "rosalia": [350, 560],
                 "captain_churchill": [550, 560],
                 "benjamin": [150, 820],
                 "pat_fusty": [350, 820],
@@ -77,7 +77,8 @@
                 "sauda": [550, 1080],
                 "admiral_brickell": [150, 1340],
                 "psi": [350, 1340],
-                "geraldo": [550, 1340]
+                "geraldo": [550, 1340],
+                "corvus": [750, 1340]
             },
             "screen_startmenu_button_hero_selection": [800, 1280],
             "screen_startmenu_button_play": [1110, 1250],
