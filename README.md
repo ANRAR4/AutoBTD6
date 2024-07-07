@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v42.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v43.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -213,6 +213,7 @@ The `map` parameter can be one of the following:
 - `monkey_meadow`
 - `tree_stump`
 - `town_center`
+- `tinkerton`
 - `middle_of_the_road`
 - `one_two_tree`
 - `scrapyard`
@@ -291,7 +292,7 @@ The `hero` parameter can be one of the following:
 - `gwendolin`
 - `striker_jones`
 - `obyn_greenfoot`
-- `corvus`
+- `rosalia`
 - `captain_churchill`
 - `benjamin`
 - `ezili`
@@ -302,6 +303,8 @@ The `hero` parameter can be one of the following:
 - `sauda`
 - `psi`
 - `geraldo`
+
+the hero `corvus` is currently not supported
 
 ## Flags / Optional arguments
 
@@ -489,7 +492,7 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr style="border-top: 2px solid white">
 	<th>Monkey meadow</th>
-	<td rowspan=22>beginner</th>
+	<td rowspan=23>beginner</th>
 		<td><a href="playthroughs%2Fmonkey_meadow%23chimps%231920x1080%23noMK%23noLL.btd6"title="required monkeys: druid(1-3-0), heli(5-2-0), ice(2-0-5), dart(0-2-5)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fmonkey_meadow%23double_hp_moabs%231920x1080%23noMK%23noLL.btd6"title="required monkeys: heli(5-2-0), ace(4-0-0)"><i>supported, Sauda, military monkeys only, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fmonkey_meadow%23easy%232560x1440%23noMK%23noLL.btd6"title="required monkeys: engineer(4-2-0)">supported, Sauda, engineer only, support monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a><br><br><a href="playthroughs%2Fmonkey_meadow%23half_cash%231920x1080%23noMK.btd6"title="required monkeys: tack(0-2-2), boomerang(4-0-2), bomb(0-3-0), dart(0-2-5), ice(2-0-0)"><i>supported, Sauda, primary monkeys only, *, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fmonkey_meadow%23hard%232560x1440%23noMK%23noLL.btd6"title="required monkeys: engineer(4-2-5)"><i>supported, Etienne, engineer only, support monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Fmonkey_meadow%23impoppable%231920x1080%23noMK%23noLL.btd6"title="required monkeys: ninja(2-0-5), wizard(5-0-2), druid(1-5-0)"><i>supported, Captain_churchill, magic monkeys only, native: 1920x1080, tested for: 1920x1080</i></a></td>
 		<td><a href="playthroughs%2Fmonkey_meadow%23half_cash%231920x1080%23noMK.btd6"title="required monkeys: tack(0-2-2), boomerang(4-0-2), bomb(0-3-0), dart(0-2-5), ice(2-0-0)"><i>supported, Sauda, primary monkeys only, *, native: 1920x1080, tested for: 1920x1080</i></a></td>
 		<td><a href="playthroughs%2Fmonkey_meadow%23deflation%232560x1440%23noMK%23ninjaOnly%23noLL.btd6"title="required monkeys: ninja(4-0-4)">supported, Sauda, ninja only, magic monkeys only, native: 2560x1440, tested for: 1920x1080</a></td>
@@ -526,6 +529,24 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Middle of the road</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+	<th>Tinkerton</th>
 		<td></td>
 		<td></td>
 		<td></td>

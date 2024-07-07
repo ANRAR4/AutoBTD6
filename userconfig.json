@@ -43,6 +43,7 @@
         "monkey_meadow": true,
         "in_the_loop": true,
         "middle_of_the_road": true,
+        "tinkerton": true,
         "tree_stump": true,
         "town_center": true,
         "one_two_tree": true,
@@ -173,6 +174,22 @@
             "chimps": true
         },
         "middle_of_the_road": {
+            "easy": true,
+            "primary_only": true,
+            "deflation": true,
+            "medium": true,
+            "military_only": true,
+            "reverse": true,
+            "apopalypse": true,
+            "hard": true,
+            "magic_monkeys_only": true,
+            "double_hp_moabs": true,
+            "half_cash": true,
+            "alternate_bloons_rounds": true,
+            "impoppable": true,
+            "chimps": true
+        },
+        "tinkerton": {
             "easy": true,
             "primary_only": true,
             "deflation": true,
