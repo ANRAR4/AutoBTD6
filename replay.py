@@ -151,7 +151,7 @@ def getGamemodePosition(gamemode):
 
 def getNextNonSellAction(steps):
     for step in steps:
-        if step['action'] != 'sell':
+        if step['action'] != 'sell' and step['action'] != 'await_round':
             return step
     return {'action': 'nop', 'cost': 0}
 
@@ -632,6 +632,7 @@ def main():
     gamesPlayed = 0
 
     lastIterationBalance = -1
+    lastIterationRound = -1
     lastIterationScreenshotAreas = []
     lastIterationCost = 0
     iterationBalances = []
@@ -1087,7 +1088,13 @@ def main():
                 thisIterationAction = None
                 skippingIteration = False
 
-                currentValues['money'] = custom_ocr(images[2])
+                try:
+                    currentValues['money'] = int(custom_ocr(images[2]))
+                    currentValues['round'] = int(custom_ocr(images[3]).split('/')[0])
+                except ValueError:
+                    currentValues['money'] = -1
+                    currentValues['round'] = -1
+
                 
                 # to prevent random explosion particles that were recognized as digits from messing up the game
                 # still possible: if it habens 2 times in a row
@@ -1098,6 +1105,8 @@ def main():
                 if len(mapConfig['steps']):
                     if mapConfig['steps'][0]['action'] == 'sell':
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True)
+                    if mapConfig['steps'][0]['action'] == 'await_round':
+                        customPrint('detected round: ' + str(currentValues['round']) + ', awaiting: ' + str(mapConfig['steps'][0]['round']) + '          ', end = '', rewriteLine=True)
                     else:
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True)
 
@@ -1116,19 +1125,24 @@ def main():
                         elif lastIterationAction['action'] == 'upgrade':
                             costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['upgrades'][lastIterationAction['extra']['upgrade'][0]][lastIterationAction['extra']['upgrade'][1] - 1] = int(lastIterationBalance - currentValues['money'])
 
-                if currentValues['money'] == -1:
+                if currentValues['money'] == -1 or currentValues['round'] == -1:
                     pass
                 elif mode != Mode.VALIDATE_COSTS and lastIterationBalance - lastIterationCost > currentValues['money']:
                     customPrint('potential recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']))
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(lastIterationBalance) + '.png', lastIterationScreenshotAreas[2])
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(currentValues['money']) + '.png', images[2])
                     skippingIteration = True
-                elif len(mapConfig['steps']) and ((mapConfig['steps'][0]['action'] != 'sell' and min(currentValues['money'], lastIterationBalance - lastIterationCost) >= mapConfig['steps'][0]['cost']) 
+                elif mode != Mode.VALIDATE_COSTS and currentValues['round'] - lastIterationRound > 1:
+                    customPrint('potential recognition error: ' + str(lastIterationRound) + ' - ' + str(currentValues['round']))
+                    skippingIteration = True
+                elif len(mapConfig['steps']) and ((mapConfig['steps'][0]['action'] != 'sell' and mapConfig['steps'][0]['action'] != 'await_round' and min(currentValues['money'], lastIterationBalance - lastIterationCost) >= mapConfig['steps'][0]['cost']) 
                 or mapConfig['gamemode'] == 'deflation' 
-                or (mapConfig['steps'][0]['action'] == 'sell' and min(currentValues['money'], lastIterationBalance - lastIterationCost) + sumAdjacentSells(mapConfig['steps']) >= getNextNonSellAction(mapConfig['steps'])['cost'])):
+                or mapConfig['steps'][0]['action'] == 'await_round' and currentValues['round'] >= mapConfig['steps'][0]['round']
+                or mapConfig['steps'][0]['action'] == 'await_round' and mode == Mode.VALIDATE_PLAYTHROUGHS
+                or ((mapConfig['steps'][0]['action'] == 'sell') and min(currentValues['money'], lastIterationBalance - lastIterationCost) + sumAdjacentSells(mapConfig['steps']) >= getNextNonSellAction(mapConfig['steps'])['cost'])):
                     action = mapConfig['steps'].pop(0)
                     thisIterationAction = action
-                    if action['action'] != 'sell':
+                    if action['action'] != 'sell' and action['action'] != 'await_round':
                         thisIterationCost = action['cost']
                     customPrint('performing action: ' + str(action))
                     if action['action'] == 'place':
@@ -1208,6 +1222,8 @@ def main():
                 lastIterationBalance = currentValues['money']
                 lastIterationCost = thisIterationCost
                 lastIterationAction = thisIterationAction
+
+                lastIterationRound = currentValues['round']
 
                 iterationBalances.append((currentValues['money'], thisIterationCost))
             else:
