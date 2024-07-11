@@ -1,0 +1,92 @@
+place sauda hero0 at 317, 546
+retarget hero0
+retarget hero0
+retarget hero0
+round 7
+place druid druid0 at 1144, 584
+round 10
+place sniper sniper0 at 238, 869
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade druid0 path 1
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+round 19
+place spike spike0 at 1431, 671
+round 22
+place sniper sniper1 at 217, 926
+retarget sniper1
+retarget sniper1
+retarget sniper1
+upgrade sniper1 path 0
+upgrade sniper1 path 1
+round 27
+place farm farm0 at 1553, 240
+upgrade farm0 path 2
+upgrade farm0 path 2
+round 30
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 0
+upgrade spike0 path 0
+round 39
+place alchemist alchemist0 at 1360, 733
+retarget alchemist0
+retarget alchemist0
+retarget alchemist0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+round 40
+upgrade spike0 path 0
+upgrade spike0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade farm0 path 1
+upgrade farm0 path 1
+upgrade farm0 path 2
+upgrade alchemist0 path 0
+round 47
+place alchemist alchemist1 at 211, 410
+place dart dart0 at 245, 550
+retarget alchemist1
+retarget alchemist1
+retarget alchemist1
+retarget dart0
+retarget dart0
+retarget dart0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade dart0 path 0
+upgrade dart0 path 0
+upgrade dart0 path 0
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 0
+round 55
+place wizard wizard0 at 1296, 329
+place alchemist alchemist2 at 1389, 322
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 0
+upgrade alchemist2 path 1
+upgrade alchemist2 path 1
+round 60
+upgrade spike0 path 0
+round 63
+upgrade wizard0 path 0
+round 68
+upgrade dart0 path 0
+upgrade alchemist2 path 0

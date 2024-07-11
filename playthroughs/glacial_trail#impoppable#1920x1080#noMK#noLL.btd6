@@ -1,0 +1,108 @@
+place dart dart0 at 321, 546
+place dart dart1 at 1365, 664
+retarget dart0
+retarget dart0
+retarget dart0
+place dart dart2 at 214, 409
+retarget dart2
+retarget dart2
+retarget dart2
+round 9
+speed slow
+sell dart1
+sell dart0
+place sauda hero0 at 1152, 581
+speed fast
+round 14
+place druid druid0 at 1370, 668
+round 16
+place wizard wizard0 at 316, 544
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+round 22
+place spike spike0 at 1445, 745
+sell dart2
+upgrade spike0 path 0
+upgrade spike0 path 0
+round 32
+sell druid0
+round 34
+place spike spike1 at 1405, 667
+upgrade spike0 path 0
+upgrade spike0 path 1
+upgrade spike0 path 1
+round 37
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+round 44
+place alchemist alchemist0 at 1363, 737
+round 45
+upgrade spike1 path 2
+upgrade spike1 path 2
+retarget spike1
+retarget spike1
+retarget spike1
+upgrade spike1 path 2
+upgrade spike1 path 2
+upgrade spike1 path 1
+upgrade spike1 path 1
+round 49
+place farm farm0 at 1550, 246
+upgrade farm0 path 1
+upgrade farm0 path 1
+upgrade farm0 path 2
+upgrade farm0 path 2
+upgrade farm0 path 2
+round 53
+upgrade spike0 path 0
+round 54
+place ninja ninja0 at 237, 558
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+round 59
+place farm farm1 at 1554, 79
+upgrade farm1 path 1
+upgrade farm1 path 1
+upgrade farm1 path 2
+upgrade farm1 path 2
+upgrade farm1 path 2
+round 65
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 2
+round 75
+upgrade spike1 path 2
+round 92
+place ace ace0 at 1308, 272
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade ace0 path 0
+upgrade ace0 path 1
+upgrade ace0 path 1
+place mortar mortar0 at 1565, 1022
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade mortar0 path 1
+upgrade mortar0 path 1
+sell farm0
+sell farm1
+upgrade mortar0 path 2
+place alchemist alchemist1 at 210, 406
+retarget alchemist1
+retarget alchemist1
+retarget alchemist1
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade alchemist1 path 1
+upgrade alchemist1 path 0
