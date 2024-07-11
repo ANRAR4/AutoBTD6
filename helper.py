@@ -317,7 +317,7 @@ def parseBTD6InstructionsFile(
 
     for line in configLines:
         matches = re.search(
-            "^(?P<action>place|upgrade|retarget|special|sell|remove|round) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
+            "^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
             line,
         )
         if not matches:
@@ -579,6 +579,13 @@ def parseBTD6InstructionsFile(
             newStep = {
                 "action": "await_round",
                 "round": int(matches.group("name")),
+            }
+            newSteps.append(newStep)
+        elif matches.group("action") == "speed":
+            newStep = {
+                "action": "speed",
+                "speed": matches.group("name"),
+                "cost": 0,
             }
             newSteps.append(newStep)
 
