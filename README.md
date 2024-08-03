@@ -1612,20 +1612,20 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	<tr style="border-top: 2px solid white">
 	<th>Glacial trail</th>
 	<td rowspan=12>expert</th>
+		<td><a href="playthroughs%2Fglacial_trail%23chimps%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(5-2-0), engineer(5-2-0), druid(1-3-0), mortar(0-2-3), spike(2-0-5), alchemist(4-2-0), glue(0-2-4), ice(5-1-0), ace(4-0-0)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fglacial_trail%23impoppable%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(0-0-0), druid(0-0-0), wizard(0-3-2), spike(4-2-5), alchemist(4-3-1), farm(0-2-3), ninja(0-0-4), ace(5-2-0), mortar(0-2-4)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fglacial_trail%23chimps%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(5-2-0), engineer(5-2-0), druid(1-3-0), mortar(0-2-3), spike(2-0-5), alchemist(4-2-0), glue(0-2-4), ice(5-1-0), ace(4-0-0)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fglacial_trail%23impoppable%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(0-0-0), druid(0-0-0), wizard(0-3-2), spike(4-2-5), alchemist(4-3-1), farm(0-2-3), ninja(0-0-4), ace(5-2-0), mortar(0-2-4)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
+		<td><a href="playthroughs%2Fglacial_trail%23chimps%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(5-2-0), engineer(5-2-0), druid(1-3-0), mortar(0-2-3), spike(2-0-5), alchemist(4-2-0), glue(0-2-4), ice(5-1-0), ace(4-0-0)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a><br><br><a href="playthroughs%2Fglacial_trail%23impoppable%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(0-0-0), druid(0-0-0), wizard(0-3-2), spike(4-2-5), alchemist(4-3-1), farm(0-2-3), ninja(0-0-4), ace(5-2-0), mortar(0-2-4)"><i>supported, Sauda, native: 1920x1080, tested for: 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><a href="playthroughs%2Fglacial_trail%23alternate_bloons_rounds%231920x1080%23noMK%23noLLwMK.btd6"title="required monkeys: druid(1-3-0), sniper(1-1-2), spike(4-2-0), farm(0-2-3), alchemist(4-2-0), dart(5-0-2), wizard(4-0-2)">supported, Sauda, (*), native: 1920x1080, tested for: 1920x1080</a></td>
+		<td><a href="playthroughs%2Fglacial_trail%23impoppable%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(0-0-0), druid(0-0-0), wizard(0-3-2), spike(4-2-5), alchemist(4-3-1), farm(0-2-3), ninja(0-0-4), ace(5-2-0), mortar(0-2-4)">supported, Sauda, native: 1920x1080, tested for: 1920x1080</a></td>
+		<td><a href="playthroughs%2Fglacial_trail%23chimps%231920x1080%23noMK%23noLL.btd6"title="required monkeys: dart(5-2-0), engineer(5-2-0), druid(1-3-0), mortar(0-2-3), spike(2-0-5), alchemist(4-2-0), glue(0-2-4), ice(5-1-0), ace(4-0-0)">supported, Sauda, native: 1920x1080, tested for: 1920x1080</a></td>
 		<td></td>
 	</tr>
 	<tr>

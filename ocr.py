@@ -73,15 +73,19 @@ def custom_ocr(img, resolution=pyautogui.size()):
             filteredChrImages.append(entry)
     # minXs = list(map(lambda item: item[0], chrImages))
     if len(filteredChrImages) == 0:
-        return -1
+        return "-1"
     chrImages = list(map(lambda item: item[1], filteredChrImages))
     chrImages = np.array(chrImages)
 
     predictions = ocr_model.predict(chrImages, verbose=0)
 
-    number = 0
+    number = ""
 
     for prediction in predictions:
-        number = number * 10 + np.argmax(prediction)
+        value = np.argmax(prediction)
+        if value == 10:
+            number += '/'
+        else:
+            number += str(value)
 
     return number

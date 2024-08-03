@@ -5,7 +5,7 @@ smallActionDelay = 0.05
 actionDelay = 0.2
 menuChangeDelay = 1
 
-def getResolutionDependentData(resolution = pyautogui.size()):
+def getResolutionDependentData(resolution = pyautogui.size(), gamemode=''):
     nativeResolution = (2560, 1440)
     requiredComparisonImages = [{'category': 'screens', 'name': 'startmenu'}, {'category': 'screens', 'name': 'map_selection'}, {'category': 'screens', 'name': 'difficulty_selection'}, {'category': 'screens', 'name': 'gamemode_selection'}, {'category': 'screens', 'name': 'hero_selection'}, {'category': 'screens', 'name': 'ingame'}, {'category': 'screens', 'name': 'ingame_paused'}, {'category': 'screens', 'name': 'victory_summary'}, {'category': 'screens', 'name': 'victory'}, {'category': 'screens', 'name': 'defeat'}, {'category': 'screens', 'name': 'overwrite_save'}, {'category': 'screens', 'name': 'levelup'}, {'category': 'screens', 'name': 'apopalypse_hint'}, {'category': 'screens', 'name': 'round_100_insta'}, {'category': 'game_state', 'name': 'game_paused'}, {'category': 'game_state', 'name': 'game_playing_slow'}, {'category': 'game_state', 'name': 'game_playing_fast'}]
     optionalComparisonImages = [{'category': 'screens', 'name': 'collection_claim_chest', 'for': [Mode.CHASE_REWARDS.name]}]
@@ -26,6 +26,9 @@ def getResolutionDependentData(resolution = pyautogui.size()):
             'round': (1912, 39, 2080, 95),
         }
     }
+
+    if gamemode == 'impoppable' or gamemode == 'chimps':
+        rawSegmentCoordinates['2560x1440']['round'] = (1880, 39, 2080, 95)
 
     if getResolutionString(resolution) in rawSegmentCoordinates:
         segmentCoordinates = rawSegmentCoordinates[getResolutionString(resolution)]
@@ -151,7 +154,7 @@ def getGamemodePosition(gamemode):
 
 def getNextNonSellAction(steps):
     for step in steps:
-        if step['action'] != 'sell':
+        if step['action'] != 'sell' and step['action'] != 'await_round':
             return step
     return {'action': 'nop', 'cost': 0}
 
@@ -329,7 +332,9 @@ def main():
             customPrint('requested playthrough ' + str(argv[iArg + 1]) + ' not found! exiting!')
             return
         mapConfig = parseBTD6InstructionsFile(filename, gamemode=gamemode)
-        
+
+        segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
+
         mode = Mode.SINGLE_MAP
         if instructionOffset == -1:
             originalObjectives.append({'type': State.GOTO_HOME})
@@ -632,11 +637,14 @@ def main():
     gamesPlayed = 0
 
     lastIterationBalance = -1
+    lastIterationRound = -1
     lastIterationScreenshotAreas = []
     lastIterationCost = 0
     iterationBalances = []
     thisIterationAction = None
     lastIterationAction = None
+
+    fast = True
 
     validationResult = None
 
@@ -653,7 +661,7 @@ def main():
     lastState = State.UNDEFINED
 
     unknownScreenHasWaited = False
-
+        
     while True:
         screenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
 
@@ -770,6 +778,8 @@ def main():
                     playthrough = random.choice(allAvailablePlaythroughsList)
                     customPrint('random playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
                     mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
+                    
+                    segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
 
                     objectives.append({'type': State.GOTO_HOME})
                     if 'hero' in mapConfig and lastHeroSelected != mapConfig['hero']:
@@ -785,6 +795,8 @@ def main():
                         playthrough = increasedRewardsPlaythrough
                         customPrint('highest reward playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
                         mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
+
+                        segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
 
                         objectives.append({'type': State.GOTO_HOME})
                         if 'hero' in mapConfig and lastHeroSelected != mapConfig['hero']:
@@ -1087,7 +1099,13 @@ def main():
                 thisIterationAction = None
                 skippingIteration = False
 
-                currentValues['money'] = custom_ocr(images[2])
+                try:
+                    currentValues['money'] = int(custom_ocr(images[2]))
+                    currentValues['round'] = int(custom_ocr(images[3]).split('/')[0])
+                except ValueError:
+                    currentValues['money'] = -1
+                    currentValues['round'] = -1
+
                 
                 # to prevent random explosion particles that were recognized as digits from messing up the game
                 # still possible: if it habens 2 times in a row
@@ -1098,6 +1116,8 @@ def main():
                 if len(mapConfig['steps']):
                     if mapConfig['steps'][0]['action'] == 'sell':
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True)
+                    if mapConfig['steps'][0]['action'] == 'await_round':
+                        customPrint('detected round: ' + str(currentValues['round']) + ', awaiting: ' + str(mapConfig['steps'][0]['round']) + '          ', end = '', rewriteLine=True)
                     else:
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True)
 
@@ -1116,19 +1136,26 @@ def main():
                         elif lastIterationAction['action'] == 'upgrade':
                             costs[lastIterationAction['extra']['group']][lastIterationAction['extra']['type']]['upgrades'][lastIterationAction['extra']['upgrade'][0]][lastIterationAction['extra']['upgrade'][1] - 1] = int(lastIterationBalance - currentValues['money'])
 
-                if currentValues['money'] == -1:
-                    pass
+                if mode == Mode.VALIDATE_PLAYTHROUGHS and len(mapConfig['steps']) and (mapConfig['steps'][0]['action'] == 'await_round' or  mapConfig['steps'][0]['action'] == 'speed'):
+                    mapConfig['steps'].pop(0)
+                elif currentValues['money'] == -1 or currentValues['round'] == -1 and len(mapConfig['steps']) and mapConfig['steps'][0]['action'] == 'await_round':
+                    customPrint('recognition error. money: ' + str(currentValues['money']) + ', round: ' + str(currentValues['round']))
                 elif mode != Mode.VALIDATE_COSTS and lastIterationBalance - lastIterationCost > currentValues['money']:
-                    customPrint('potential recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']))
+                    customPrint('potential cash recognition error: ' + str(lastIterationBalance) + ' - ' + str(lastIterationCost) + ' -> ' + str(currentValues['money']))
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(lastIterationBalance) + '.png', lastIterationScreenshotAreas[2])
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(currentValues['money']) + '.png', images[2])
                     skippingIteration = True
-                elif len(mapConfig['steps']) and ((mapConfig['steps'][0]['action'] != 'sell' and min(currentValues['money'], lastIterationBalance - lastIterationCost) >= mapConfig['steps'][0]['cost']) 
+                elif mode != Mode.VALIDATE_COSTS and currentValues['round'] - lastIterationRound > 1 and mapConfig['steps'][0]['action'] == 'await_round':
+                    customPrint('potential round recognition error: ' + str(lastIterationRound) + ' -> ' + str(currentValues['round']))
+                    skippingIteration = True
+                elif len(mapConfig['steps']) and ((mapConfig['steps'][0]['action'] != 'sell' and mapConfig['steps'][0]['action'] != 'await_round' and min(currentValues['money'], lastIterationBalance - lastIterationCost) >= mapConfig['steps'][0]['cost']) 
                 or mapConfig['gamemode'] == 'deflation' 
-                or (mapConfig['steps'][0]['action'] == 'sell' and min(currentValues['money'], lastIterationBalance - lastIterationCost) + sumAdjacentSells(mapConfig['steps']) >= getNextNonSellAction(mapConfig['steps'])['cost'])):
+                or mapConfig['steps'][0]['action'] == 'await_round' and currentValues['round'] >= mapConfig['steps'][0]['round']
+                or mapConfig['steps'][0]['action'] == 'await_round' and mode == Mode.VALIDATE_PLAYTHROUGHS
+                or ((mapConfig['steps'][0]['action'] == 'sell') and min(currentValues['money'], lastIterationBalance - lastIterationCost) + sumAdjacentSells(mapConfig['steps']) >= getNextNonSellAction(mapConfig['steps'])['cost'])):
                     action = mapConfig['steps'].pop(0)
                     thisIterationAction = action
-                    if action['action'] != 'sell':
+                    if action['action'] != 'sell' and action['action'] != 'await_round':
                         thisIterationCost = action['cost']
                     customPrint('performing action: ' + str(action))
                     if action['action'] == 'place':
@@ -1181,6 +1208,12 @@ def main():
                         pyautogui.click()
                     elif action['action'] == 'press':
                         ahk.send(keyToAHK(action['key']))
+                    elif action['action'] == 'speed':
+                        if action['speed'] == 'fast':
+                            fast = True
+                        elif action['speed'] == 'slow':
+                            fast = False
+
                 elif mode in [Mode.VALIDATE_PLAYTHROUGHS, Mode.VALIDATE_COSTS] and len(mapConfig['steps']) == 0 and lastIterationCost == 0:
                     state = State.UNDEFINED
 
@@ -1197,9 +1230,9 @@ def main():
                             bestMatchDiff = diff
                             gameState = screenCfg[0]
 
-                    if gameState == 'game_playing_fast':
-                        pass
-                    elif gameState == 'game_playing_slow':
+                    if gameState == 'game_playing_fast' and not fast:
+                        ahk.send(keybinds['others']['play'])
+                    elif gameState == 'game_playing_slow' and fast:
                         ahk.send(keybinds['others']['play'])
                     elif gameState == 'game_paused':
                         ahk.send(keybinds['others']['play'])
@@ -1208,6 +1241,8 @@ def main():
                 lastIterationBalance = currentValues['money']
                 lastIterationCost = thisIterationCost
                 lastIterationAction = thisIterationAction
+
+                lastIterationRound = currentValues['round']
 
                 iterationBalances.append((currentValues['money'], thisIterationCost))
             else:

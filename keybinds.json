@@ -41,6 +41,7 @@
         "remove_obstacle": "right shift",
         "retarget": "tab",
         "sell": "backspace",
-        "monkey_special": "page down"
+        "monkey_special": "page down",
+        "await_round": "left shift"
     }
 }

@@ -233,6 +233,8 @@ def writeBTD6InstructionsFile(
                 + str(cost)
                 + "\n"
             )
+        elif action["action"] == "await_round":
+            fp.write("round " + action["round"] + "\n")
 
     fp.close()
 
@@ -315,7 +317,7 @@ def parseBTD6InstructionsFile(
 
     for line in configLines:
         matches = re.search(
-            "^(?P<action>place|upgrade|retarget|special|sell|remove) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
+            "^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
             line,
         )
         if not matches:
@@ -567,6 +569,26 @@ def parseBTD6InstructionsFile(
                 "cost": int(matches.group("price")),
             }
             newSteps.append(newStep)
+        elif matches.group("action") == "round":
+            try:
+                if int(matches.group("name")) < 1:
+                    print(f"Invalid round {matches.group('name')}, skipping!")
+                    continue
+            except ValueError:
+                print(f"NaN round {matches.group('name')}, skipping!")
+            newStep = {
+                "action": "await_round",
+                "round": int(matches.group("name")),
+            }
+            newSteps.append(newStep)
+        elif matches.group("action") == "speed":
+            newStep = {
+                "action": "speed",
+                "speed": matches.group("name"),
+                "cost": 0,
+            }
+            newSteps.append(newStep)
+
 
         if len(newSteps):
             newMapConfig["steps"] += newSteps

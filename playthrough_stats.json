@@ -1171,5 +1171,33 @@
         "1920x1080": {
             "validation_result": true
         }
+    },
+    "playthroughs/glacial_trail#alternate_bloons_rounds#1920x1080#noMK#noLLwMK.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/glacial_trail#impoppable#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true,
+            "easy": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    343.44653964042664
+                ]
+            }
+        },
+        "version": 43.0
+    },
+    "playthroughs/glacial_trail#chimps#1920x1080#noMK#noLL.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "own_playthroughs/monkey_meadow#hard#1920x1080.btd6": {
+        "1920x1080": {
+            "validation_result": true
+        }
     }
 }
