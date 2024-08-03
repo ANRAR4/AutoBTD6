@@ -106,8 +106,16 @@ def onRecordingEvent(e):
         print("upgrade " + selectedMonkey["name"] + " path " + e["path"])
     elif e["action"] == "await_round":
         e["round"] = input("wait for round: ")
-        config["steps"].append({"action": "await_round", "round": e["round"]})
-
+        try:
+            e["round"] = int(e["round"])
+            if e["round"] > 0 and not any((x["action"] == "await_round" and x["round"] >= e["round"]) for x in config["steps"]):
+                config["steps"].append({"action": "await_round", "round": e["round"]})
+                print("await round " + str(e["round"]))
+                return
+        except ValueError:
+            pass
+        print("invalid round! aborting entry!")
+        
 
 while True:
     print("mapname > ")

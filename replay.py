@@ -1145,7 +1145,7 @@ def main():
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(lastIterationBalance) + '.png', lastIterationScreenshotAreas[2])
                     # cv2.imwrite('tmp_images/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_' + str(currentValues['money']) + '.png', images[2])
                     skippingIteration = True
-                elif mode != Mode.VALIDATE_COSTS and currentValues['round'] - lastIterationRound > 1 and mapConfig['steps'][0]['action'] == 'await_round':
+                elif mode != Mode.VALIDATE_COSTS and (currentValues['round'] - lastIterationRound > 1 or lastIterationRound > currentValues['round']) and mapConfig['steps'][0]['action'] == 'await_round':
                     customPrint('potential round recognition error: ' + str(lastIterationRound) + ' -> ' + str(currentValues['round']))
                     skippingIteration = True
                 elif len(mapConfig['steps']) and ((mapConfig['steps'][0]['action'] != 'sell' and mapConfig['steps'][0]['action'] != 'await_round' and min(currentValues['money'], lastIterationBalance - lastIterationCost) >= mapConfig['steps'][0]['cost']) 

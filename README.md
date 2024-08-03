@@ -1882,6 +1882,12 @@ To activate/deactivate a monkeys monkey special (e. g. prioritize camo) you can,
 
 To sell a monkey you can, after selecting the monkey, simply press the corresponding key (defaults to backspace). When replaying a recording a sell occurs once your current money + the money gained from this and all adjacent sells surpasses the money required for the next non selling action (which could be 0 for retargeting/monkey special). Ideally you want to avoid selling when using monkey knowledge as the sell could result in less money than expected (due to reduced cost, which isn't factored in)(i. e. your towers are sold before you can actually afford the next tower or upgrade).
 
+### Awaiting a round
+
+To await a round you must press the left shift button.
+
+Directly after the script will prompt you to enter the round you want to await. Entering something invalid aborts the creation of the await round entry. The specified round must be greater than 0 as well as any previously awaited round!
+
 ### Monkey naming
 
 Monkeys in the playthrough file are named `<type><number of monkeys of this type placed>` e. g. `sniper0` for the first sniper monkey placed, `sniper1` for the next one etc.
@@ -1927,6 +1933,8 @@ Valid entries in a file are:
 - activate/deactivate monkey special (e. g. prioritize camo) (e. g. `special ninja0`)
 - selling a monkey (e. g. `sell ninja0`)
 - removing an obstacle (e. g. `remove obstacle at 123, 321 for 500`)
+- awaiting a round (e. g. `round 27`)
+- specifing the gamespeed (`speed fast` or `speed slow`). The speed defaults to `fast`.
 
 Additionally you can specify a discount for an upgrade/placement by appending `with <n>% discount` where n an integer between 0 and 100 (including 100 e. g. with the `primary mentoring` upgrade for villages) representing the discount in percent. This may be useful when upgrading a village to `monkey business` or `monkey commerce` and the resulting discount is critical for the playthrough to work.
 Note that discounts stack by simply being added (e. g. 2 Villages with `monkey commerce` in radius result in a discount of 10%+5%+5% = 20%). E. g. a valid entry would be `upgrade ninja0 path 2 with 20% discount`.
