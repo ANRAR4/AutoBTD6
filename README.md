@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v43.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v44.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -233,6 +233,7 @@ The `map` parameter can be one of the following:
 - `hedge`
 - `end_of_the_road`
 - `logs`
+- `luminous_cove`
 - `sulfur_springs`
 - `water_park`
 - `polyphemus`
@@ -427,6 +428,10 @@ When using the script in a mode other than `file` configurating `userconfig.json
 The most importants segments are `heros` where you can specify whether you have a specific hero unlocked (`true` = unlocked, `false` = not unlocked), `unlocked_maps` where you can specify whether you have a specific map unlocked (`true` = unlocked, `false` = not unlocked) and `medals` where you can specify whether you have a specific medal for a specific map already (`true` = medal acquired, `false` = medal not acquired). The `medals` section will be updated automatically when the script gets a new medal.
 
 The default configuration has all maps and heros unlocked.
+
+### Mermonkey
+
+Due to not having a default hotkey assigned using the mermonkey requires setting its hotkey to `o` or changing the hotkey in `keybinds.json`.
 
 **Additionally you should make sure to move or ideally disable popups that may appear in the lower right corner of the screen (e. g. from Steam) as they might interfere with the script and cause you to lose playthroughs.**
 
@@ -906,8 +911,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Luminous Cove</th>
+	<td rowspan=23>intermediate</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Sulfur springs</th>
-	<td rowspan=22>intermediate</th>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -1916,6 +1939,7 @@ Types are:
 - `spike`
 - `village`
 - `beasthandler`
+- `mermonkey`
 
 ### Stop recording
 
