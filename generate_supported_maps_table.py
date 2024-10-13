@@ -204,7 +204,7 @@ oldREADME = fp.read()
 fp.close()
 
 output = re.sub(
-    '<div id="supported_maps">.*<\/div>',
+    '<div id="supported_maps">.*<\\/div>',
     '<div id="supported_maps">\n' + output + "</div>",
     oldREADME,
     1,

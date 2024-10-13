@@ -1,0 +1,17 @@
+place sauda hero0 at 1530, 368
+place tack tack0 at 1639, 437
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+upgrade tack0 path 0
+place dart dart0 at 1802, 757
+upgrade dart0 path 0
+upgrade dart0 path 0
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade tack0 path 0

@@ -87,6 +87,7 @@
         "rake": true,
         "spice_islands": true,
         "glacial_trail": true,
+        "ancient_portal": true,
         "castle_revenge": true,
         "dark_path": true,
         "erosion": true,
@@ -881,6 +882,22 @@
             "chimps": true
         },
         "glacial_trail": {
+            "easy": true,
+            "primary_only": true,
+            "deflation": true,
+            "medium": true,
+            "military_only": true,
+            "reverse": true,
+            "apopalypse": true,
+            "hard": true,
+            "magic_monkeys_only": true,
+            "double_hp_moabs": true,
+            "half_cash": true,
+            "alternate_bloons_rounds": true,
+            "impoppable": true,
+            "chimps": true
+        },
+        "ancient_portal": {
             "easy": true,
             "primary_only": true,
             "deflation": true,
