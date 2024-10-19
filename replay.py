@@ -5,6 +5,14 @@ smallActionDelay = 0.05
 actionDelay = 0.2
 menuChangeDelay = 1
 
+def send_with_event_mode(key):
+    ahk_script = f"""
+    SetKeyDelay, 15, 30
+    SendMode Event
+    Send {key}
+    """
+    ahk.run_script(ahk_script)
+
 def getResolutionDependentData(resolution = pyautogui.size(), gamemode=''):
     nativeResolution = (2560, 1440)
     requiredComparisonImages = [{'category': 'screens', 'name': 'startmenu'}, {'category': 'screens', 'name': 'map_selection'}, {'category': 'screens', 'name': 'difficulty_selection'}, {'category': 'screens', 'name': 'gamemode_selection'}, {'category': 'screens', 'name': 'hero_selection'}, {'category': 'screens', 'name': 'ingame'}, {'category': 'screens', 'name': 'ingame_paused'}, {'category': 'screens', 'name': 'victory_summary'}, {'category': 'screens', 'name': 'victory'}, {'category': 'screens', 'name': 'defeat'}, {'category': 'screens', 'name': 'overwrite_save'}, {'category': 'screens', 'name': 'levelup'}, {'category': 'screens', 'name': 'apopalypse_hint'}, {'category': 'screens', 'name': 'round_100_insta'}, {'category': 'game_state', 'name': 'game_paused'}, {'category': 'game_state', 'name': 'game_playing_slow'}, {'category': 'game_state', 'name': 'game_playing_fast'}]
@@ -1161,7 +1169,7 @@ def main():
                     if action['action'] == 'place':
                         pyautogui.moveTo(action['pos'])
                         time.sleep(actionDelay)
-                        ahk.send(keyToAHK(action['key']))
+                        send_with_event_mode(keyToAHK(action['key']))
                         time.sleep(actionDelay)
                         pyautogui.click()
                     elif action['action'] == 'upgrade' or action['action'] == 'retarget' or action['action'] == 'special':
