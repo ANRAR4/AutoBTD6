@@ -1,5 +1,6 @@
 from helper import *
 from ocr import custom_ocr
+from loguru import logger
 
 smallActionDelay = 0.05
 actionDelay = 0.2
@@ -185,7 +186,7 @@ def setExitAfterGame():
     exitAfterGame = True
 
 def signalHandler(signum, frame):
-    customPrint('received SIGINT! exiting!')
+    logger.info('Thanks for using AutoBTD6, Bye!')
     sys.exit(0)
 
 
@@ -233,11 +234,11 @@ def main():
     # Additional flags:
     # -ns: disable stats logging
     if len(np.where(argv == '-ns')[0]):
-        customPrint('stats logging disabled!')
+        logger.info('Stats logging disabled!')
         parsedArguments.append('-ns')
         logStats = False
     else:
-        customPrint('stats logging enabled!')
+        logger.info('Stats logging enabled!')
     # -r: after finishing all objectives the program restarts with the first objective
     if len(np.where(argv == '-r')[0]):
         customPrint('repeating objective indefinitely! cancel with ctrl + c!')
@@ -246,16 +247,16 @@ def main():
 
     # -mk: after finishing all objectives the program restarts with the first objective
     if len(np.where(argv == '-mk')[0]):
-        customPrint('including playthroughs with monkey knowledge enabled and adjusting prices according to userconfig.json!')
+        logger.info('Including playthroughs with Monkey Knowledge enabled and prices adjusted based on the userconfig.json settings.')
         parsedArguments.append('-mk')
         setMonkeyKnowledgeStatus(True)
     # -nomk: after finishing all objectives the program restarts with the first objective
     elif len(np.where(argv == '-nomk')[0]):
-        customPrint('ignoring playthroughs with monkey knowledge enabled!')
+        logger.info('ignoring playthroughs with monkey knowledge enabled!')
         parsedArguments.append('-nomk')
         setMonkeyKnowledgeStatus(False)
     else:
-        customPrint('"-mk" (for monkey knowledge enabled) or "-nomk" (for monkey knowledge disabled) must be specified! exiting!')
+        logger.info('"-mk" (for monkey knowledge enabled) or "-nomk" (for monkey knowledge disabled) must be specified! exiting!')
         return
 
     # -l: list all available playthroughs(only works with specific modes)
@@ -702,7 +703,7 @@ def main():
                     screen = screenCfg[0]
 
         if screen != lastScreen:
-            customPrint("screen " + screen.name + "!")
+            logger.info(f"Screen: {screen.name}!")
 
         if screen == Screen.BTD6_UNFOCUSED:
             pass
@@ -829,7 +830,7 @@ def main():
             lastStateTransitionSuccessful = True
             objectiveFailed = False
         elif state == State.UNDEFINED:
-            customPrint("entered state management!")
+            logger.info("Entered State Management")
             if exitAfterGame:
                 state = State.EXIT
             if objectiveFailed:
@@ -853,11 +854,11 @@ def main():
         elif state == State.IDLE:
             pass
         elif state == State.EXIT:
-            customPrint("goal EXIT! exiting!")
+            logger.info("State: Exit")
             return
         elif state == State.GOTO_HOME:
             if screen == Screen.STARTMENU:
-                customPrint("goal GOTO_HOME fullfilled!")
+                logger.info("State: Home")
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
                 if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
@@ -953,7 +954,7 @@ def main():
             elif screen == Screen.UNKNOWN:
                 pass
             else:
-                customPrint("task GOTO_INGAME, but not in startmenu!")
+                logger.info("Task: GOTO_INGAME, but not in startmenu!")
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         elif state == State.SELECT_HERO:
@@ -963,13 +964,13 @@ def main():
                 pyautogui.click(imageAreas["click"]["hero_positions"][mapConfig['hero']])
                 time.sleep(menuChangeDelay)
                 pyautogui.click(imageAreas["click"]["screen_hero_selection_select_hero"])
-                customPrint("goal SELECT_HERO " + mapConfig['hero'] + " fullfilled!")
+                logger.info(f"State: SELECT_HERO {mapConfig['hero']} fulfilled!")
                 lastHeroSelected = mapConfig['hero']
                 state = State.UNDEFINED
             elif screen == Screen.UNKNOWN:
                 pass
             else:
-                customPrint("task SELECT_HERO, but not in startmenu!")
+                logger.info("Task: SELECT_HERO, but not in startmenu!")
                 state = State.GOTO_HOME
                 lastStateTransitionSuccessful = False
         elif state == State.FIND_HARDEST_INCREASED_REWARDS_MAP:
@@ -1125,9 +1126,9 @@ def main():
                     if mapConfig['steps'][0]['action'] == 'sell':
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True)
                     if mapConfig['steps'][0]['action'] == 'await_round':
-                        customPrint('detected round: ' + str(currentValues['round']) + ', awaiting: ' + str(mapConfig['steps'][0]['round']) + '          ', end = '', rewriteLine=True)
+                        logger.info(f"detected round: {currentValues['round']}, awaiting: {mapConfig['steps'][0]['round']}")
                     else:
-                        customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(mapConfig['steps'][0]['cost']) + '          ', end = '', rewriteLine=True)
+                        logger.info(f"detected money: {currentValues['money']}, required: {mapConfig['steps'][0]['cost']}")
 
                 if mode == Mode.VALIDATE_PLAYTHROUGHS:
                     if lastIterationBalance != -1 and currentValues['money'] != lastIterationBalance - lastIterationCost:
@@ -1262,7 +1263,7 @@ def main():
             lastStateTransitionSuccessful = False
 
         if state != lastState:
-            customPrint("new state " + state.name + "!")
+            logger.info(f"State: {state.name}")
 
         lastScreen = screen
         lastState = state
