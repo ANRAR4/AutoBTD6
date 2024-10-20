@@ -2,9 +2,22 @@ from helper import *
 from ocr import custom_ocr
 from loguru import logger
 
+# The logging level for the bot.
+# Use "DEBUG" for detailed debugging information, "INFO" for general information,
+# "WARNING" for warning messages, "ERROR" for error messages, and "CRITICAL" for critical issues.
+
+LOG_LEVEL = "INFO"
+
+# Examples:
+# logger.info("Hello World from INFO")
+# logger.debug("Hello World from DEBUG")
+
 smallActionDelay = 0.05
 actionDelay = 0.2
 menuChangeDelay = 1
+
+logger.remove()
+logger.add(sys.stdout, level=LOG_LEVEL, colorize=True)
 
 def send_with_event_mode(key):
     ahk_script = f"""
@@ -1126,9 +1139,9 @@ def main():
                     if mapConfig['steps'][0]['action'] == 'sell':
                         customPrint('detected money: ' + str(currentValues['money']) + ', required: ' + str(getNextNonSellAction(mapConfig['steps'])['cost'] - sumAdjacentSells(mapConfig['steps'])) + ' (' + str(getNextNonSellAction(mapConfig['steps'])['cost']) + ' - ' + str(sumAdjacentSells(mapConfig['steps'])) + ')' + '          ', end = '', rewriteLine=True)
                     if mapConfig['steps'][0]['action'] == 'await_round':
-                        logger.info(f"detected round: {currentValues['round']}, awaiting: {mapConfig['steps'][0]['round']}")
+                        logger.debug(f"detected round: {currentValues['round']}, awaiting: {mapConfig['steps'][0]['round']}")
                     else:
-                        logger.info(f"detected money: {currentValues['money']}, required: {mapConfig['steps'][0]['cost']}")
+                        logger.debug(f"detected money: {currentValues['money']}, required: {mapConfig['steps'][0]['cost']}")
 
                 if mode == Mode.VALIDATE_PLAYTHROUGHS:
                     if lastIterationBalance != -1 and currentValues['money'] != lastIterationBalance - lastIterationCost:
