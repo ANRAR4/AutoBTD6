@@ -895,19 +895,19 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Logs</th>
-		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Flogs%23easy%232560x1440%23noMK%23buccaneerOnly%23noLL.btd6"title="required monkeys: buccaneer(0-4-2)">supported, -, buccaneer only, military monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
+		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Flogs%23easy%232560x1440%23noMK%23buccaneerOnly%23noLL.btd6"title="required monkeys: buccaneer(0-4-2)">supported, -, buccaneer only, military monkeys only, native: 2560x1440, tested for: 2560x1440, 1920x1080</a><br><br><a href="playthroughs%2Flogs%23impoppable%232560x1440%23noMK%23noLL.btd6"title="required monkeys: druid(2-5-0), village(5-2-0), dart(0-2-5), alchemist(4-0-2), tack(5-0-2)"><i>supported, Quincy, native: 2560x1440</i></a></td>
 		<td></td>
 		<td></td>
-		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Flogs%23impoppable%232560x1440%23noMK%23noLL.btd6"title="required monkeys: druid(2-5-0), village(5-2-0), dart(0-2-5), alchemist(4-0-2), tack(5-0-2)"><i>supported, Quincy, native: 2560x1440</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
+		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)"><i>supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a><br><br><a href="playthroughs%2Flogs%23impoppable%232560x1440%23noMK%23noLL.btd6"title="required monkeys: druid(2-5-0), village(5-2-0), dart(0-2-5), alchemist(4-0-2), tack(5-0-2)"><i>supported, Quincy, native: 2560x1440</i></a></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Flogs%23impoppable%232560x1440%23noMK%23noLL.btd6"title="required monkeys: druid(2-5-0), village(5-2-0), dart(0-2-5), alchemist(4-0-2), tack(5-0-2)">supported, Quincy, native: 2560x1440</a></td>
 		<td><a href="playthroughs%2Flogs%23chimps%232560x1440%23noMK%23noLL.btd6"title="required monkeys: buccaneer(5-2-0), ninja(0-0-1), heli(4-0-3), ice(2-0-5), glue(5-0-2)">supported, Etienne, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
 		<td></td>
 	</tr>
