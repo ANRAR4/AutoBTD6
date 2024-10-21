@@ -854,22 +854,22 @@ def main():
             elif screen == Screen.UNKNOWN:
                 if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
                     unknownScreenHasWaited = False
-                    ahk.send('{Esc}')
+                    sendKey('{Esc}')
                 else:
                     unknownScreenHasWaited = True
                     time.sleep(2)
             elif screen == Screen.INGAME:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.INGAME_PAUSED:
                 pyautogui.click(imageAreas["click"]["screen_ingame_paused_button_home"])
             elif screen == Screen.HERO_SELECTION:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.GAMEMODE_SELECTION:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.DIFFICULTY_SELECTION:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.MAP_SELECTION:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.DEFEAT:
                 result = cv2.matchTemplate(screenshot, locateImages['button_home'], cv2.TM_SQDIFF_NORMED)
                 pyautogui.click(cv2.minMaxLoc(result)[2])
@@ -878,7 +878,7 @@ def main():
             elif screen == Screen.VICTORY:
                 pyautogui.click(imageAreas["click"]["screen_victory_button_home"])
             elif screen == Screen.OVERWRITE_SAVE:
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.LEVELUP:
                 pyautogui.click(100, 100)
                 time.sleep(menuChangeDelay)
@@ -901,7 +901,7 @@ def main():
                         break
                 pyautogui.click(round(resolution[0] / 2), round(resolution[1] / 2))
                 time.sleep(menuChangeDelay)
-                ahk.send('{Esc}')
+                sendKey('{Esc}')
             elif screen == Screen.APOPALYPSE_HINT:
                 pyautogui.click(imageAreas["click"]["gamemode_apopalypse_message_confirmation"])
         elif state == State.GOTO_INGAME:
@@ -1039,11 +1039,11 @@ def main():
                     lastPlaythroughStats['time'].append(('stop', time.time()))
                 time.sleep(2)
                 if isBTD6Window(ahk.get_active_window().title):
-                    ahk.send('{Esc}')
+                    sendKey('{Esc}')
             elif screen == Screen.UNKNOWN:
                 if lastScreen == Screen.UNKNOWN and unknownScreenHasWaited:
                     unknownScreenHasWaited = False
-                    ahk.send('{Esc}')
+                    sendKey('{Esc}')
                 else:
                     unknownScreenHasWaited = True
                     time.sleep(2)
@@ -1161,7 +1161,7 @@ def main():
                     if action['action'] == 'place':
                         pyautogui.moveTo(action['pos'])
                         time.sleep(actionDelay)
-                        ahk.send(keyToAHK(action['key']))
+                        sendKey(action['key'])
                         time.sleep(actionDelay)
                         pyautogui.click()
                     elif action['action'] == 'upgrade' or action['action'] == 'retarget' or action['action'] == 'special':
@@ -1179,7 +1179,7 @@ def main():
                                 pyautogui.click()
                                 time.sleep(actionDelay)
                             else:
-                                ahk.send(keyToAHK(action['key']))
+                                sendKey(action['key'])
                             if 'to' in action and mapConfig['monkeys'][action['name']]['type'] == 'mortar':
                                 pyautogui.click()
                             time.sleep(smallActionDelay)
@@ -1190,12 +1190,12 @@ def main():
                             else:
                                 action = None
                         action = actionTmp
-                        ahk.send('{Esc}')
+                        sendKey('{Esc}')
                     elif action['action'] == 'sell':
                         pyautogui.moveTo(action['pos'])
                         pyautogui.click()
                         time.sleep(actionDelay)
-                        ahk.send(keyToAHK(action['key']))
+                        sendKey(action['key'])
                     elif action['action'] == 'remove':
                         customPrint('removing obstacle at ' + tupleToStr(action['pos']) + ' for ' + str(action['cost']))
                         pyautogui.moveTo(action['pos'])
@@ -1207,7 +1207,7 @@ def main():
                         pyautogui.moveTo(action['pos'])
                         pyautogui.click()
                     elif action['action'] == 'press':
-                        ahk.send(keyToAHK(action['key']))
+                        sendKey(action['key'])
                     elif action['action'] == 'speed':
                         if action['speed'] == 'fast':
                             fast = True
@@ -1231,11 +1231,11 @@ def main():
                             gameState = screenCfg[0]
 
                     if gameState == 'game_playing_fast' and not fast:
-                        ahk.send(keybinds['others']['play'])
+                        sendKey(keybinds['others']['play'])
                     elif gameState == 'game_playing_slow' and fast:
-                        ahk.send(keybinds['others']['play'])
+                        sendKey(keybinds['others']['play'])
                     elif gameState == 'game_paused':
-                        ahk.send(keybinds['others']['play'])
+                        sendKey(keybinds['others']['play'])
                     
                 lastIterationScreenshotAreas = images
                 lastIterationBalance = currentValues['money']
