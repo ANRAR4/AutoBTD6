@@ -1,0 +1,51 @@
+place ninja ninja0 at 274, 1035
+upgrade ninja0 path 0
+place druid druid0 at 373, 1038
+upgrade druid0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+round 24
+place sub sub0 at 278, 665
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade ninja0 path 0
+place sniper sniper0 at 789, 365
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 0
+upgrade sniper0 path 2
+place heli heli0 at 791, 240
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place dart dart0 at 392, 435
+upgrade dart0 path 1
+upgrade dart0 path 1
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+place alchemist alchemist0 at 577, 366
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1
+upgrade alchemist0 path 1
+upgrade sniper0 path 2
+upgrade heli0 path 2
+place tack tack0 at 667, 612
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
