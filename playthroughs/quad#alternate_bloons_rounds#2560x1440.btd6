@@ -1,0 +1,89 @@
+place dart dart0 at 536, 749
+place sub sub0 at 1317, 762
+upgrade sub0 path 0
+place benjamin hero0 at 1042, 340
+place sniper sniper0 at 1039, 1145
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 2
+upgrade dart0 path 2
+upgrade dart0 path 2
+place dart dart1 at 1711, 756
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+place alchemist alchemist0 at 1409, 777
+retarget alchemist0
+retarget alchemist0
+retarget alchemist0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade sniper0 path 1
+upgrade sub0 path 2
+upgrade alchemist0 path 0
+upgrade alchemist0 path 2
+place village village0 at 1372, 656
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 1
+upgrade village0 path 1
+place sub sub1 at 1139, 572
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub1 path 2
+place farm farm0 at 1629, 1124
+upgrade farm0 path 2
+upgrade farm0 path 2
+upgrade farm0 path 2
+upgrade farm0 path 1
+upgrade farm0 path 1
+place sub sub2 at 1231, 646
+upgrade sub2 path 0
+upgrade sub2 path 0
+upgrade sub2 path 2
+upgrade sub2 path 2
+upgrade sub2 path 2
+upgrade sub2 path 2
+upgrade village0 path 1
+place boomerang boomerang0 at 1062, 515
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 0
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+place boomerang boomerang1 at 1491, 821
+upgrade boomerang1 path 0
+upgrade boomerang1 path 0
+upgrade boomerang1 path 0
+upgrade boomerang1 path 0
+upgrade boomerang1 path 2
+upgrade boomerang1 path 2
+place alchemist alchemist1 at 1159, 492
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 2
+place buccaneer buccaneer0 at 1132, 728
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+place sub sub3 at 1217, 788
+upgrade sub3 path 0
+upgrade sub3 path 0
+upgrade sub3 path 2
+upgrade sub3 path 2
+upgrade sub3 path 2
+upgrade sub3 path 2
+upgrade sub3 path 2
