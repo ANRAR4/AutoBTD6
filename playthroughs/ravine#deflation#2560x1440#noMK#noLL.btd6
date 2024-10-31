@@ -1,4 +1,4 @@
-place captain_churchill hero0 at 668, 1047
+place sauda hero0 at 994, 1093
 place ace ace0 at 416, 1000
 upgrade ace0 path 2
 upgrade ace0 path 2
@@ -22,6 +22,7 @@ upgrade alchemist1 path 0
 upgrade alchemist1 path 0
 upgrade alchemist1 path 0
 upgrade alchemist1 path 0
+upgrade alchemist1 path 2
 place village village1 at 450, 1142
 upgrade village1 path 1
 upgrade village1 path 1
