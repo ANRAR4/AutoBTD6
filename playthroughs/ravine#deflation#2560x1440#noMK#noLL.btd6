@@ -1,7 +1,4 @@
-place village village0 at 464, 1135
-upgrade village0 path 2
-upgrade village0 path 2
-place captain_churchill hero0 at 668, 1047
+place sauda hero0 at 994, 1093
 place ace ace0 at 416, 1000
 upgrade ace0 path 2
 upgrade ace0 path 2
@@ -11,12 +8,6 @@ upgrade ace0 path 0
 retarget ace0
 retarget ace0
 retarget ace0
-place alchemist alchemist0 at 267, 1103
-upgrade alchemist0 path 0
-upgrade alchemist0 path 0
-upgrade alchemist0 path 0
-upgrade alchemist0 path 0
-upgrade alchemist0 path 2
 place ace ace1 at 411, 1270
 upgrade ace1 path 2
 upgrade ace1 path 2
@@ -29,10 +20,11 @@ retarget ace1
 place alchemist alchemist1 at 258, 1207
 upgrade alchemist1 path 0
 upgrade alchemist1 path 0
-sell village0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 0
+upgrade alchemist1 path 2
 place village village1 at 450, 1142
 upgrade village1 path 1
 upgrade village1 path 1
 upgrade village1 path 0
 upgrade village1 path 0
-upgrade alchemist1 path 2
