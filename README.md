@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v45.0**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v46.0**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -256,6 +256,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `last_resort`
 - `ancient_portal`
 - `castle_revenge`
 - `dark_path`
@@ -1327,8 +1328,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Last Resort</th>
+	<td rowspan=19>advanced</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Ancient Portal</th>
-	<td rowspan=18>advanced</th>
 		<td><a href="playthroughs%2Fancient_portal%23hard%232560x1440%23noLLwMK.btd6"title="required monkeys: tack(5-0-2), dart(2-0-5)"><i>with MK, Sauda, primary monkeys only, (*), native: 2560x1440</i></a></td>
 		<td><a href="playthroughs%2Fancient_portal%23hard%232560x1440%23noLLwMK.btd6"title="required monkeys: tack(5-0-2), dart(2-0-5)"><i>with MK, Sauda, primary monkeys only, (*), native: 2560x1440</i></a></td>
 		<td></td>
