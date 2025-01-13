@@ -61,7 +61,7 @@ upgrade spike0 path 1
 place village village2 at 2057, 604
 upgrade village2 path 0
 upgrade village2 path 0
-place alchemist alchemist2 at 2150, 719
+place alchemist alchemist2 at 2140, 719
 upgrade alchemist2 path 0
 upgrade alchemist2 path 0
 upgrade alchemist2 path 0
