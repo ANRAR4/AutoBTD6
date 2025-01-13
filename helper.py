@@ -316,10 +316,29 @@ def parseBTD6InstructionsFile(
         newMapConfig["extrainstructions"] = 1
 
     for line in configLines:
+        line_stripped = line.strip()
+        
+        # 1) Handle "start" separately
+        if line_stripped == "start":
+            newMapConfig["steps"].append({
+                "action": "start",
+                "cost": 0
+            })
+            
+            # "continue" means skip the rest of this loop iteration
+            # and move on to the next line
+            continue
+    
+        # 2) All non-"start" lines go here
         matches = re.search(
-            "^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
-            line,
+            "^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) "
+            r"?(?P<type>[a-z_]+)? (?P<name>\w+)"
+            r"(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?"
+            r"(?: for (?P<price>\d+|\?\?\?))?"
+            r"(?: with (?P<discount>\d{1,2}|100)% discount)?$",
+            line_stripped,
         )
+
         if not matches:
             continue
 
@@ -589,9 +608,12 @@ def parseBTD6InstructionsFile(
             }
             newSteps.append(newStep)
 
-
         if len(newSteps):
             newMapConfig["steps"] += newSteps
+
+    foundStart = any(step["action"] == "start" for step in newMapConfig["steps"])
+    if not foundStart:
+        newMapConfig["steps"].insert(0, {"action": "start", "cost": 0})
 
     newMapConfig["monkeys"] = monkeys
     return newMapConfig
@@ -599,19 +621,26 @@ def parseBTD6InstructionsFile(
 
 # reads a playthrough file, converts it and saves the converted file under the same name in own_playthroughs(except changed resolution)
 def convertBTD6InstructionsFile(filename, targetResolution):
+    print(f"DEBUG: Filename received: {filename}")
     fileConfig = parseBTD6InstructionFileName(filename)
     if not fileConfig:
+        print("DEBUG: Filename could not be parsed.")
         return False
     if not exists(filename):
+        print("DEBUG: File not found at this location!")
         return False
 
+    print(f"DEBUG: File is being converted to {targetResolution}")
     newFileName = getBTD6InstructionsFileNameByConfig(
         fileConfig, resolution=getResolutionString(targetResolution)
     )
+    print(f"DEBUG: New file is saved as: {newFileName}")
 
     if exists(newFileName):
+        print("DEBUG: New file already exists.")
         return False
 
+    # Open en converteer
     fp = open(filename, "r")
     rawInputFile = fp.read()
     fp.close()
@@ -627,6 +656,7 @@ def convertBTD6InstructionsFile(filename, targetResolution):
     fp.close()
 
     return True
+
 
 
 def getMonkeyUpgradeRequirements(monkeys):

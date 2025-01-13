@@ -207,6 +207,7 @@ def main():
     listAvailablePlaythroughs = False
     handlePlaythroughValidation = ValidatedPlaythroughs.EXCLUDE_NON_VALIDATED
     usesAllAvailablePlaythroughsList = False
+    hasSeenStartCommand = False
 
     collectionEvent = None
     valueUnit = ''
@@ -1213,6 +1214,11 @@ def main():
                             fast = True
                         elif action['speed'] == 'slow':
                             fast = False
+                    elif action['action'] == 'start':
+                        customPrint("Got 'start' action. Will now allow unpausing!")
+                        hasSeenStartCommand = True
+                        sendKey(keybinds['others']['play'])  # Or space, or whatever starts round
+                        customPrint("Round started due to 'start' instruction!")
 
                 elif mode in [Mode.VALIDATE_PLAYTHROUGHS, Mode.VALIDATE_COSTS] and len(mapConfig['steps']) == 0 and lastIterationCost == 0:
                     state = State.UNDEFINED
@@ -1235,7 +1241,8 @@ def main():
                     elif gameState == 'game_playing_slow' and fast:
                         sendKey(keybinds['others']['play'])
                     elif gameState == 'game_paused':
-                        sendKey(keybinds['others']['play'])
+                        if hasSeenStartCommand:
+                            sendKey(keybinds['others']['play'])
                     
                 lastIterationScreenshotAreas = images
                 lastIterationBalance = currentValues['money']
