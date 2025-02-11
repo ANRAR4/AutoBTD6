@@ -119,7 +119,7 @@ def getResolutionString(resolution=pyautogui.size()):
 
 def parseBTD6InstructionFileName(filename):
     matches = re.search(
-        "^(?:(?:own_|unvalidated_|unsuccessful_)?playthroughs\/)?(?P<map>\w+)#(?P<gamemode>\w+)#(?P<resolution>(?P<resolution_x>\d+)x(?P<resolution_y>\d+))(?:#(?P<comment>.+))?\.btd6$",
+        r"^(?:(?:own_|unvalidated_|unsuccessful_)?playthroughs\/)?(?P<map>\w+)#(?P<gamemode>\w+)#(?P<resolution>(?P<resolution_x>\d+)x(?P<resolution_y>\d+))(?:#(?P<comment>.+))?\.btd6$",
         filename,
     )
     if not matches:
@@ -129,7 +129,7 @@ def parseBTD6InstructionFileName(filename):
     matches["noLL"] = False
     matches["noLLwMK"] = False
     for m in re.finditer(
-        "(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?(?P<gB>gB(?:#|$))?",
+        r"(?P<noMK>noMK(?:#|$))?(?:(?P<singleType>[a-z]+)Only(?:#|$))?(?P<noLL>noLL(?:#|$))?(?P<noLLwMK>noLLwMK(?:#|$))?(?P<gB>gB(?:#|$))?",
         matches["comment"] if "comment" in matches and matches["comment"] else "",
     ):
         if m.group("noMK"):
@@ -317,7 +317,7 @@ def parseBTD6InstructionsFile(
 
     for line in configLines:
         matches = re.search(
-            "^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
+            r"^(?P<action>place|upgrade|retarget|special|sell|remove|round|speed) ?(?P<type>[a-z_]+)? (?P<name>\w+)(?: (?:(?:at|to) (?P<x>\d+), (?P<y>\d+))?(?:path (?P<path>[0-2]))?)?(?: for (?P<price>\d+|\?\?\?))?(?: with (?P<discount>\d{1,2}|100)% discount)?$",
             line,
         )
         if not matches:
@@ -579,6 +579,7 @@ def parseBTD6InstructionsFile(
             newStep = {
                 "action": "await_round",
                 "round": int(matches.group("name")),
+                "cost": 0,
             }
             newSteps.append(newStep)
         elif matches.group("action") == "speed":
@@ -1348,6 +1349,19 @@ def upgradeRequiresConfirmation(monkey, path):
 
 def isBTD6Window(name):
     return name in ["BloonsTD6", "BloonsTD6-Epic"]
+
+def getIngameOcrSegments(mapConfig):
+    segmentCoordinates = copy.deepcopy(imageAreas["ocr_segments"])
+    
+    if mapConfig["gamemode"] in ["impoppable", "chimps"]:
+        segmentCoordinates["round"] = segmentCoordinates["round_ge100_rounds"]
+    
+    return {
+        "lives": segmentCoordinates["lives"],
+        "mana_lives": segmentCoordinates["mana_lives"],
+        "money": segmentCoordinates["money"],
+        "round": segmentCoordinates["round"],
+    }
 
 
 monkeyKnowledgeEnabled = False

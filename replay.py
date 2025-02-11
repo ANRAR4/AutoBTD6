@@ -6,36 +6,10 @@ actionDelay = 0.2
 menuChangeDelay = 1
 
 def getResolutionDependentData(resolution = pyautogui.size(), gamemode=''):
-    nativeResolution = (2560, 1440)
     requiredComparisonImages = [{'category': 'screens', 'name': 'startmenu'}, {'category': 'screens', 'name': 'map_selection'}, {'category': 'screens', 'name': 'difficulty_selection'}, {'category': 'screens', 'name': 'gamemode_selection'}, {'category': 'screens', 'name': 'hero_selection'}, {'category': 'screens', 'name': 'ingame'}, {'category': 'screens', 'name': 'ingame_paused'}, {'category': 'screens', 'name': 'victory_summary'}, {'category': 'screens', 'name': 'victory'}, {'category': 'screens', 'name': 'defeat'}, {'category': 'screens', 'name': 'overwrite_save'}, {'category': 'screens', 'name': 'levelup'}, {'category': 'screens', 'name': 'apopalypse_hint'}, {'category': 'screens', 'name': 'round_100_insta'}, {'category': 'game_state', 'name': 'game_paused'}, {'category': 'game_state', 'name': 'game_playing_slow'}, {'category': 'game_state', 'name': 'game_playing_fast'}]
     optionalComparisonImages = [{'category': 'screens', 'name': 'collection_claim_chest', 'for': [Mode.CHASE_REWARDS.name]}]
     requiredLocateImages = [{'name': 'remove_obstacle_confirm_button'}, {'name': 'button_home'}]
     optionalLocateImages = [{'name': 'unknown_insta', 'for': [Mode.CHASE_REWARDS.name]}, {'name': 'unknown_insta_mask', 'for': [Mode.CHASE_REWARDS.name]}]
-
-    rawSegmentCoordinates = {
-        "2560x1440": {
-            # pre v35.0
-            # 'lives': (158, 32, 330, 84),
-            # 'mana_lives': (60, 74, 173, 142),
-            # 'money': (459, 31, 959, 80),
-            # 'round': (1847, 39, 2084, 95),
-
-            'lives': (187, 32, 350, 84),
-            'mana_lives': (89, 78, 185, 132),
-            'money': (486, 25, 959, 90),
-            'round': (1912, 39, 2080, 95),
-        }
-    }
-
-    if gamemode == 'impoppable' or gamemode == 'chimps':
-        rawSegmentCoordinates['2560x1440']['round'] = (1880, 39, 2080, 95)
-
-    if getResolutionString(resolution) in rawSegmentCoordinates:
-        segmentCoordinates = rawSegmentCoordinates[getResolutionString(resolution)]
-    else:
-        segmentCoordinates = {}
-        for key in rawSegmentCoordinates[getResolutionString(nativeResolution)]:
-            segmentCoordinates[key] = [round(x * resolution[0] / nativeResolution[0]) if i % 2 == 0 else round(x * resolution[1] / nativeResolution[1]) for i, x in enumerate(rawSegmentCoordinates[getResolutionString(nativeResolution)][key])]
 
     imagesDir = 'images/' + getResolutionString(resolution) + '/'
 
@@ -102,7 +76,7 @@ def getResolutionDependentData(resolution = pyautogui.size(), gamemode=''):
         for filename in os.listdir(imagesDir + 'collection_events'):
             locateImages['collection'][filename.replace('.png', '')] = cv2.imread(imagesDir + 'collection_events/' + filename)
     
-    return {'comparisonImages': comparisonImages, 'locateImages': locateImages, 'segmentCoordinates': segmentCoordinates, 'supportedModes': supportedModes, 'resolution': resolution}
+    return {'comparisonImages': comparisonImages, 'locateImages': locateImages, 'supportedModes': supportedModes, 'resolution': resolution}
 
 class State(Enum):
     UNDEFINED = 0
@@ -160,7 +134,7 @@ def getNextNonSellAction(steps):
 
 def getNextCostingAction(steps):
     for step in steps:
-        if step['cost'] > 0:
+        if step.get('cost', 0) > 0:
             return step
     return {'action': 'nop', 'cost': 0}
 
@@ -169,7 +143,7 @@ def sumAdjacentSells(steps):
     for step in steps:
         if step['action'] != 'sell':
             return gain
-        gain += -step['cost']
+        gain += -step.get('cost', 0)
     return gain
 
 exitAfterGame = False
@@ -198,7 +172,6 @@ def main():
 
     comparisonImages = data['comparisonImages']
     locateImages = data['locateImages']
-    segmentCoordinates = data['segmentCoordinates']
     supportedModes = data['supportedModes']
     resolution = data['resolution']
 
@@ -338,8 +311,6 @@ def main():
             customPrint('requested playthrough ' + str(argv[iArg + 1]) + ' not found! exiting!')
             return
         mapConfig = parseBTD6InstructionsFile(filename, gamemode=gamemode)
-
-        segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
 
         mode = Mode.SINGLE_MAP
         if instructionOffset == -1:
@@ -667,7 +638,9 @@ def main():
     lastState = State.UNDEFINED
 
     unknownScreenHasWaited = False
-        
+
+    segmentCoordinates = None
+    
     while True:
         screenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
 
@@ -785,8 +758,6 @@ def main():
                     customPrint('random playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
                     mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
                     
-                    segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
-
                     objectives.append({'type': State.GOTO_HOME})
                     if 'hero' in mapConfig and lastHeroSelected != mapConfig['hero']:
                         objectives.append({'type': State.SELECT_HERO, 'mapConfig': mapConfig})
@@ -801,8 +772,6 @@ def main():
                         playthrough = increasedRewardsPlaythrough
                         customPrint('highest reward playthrough chosen: ' + playthrough['fileConfig']['map'] + ' on ' + playthrough['gamemode'] + ' (' + playthrough['filename'] + ')')
                         mapConfig = parseBTD6InstructionsFile(playthrough['filename'], gamemode=playthrough['gamemode'])
-
-                        segmentCoordinates = getResolutionDependentData(resolution, mapConfig['gamemode'])['segmentCoordinates']
 
                         objectives.append({'type': State.GOTO_HOME})
                         if 'hero' in mapConfig and lastHeroSelected != mapConfig['hero']:
@@ -941,6 +910,7 @@ def main():
             elif screen == Screen.INGAME:
                 customPrint("goal GOTO_INGAME fullfilled!")
                 customPrint("game: " + mapConfig['map'] + ' - ' + mapConfig['difficulty'])
+                segmentCoordinates = getIngameOcrSegments(mapConfig)
                 iterationBalances = []
                 if logStats:
                     lastPlaythroughStats = {'gamemode': mapConfig['gamemode'], 'time': [], 'result': PlaythroughResult.UNDEFINED}
