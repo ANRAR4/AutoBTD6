@@ -158,6 +158,12 @@ def getNextNonSellAction(steps):
             return step
     return {'action': 'nop', 'cost': 0}
 
+def getNextCostingAction(steps):
+    for step in steps:
+        if step['cost'] > 0:
+            return step
+    return {'action': 'nop', 'cost': 0}
+
 def sumAdjacentSells(steps):
     gain = 0
     for step in steps:
@@ -1217,7 +1223,7 @@ def main():
                 elif mode in [Mode.VALIDATE_PLAYTHROUGHS, Mode.VALIDATE_COSTS] and len(mapConfig['steps']) == 0 and lastIterationCost == 0:
                     state = State.UNDEFINED
 
-                if (not doAllStepsBeforeStart and mapConfig['gamemode'] != 'deflation' and not skippingIteration) or len(mapConfig['steps']) == 0:
+                if (not doAllStepsBeforeStart and mapConfig['gamemode'] != 'deflation' and not skippingIteration and getNextCostingAction(mapConfig['steps'])['cost'] > min(currentValues['money'], lastIterationBalance - lastIterationCost)) or len(mapConfig['steps']) == 0:
                     bestMatchDiff = None
                     gameState = None
                     for screenCfg in [
