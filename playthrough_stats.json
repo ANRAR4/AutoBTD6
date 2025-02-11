@@ -71,13 +71,13 @@
         }
     },
     "playthroughs/dark_castle#chimps#2560x1440#noMK#noLL.btd6": {
-        "version": 33.0,
+        "version": 47.0,
         "2560x1440": {
             "chimps": {
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    1307.8185033471243
+                    1312.898179157121
                 ]
             },
             "validation_result": true
@@ -1050,14 +1050,14 @@
         }
     },
     "playthroughs/ravine#deflation#2560x1440#noMK#noLL.btd6": {
-        "version": 32.0,
+        "version": 47.0,
         "2560x1440": {
             "validation_result": true,
             "deflation": {
                 "attempts": 1,
                 "wins": 1,
                 "win_times": [
-                    326.05894684791565
+                    322.82375276088715
                 ]
             }
         },

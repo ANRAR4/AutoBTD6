@@ -2,7 +2,7 @@
     "2560x1440": {
         "compare": {
             "screens": {
-                "startmenu": [2082, 1238, 2102, 1238],
+                "startmenu": [2151, 1251, 2170, 1253],
                 "map_selection": [732, 1310, 744, 1310],
                 "difficulty_selection": [844, 609, 869, 609],
                 "gamemode_selection": [803, 835, 859, 835],
@@ -80,8 +80,8 @@
                 "geraldo": [550, 1340],
                 "corvus": [750, 1340]
             },
-            "screen_startmenu_button_hero_selection": [800, 1280],
-            "screen_startmenu_button_play": [1110, 1250],
+            "screen_startmenu_button_hero_selection": [700, 1290],
+            "screen_startmenu_button_play": [1280, 1260],
             "screen_ingame_paused_button_home": [1120, 1120],
             "screen_defeat_button_home": [755, 1100],
             "screen_defeat_button_home_chimps": [930, 1100],
