@@ -6,3 +6,5 @@ pyvenv.cfg
 
 own_playthroughs
 screenshots
+
+*_backup.*

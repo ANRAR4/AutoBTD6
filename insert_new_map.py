@@ -46,3 +46,38 @@ fp.write(output)
 fp.close()
 
 print('"maps.json" successfully updated')
+
+newUserconfig = copy.deepcopy(userConfig)
+
+if not newMapKey in newUserconfig['unlocked_maps']:
+    pos = list(newUserconfig['unlocked_maps'].keys()).index(nextMapKey)
+    items = list(newUserconfig['unlocked_maps'].items())
+    items.insert(pos, (newMapKey, True))
+    newUserconfig['unlocked_maps'] = dict(items)
+
+if not newMapKey in newUserconfig['medals']:
+    pos = list(newUserconfig['medals'].keys()).index(nextMapKey)
+    items = list(newUserconfig['medals'].items())
+    items.insert(pos, (newMapKey, {
+                "easy": True,
+                "primary_only": True,
+                "deflation": True,
+                "medium": True,
+                "military_only": True,
+                "reverse": True,
+                "apopalypse": True,
+                "hard": True,
+                "magic_monkeys_only": True,
+                "double_hp_moabs": True,
+                "half_cash": True,
+                "alternate_bloons_rounds": True,
+                "impoppable": True,
+                "chimps": True
+    }))
+    newUserconfig['medals'] = dict(items)
+
+fp = open("userconfig.json", "w")
+fp.write(json.dumps(newUserconfig, indent=4))
+fp.close()
+
+print('"userconfig.json" successfully updated')

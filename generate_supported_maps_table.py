@@ -180,7 +180,7 @@ for category in mapsByCategory:
                     '<a href="'
                     + quote_plus(playthrough["filename"])
                     + '"'
-                    + ('title="required monkeys: ' + title + '"' if len(title) else "")
+                    + (' title="required monkeys: ' + title + '"' if len(title) else "")
                     + ">"
                     + (
                         "<i>" + description + "</i>"
@@ -204,8 +204,8 @@ oldREADME = fp.read()
 fp.close()
 
 output = re.sub(
-    '<div id="supported_maps">.*<\\/div>',
-    '<div id="supported_maps">\n' + output + "</div>",
+    '<div id="supported_maps">.*?<\\/div>',
+    '<div id="supported_maps">\n' + output + '</div>',
     oldREADME,
     1,
     re.DOTALL,
