@@ -9,7 +9,7 @@ Additionally the scripts allow you to record your own playthroughs to a textual 
 
 The scripts have only been tested on Windows.
 
-The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v<span id="version">48.0</span>**.
+The config files (list of maps, monkey upgrade costs) are currently set up for **Bloons TD6 v<span id="version">49.0</span>**.
 <br>
 If Ninja Kiwi releases a new major version of Bloons TD6 and the repository is outdated you can easily update it yourself.
 <br>
@@ -259,6 +259,7 @@ The `map` parameter can be one of the following:
 - `chutes`
 - `rake`
 - `spice_islands`
+- `sunset_gulch`
 - `enchanted_glade`
 - `last_resort`
 - `ancient_portal`
@@ -440,6 +441,10 @@ The default configuration has all maps and heros unlocked.
 
 Due to not having a default hotkey assigned using the mermonkey requires setting its hotkey to `o` or changing the hotkey in `keybinds.json`.
 
+### Desperado
+
+Due to not having a default hotkey assigned using the desperado requires setting its hotkey to `p` or changing the hotkey in `keybinds.json`.
+
 **Additionally you should make sure to move or ideally disable popups that may appear in the lower right corner of the screen (e. g. from Steam) as they might interfere with the script and cause you to lose playthroughs.**
 
 # Currently supported maps
@@ -558,7 +563,7 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr>
-	<th>Spa pits</th>
+	<th>Spa Pits</th>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -1351,8 +1356,26 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 		<td></td>
 	</tr>
 	<tr style="border-top: 2px solid white">
+	<th>Sunset Gulch</th>
+	<td rowspan=21>advanced</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
 	<th>Enchanted Glade</th>
-	<td rowspan=20>advanced</th>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -2019,6 +2042,7 @@ Types are:
 - `village`
 - `beasthandler`
 - `mermonkey`
+- `desperado`
 
 ### Stop recording
 

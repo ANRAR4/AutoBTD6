@@ -88,6 +88,7 @@
         "rake": true,
         "spice_islands": true,
         "glacial_trail": true,
+        "sunset_gulch": true,
         "enchanted_glade": true,
         "last_resort": true,
         "ancient_portal": true,
@@ -237,6 +238,11 @@
             5
         ],
         "mermonkey": [
+            5,
+            5,
+            5
+        ],
+        "desperado": [
             5,
             5,
             5
@@ -1001,6 +1007,22 @@
             "chimps": true
         },
         "glacial_trail": {
+            "easy": true,
+            "primary_only": true,
+            "deflation": true,
+            "medium": true,
+            "military_only": true,
+            "reverse": true,
+            "apopalypse": true,
+            "hard": true,
+            "magic_monkeys_only": true,
+            "double_hp_moabs": true,
+            "half_cash": true,
+            "alternate_bloons_rounds": true,
+            "impoppable": true,
+            "chimps": true
+        },
+        "sunset_gulch": {
             "easy": true,
             "primary_only": true,
             "deflation": true,
