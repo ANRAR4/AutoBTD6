@@ -23,8 +23,9 @@ output = re.sub(
 )
 
 if output == oldREADME:
-    print("README identical after update")
+    print("README identical after update!")
 else:
+    print("README updated!")
     fp = open("README.md", "w")
     fp.write(output)
     fp.close()

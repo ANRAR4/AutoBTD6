@@ -175,135 +175,25 @@ signal.signal(signal.SIGINT, signalHandler)
 # filtering on all keypresses doesn't work as the provided key name is localized
 # keyboard.hook(onKeyPress)
 
-keyboard.on_press_key(
-    keybinds["monkeys"]["dart"],
-    lambda e: onRecordingEvent({"action": "place", "type": "dart"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["boomerang"],
-    lambda e: onRecordingEvent({"action": "place", "type": "boomerang"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["bomb"],
-    lambda e: onRecordingEvent({"action": "place", "type": "bomb"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["tack"],
-    lambda e: onRecordingEvent({"action": "place", "type": "tack"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["ice"],
-    lambda e: onRecordingEvent({"action": "place", "type": "ice"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["glue"],
-    lambda e: onRecordingEvent({"action": "place", "type": "glue"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["sniper"],
-    lambda e: onRecordingEvent({"action": "place", "type": "sniper"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["sub"],
-    lambda e: onRecordingEvent({"action": "place", "type": "sub"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["buccaneer"],
-    lambda e: onRecordingEvent({"action": "place", "type": "buccaneer"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["ace"],
-    lambda e: onRecordingEvent({"action": "place", "type": "ace"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["heli"],
-    lambda e: onRecordingEvent({"action": "place", "type": "heli"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["mortar"],
-    lambda e: onRecordingEvent({"action": "place", "type": "mortar"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["dartling"],
-    lambda e: onRecordingEvent({"action": "place", "type": "dartling"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["wizard"],
-    lambda e: onRecordingEvent({"action": "place", "type": "wizard"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["super"],
-    lambda e: onRecordingEvent({"action": "place", "type": "super"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["ninja"],
-    lambda e: onRecordingEvent({"action": "place", "type": "ninja"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["alchemist"],
-    lambda e: onRecordingEvent({"action": "place", "type": "alchemist"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["druid"],
-    lambda e: onRecordingEvent({"action": "place", "type": "druid"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["farm"],
-    lambda e: onRecordingEvent({"action": "place", "type": "farm"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["engineer"],
-    lambda e: onRecordingEvent({"action": "place", "type": "engineer"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["spike"],
-    lambda e: onRecordingEvent({"action": "place", "type": "spike"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["village"],
-    lambda e: onRecordingEvent({"action": "place", "type": "village"}),
-)
-keyboard.on_press_key(
-    keybinds["monkeys"]["hero"],
-    lambda e: onRecordingEvent({"action": "place", "type": "hero"}),
-)
+def createKeybind(key, data):
+    keyboard.on_press_key(
+        key,
+        lambda e: onRecordingEvent(data),
+    )
 
-keyboard.on_press_key(
-    keybinds["path"]["0"],
-    lambda e: onRecordingEvent({"action": "upgrade", "path": "0"}),
-)
-keyboard.on_press_key(
-    keybinds["path"]["1"],
-    lambda e: onRecordingEvent({"action": "upgrade", "path": "1"}),
-)
-keyboard.on_press_key(
-    keybinds["path"]["2"],
-    lambda e: onRecordingEvent({"action": "upgrade", "path": "2"}),
-)
+for monkey, key in keybinds["monkeys"].items():
+    createKeybind(key, {"action": "place", "type": monkey})
 
-keyboard.on_press_key(
-    keybinds["recording"]["select_monkey"],
-    lambda e: onRecordingEvent({"action": "select_monkey"}),
-)
-keyboard.on_press_key(
-    keybinds["recording"]["remove_obstacle"],
-    lambda e: onRecordingEvent({"action": "remove_obstacle"}),
-)
-keyboard.on_press_key(
-    keybinds["recording"]["retarget"],
-    lambda e: onRecordingEvent({"action": "retarget"}),
-)
-keyboard.on_press_key(
-    keybinds["recording"]["sell"], lambda e: onRecordingEvent({"action": "sell"})
-)
-keyboard.on_press_key(
-    keybinds["recording"]["monkey_special"],
-    lambda e: onRecordingEvent({"action": "monkey_special"}),
-)
-keyboard.on_press_key(
-    keybinds["recording"]["await_round"],
-    lambda e: onRecordingEvent({"action": "await_round", "round": "0"}),
-)
+createKeybind(keybinds["path"]["0"], {"action": "upgrade", "path": "0"})
+createKeybind(keybinds["path"]["1"], {"action": "upgrade", "path": "1"})
+createKeybind(keybinds["path"]["2"], {"action": "upgrade", "path": "2"})
+
+createKeybind(keybinds["recording"]["select_monkey"], {"action": "select_monkey"})
+createKeybind(keybinds["recording"]["remove_obstacle"], {"action": "remove_obstacle"})
+createKeybind(keybinds["recording"]["retarget"], {"action": "retarget"})
+createKeybind(keybinds["recording"]["sell"], {"action": "sell"})
+createKeybind(keybinds["recording"]["monkey_special"], {"action": "monkey_special"})
+createKeybind(keybinds["recording"]["await_round"], {"action": "await_round", "round": "0"})
 
 while True:
     time.sleep(60)

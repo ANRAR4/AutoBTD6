@@ -212,8 +212,9 @@ output = re.sub(
 )
 
 if output == oldREADME:
-    print("README identical after replacement")
+    print("Table identical after update!")
 else:
+    print("Table updated!")
     fp = open("README.md", "w")
     fp.write(output)
     fp.close()
