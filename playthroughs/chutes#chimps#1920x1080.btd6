@@ -36,16 +36,16 @@ upgrade village0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
 place bomb bomb0 at 911, 556
+upgrade bomb0 path 0 with 100% discount
 upgrade bomb0 path 0
-upgrade bomb0 path 0
-upgrade bomb0 path 1
+upgrade bomb0 path 1 with 100% discount
 upgrade bomb0 path 1
 upgrade bomb0 path 0
 upgrade bomb0 path 0
 place bomb bomb1 at 751, 548
+upgrade bomb1 path 2 with 100% discount
 upgrade bomb1 path 2
-upgrade bomb1 path 2
-upgrade bomb1 path 0
+upgrade bomb1 path 0 with 100% discount
 upgrade bomb1 path 0
 upgrade bomb1 path 2
 upgrade bomb1 path 2
