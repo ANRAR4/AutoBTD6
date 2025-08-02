@@ -1,40 +1,42 @@
-place sauda hero0 at 599, 778
-place sniper sniper0 at 605, 654
-retarget sniper0
-retarget sniper0
-retarget sniper0
-place heli heli0 at 485, 742
-upgrade heli0 path 0
-upgrade heli0 path 0
-upgrade heli0 path 0
-place village village0 at 478, 626
+place buccaneer buccaneer0 at 784, 618
+place sub sub0 at 792, 688
+place striker_jones hero0 at 607, 653
+retarget hero0
+retarget hero0
+retarget hero0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade buccaneer0 path 2
+upgrade buccaneer0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade buccaneer0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 0
+place village village0 at 590, 558
 upgrade village0 path 1
 upgrade village0 path 1
-place heli heli1 at 333, 741
-upgrade heli1 path 0
-upgrade heli1 path 0
-upgrade heli1 path 2
-upgrade heli1 path 2
-upgrade heli1 path 2
-upgrade heli0 path 2
-upgrade heli0 path 2
-upgrade heli1 path 2
-upgrade heli0 path 0
-upgrade village0 path 1
+upgrade buccaneer0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
-place glue glue0 at 601, 715
-upgrade glue0 path 1
-upgrade glue0 path 1
-upgrade glue0 path 2
-upgrade glue0 path 2
-upgrade glue0 path 2
-upgrade heli0 path 0
-upgrade heli1 path 2
-upgrade glue0 path 2
-upgrade sniper0 path 0
-upgrade sniper0 path 0
-upgrade sniper0 path 0
-upgrade sniper0 path 0
-upgrade sniper0 path 1
-upgrade sniper0 path 1
+upgrade village0 path 0
+upgrade village0 path 0
+place bomb bomb0 at 782, 475
+upgrade bomb0 path 0 with 100% discount
+upgrade bomb0 path 0
+upgrade bomb0 path 1 with 100% discount
+upgrade bomb0 path 1
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+place bomb bomb1 at 698, 522
+upgrade bomb1 path 2 with 100% discount
+upgrade bomb1 path 2
+upgrade bomb1 path 0 with 100% discount
+upgrade bomb1 path 0
+upgrade bomb1 path 2
+upgrade bomb1 path 2
+upgrade bomb1 path 2
