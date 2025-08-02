@@ -1,5 +1,5 @@
-place buccaneer buccaneer0 at 784, 618
 place sub sub0 at 792, 688
+place buccaneer buccaneer0 at 784, 618
 place striker_jones hero0 at 607, 653
 retarget hero0
 retarget hero0
