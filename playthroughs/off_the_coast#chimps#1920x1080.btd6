@@ -1,0 +1,63 @@
+place sub sub0 at 387, 566
+retarget sub0
+retarget sub0
+retarget sub0
+place dart dart2 at 314, 521
+place buccaneer buccaneer0 at 1183, 580
+place sub sub1 at 1304, 649
+place striker_jones hero0 at 1291, 540
+retarget hero0
+retarget hero0
+retarget hero0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 2
+upgrade sub1 path 2
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade buccaneer0 path 2
+upgrade sub1 path 2
+upgrade buccaneer0 path 0
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade buccaneer0 path 0
+place village village0 at 1277, 457
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade buccaneer0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+place bomb bomb0 at 1186, 435
+upgrade bomb0 path 0 with 100% discount
+upgrade bomb0 path 0
+upgrade bomb0 path 1 with 100% discount
+upgrade bomb0 path 1
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+place bomb bomb1 at 1097, 488
+upgrade bomb1 path 2 with 100% discount
+upgrade bomb1 path 2
+upgrade bomb1 path 0 with 100% discount
+upgrade bomb1 path 0
+upgrade bomb1 path 2
+upgrade bomb1 path 2
+upgrade bomb1 path 2
+upgrade sub0 path 2
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+place spike spike0 at 1581, 503
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 0
+place spike spike1 at 1091, 343
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 0

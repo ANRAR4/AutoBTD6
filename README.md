@@ -398,7 +398,7 @@ You can immediately stop execution by sending SIGINT to the script (pressing `ct
 # Requirements
 
 ## Installation
-To run the scripts you must have Python 3 (3.5 or higher) ([www.python.org](https://www.python.org)) installed. 
+To run the scripts you must have Python 3 (3.5 or higher) ([www.python.org](https://www.python.org)) installed.
 <br>
 Aditionally all pip packages listed in `requirements.txt` must be installed.
 <br>
@@ -1989,21 +1989,21 @@ After finishing the recording (by pressing ctrl + c) you are prompted to enter t
 
 The following operations all require a monkey to be selected. This can be done by pressing the left ctrl key while in proximity of the monkey to select. This will select the monkey closest to your cursors position. The name of the selected monkey will be printed in the console.
 
-### Upgrading a monkey
+#### Upgrading a monkey
 
 To upgrade a monkey you can, after selecting the monkey, simply press the key corresponding to the path you want to upgrade.
 
-### Retargeting a monkey
+#### Retargeting a monkey
 
 To retarget a monkey you can, after selecting the monkey, simply press the key corresponding to the right retarget arrow (defaults to tab) as many times as required.
 <br>
 For dartling and mortar monkeys retargeting requires a position. A retarget with a position can be logged by pressing space while pressing tab. This will use your cursors current position.
 
-### Activating monkey special
+#### Activating monkey special
 
 To activate/deactivate a monkeys monkey special (e. g. prioritize camo) you can, after selecting the monkey, simply press the corresponding key (defaults to page down).
 
-### Selling monkeys
+#### Selling monkeys
 
 To sell a monkey you can, after selecting the monkey, simply press the corresponding key (defaults to backspace). When replaying a recording a sell occurs once your current money + the money gained from this and all adjacent sells surpasses the money required for the next non selling action (which could be 0 for retargeting/monkey special). Ideally you want to avoid selling when using monkey knowledge as the sell could result in less money than expected (due to reduced cost, which isn't factored in)(i. e. your towers are sold before you can actually afford the next tower or upgrade).
 

@@ -1,0 +1,42 @@
+place buccaneer buccaneer0 at 808, 522
+place sub sub0 at 847, 384
+place striker_jones hero0 at 848, 594
+retarget hero0
+retarget hero0
+retarget hero0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 0
+upgrade buccaneer0 path 2
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade buccaneer0 path 2
+upgrade buccaneer0 path 0
+upgrade sub0 path 2
+upgrade sub0 path 2
+upgrade buccaneer0 path 0
+upgrade sub0 path 0
+upgrade sub0 path 0
+place village village0 at 729, 581
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade buccaneer0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+place bomb bomb0 at 818, 376
+upgrade bomb0 path 0 with 100% discount
+upgrade bomb0 path 0
+upgrade bomb0 path 1 with 100% discount
+upgrade bomb0 path 1
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+upgrade bomb0 path 0
+place bomb bomb1 at 717, 431
+upgrade bomb1 path 2 with 100% discount
+upgrade bomb1 path 2
+upgrade bomb1 path 0 with 100% discount
+upgrade bomb1 path 0
+upgrade bomb1 path 2
+upgrade bomb1 path 2
+upgrade bomb1 path 2
