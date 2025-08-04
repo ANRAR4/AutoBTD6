@@ -1,0 +1,39 @@
+place sniper sniper0 at 1345, 175
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place sniper sniper1 at 1426, 208
+retarget sniper1
+retarget sniper1
+retarget sniper1
+place sniper sniper2 at 1368, 236
+retarget sniper2
+retarget sniper2
+retarget sniper2
+place captain_churchill hero0 at 1281, 479
+upgrade sniper0 path 0
+upgrade sniper2 path 1
+upgrade sniper2 path 1
+upgrade sniper2 path 1
+upgrade sniper2 path 0
+upgrade sniper2 path 0
+retarget sniper2
+upgrade sniper2 path 1
+upgrade sniper2 path 1
+retarget sniper2
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+retarget sniper0
+retarget sniper0
+upgrade sniper1 path 1
+upgrade sniper1 path 1
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+retarget sniper1
+retarget sniper1
+upgrade sniper1 path 2
+upgrade sniper0 path 0
