@@ -74,18 +74,19 @@
                 "gwendolin": [350, 300],
                 "striker_jones": [550, 300],
                 "obyn_greenfoot": [150, 560],
-                "rosalia": [350, 560],
-                "captain_churchill": [550, 560],
-                "benjamin": [150, 820],
-                "pat_fusty": [350, 820],
+                "silas": [350, 560],
+                "benjamin": [550, 560],
+                "pat_fusty": [150, 820],
+                "captain_churchill": [350, 820],
                 "ezili": [550, 820],
-                "adora": [150, 1080],
+                "rosalia": [150, 1080],
                 "etienne": [350, 1080],
                 "sauda": [550, 1080],
-                "admiral_brickell": [150, 1340],
-                "psi": [350, 1340],
-                "geraldo": [550, 1340],
-                "corvus": [750, 1340]
+                "adora": [150, 1340],
+                "admiral_brickell": [350, 1340],
+                "psi": [550, 1340],
+                "geraldo": [750, 1340],
+                "corvus": [950, 1340]
             },
             "screen_startmenu_button_hero_selection": [700, 1290],
             "screen_startmenu_button_play": [1280, 1260],
@@ -105,3 +106,4 @@
         }
     }
 }
+
