@@ -741,13 +741,9 @@
             "base": 650,
             "class": "land"
         },
-        "rosalia": {
-            "base": 875,
-            "class": "land"
-        },
-        "captain_churchill": {
-            "base": 2000,
-            "class": "land"
+        "silas": {
+            "base": 850,
+            "class": "any"
         },
         "benjamin": {
             "base": 1200,
@@ -757,12 +753,16 @@
             "base": 800,
             "class": "any"
         },
+        "captain_churchill": {
+            "base": 2000,
+            "class": "land"
+        },
         "ezili": {
             "base": 600,
             "class": "land"
         },
-        "adora": {
-            "base": 1000,
+        "rosalia": {
+            "base": 875,
             "class": "land"
         },
         "etienne": {
@@ -771,6 +771,10 @@
         },
         "sauda": {
             "base": 600,
+            "class": "land"
+        },
+        "adora": {
+            "base": 1000,
             "class": "land"
         },
         "admiral_brickell": {
@@ -790,4 +794,5 @@
             "class": "land"
         }
     }
+
 }
