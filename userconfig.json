@@ -64,6 +64,7 @@
         "hedge": true,
         "end_of_the_road": true,
         "logs": true,
+        "lost_crevasse": true,
         "luminous_cove": true,
         "sulfur_springs": true,
         "water_park": true,
@@ -623,6 +624,22 @@
             "chimps": true
         },
         "logs": {
+            "easy": true,
+            "primary_only": true,
+            "deflation": true,
+            "medium": true,
+            "military_only": true,
+            "reverse": true,
+            "apopalypse": true,
+            "hard": true,
+            "magic_monkeys_only": true,
+            "double_hp_moabs": true,
+            "half_cash": true,
+            "alternate_bloons_rounds": true,
+            "impoppable": true,
+            "chimps": true
+        },
+        "lost_crevasse": {
             "easy": true,
             "primary_only": true,
             "deflation": true,
