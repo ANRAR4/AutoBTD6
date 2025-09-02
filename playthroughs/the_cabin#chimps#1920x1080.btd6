@@ -3,6 +3,7 @@ place sniper sniper0 at 333, 842
 retarget sniper0
 retarget sniper0
 retarget sniper0
+upgrade sniper0 path 2
 place heli heli0 at 353, 646
 upgrade heli0 path 0
 upgrade heli0 path 0
@@ -36,5 +37,4 @@ upgrade sniper0 path 0
 upgrade sniper0 path 0
 upgrade sniper0 path 0
 upgrade sniper0 path 0
-upgrade sniper0 path 1
-upgrade sniper0 path 1
+upgrade sniper0 path 2
