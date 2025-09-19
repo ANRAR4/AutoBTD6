@@ -1,0 +1,54 @@
+place ninja ninja0 at 835, 527
+place sniper sniper0 at 1375, 1036
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place etienne hero0 at 430, 475
+place wizard wizard0 at 433, 541
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade sniper0 path 0
+upgrade sniper0 path 1
+place village village0 at 335, 543
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade wizard0 path 0 with 10% discount
+upgrade sniper0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+remove obstacle at 594, 500 for 2000
+retarget hero0
+place mermonkey mermonkey0 at 541, 545
+upgrade mermonkey0 path 0 with 10% discount
+upgrade mermonkey0 path 0 with 10% discount
+upgrade mermonkey0 path 0 with 10% discount
+upgrade mermonkey0 path 1 with 10% discount
+upgrade mermonkey0 path 1 with 10% discount
+upgrade mermonkey0 path 0
+upgrade wizard0 path 0
+upgrade mermonkey0 path 0
+upgrade wizard0 path 0
+place spike spike0 at 416, 611
+upgrade spike0 path 0 with 10% discount
+upgrade spike0 path 0 with 10% discount
+upgrade spike0 path 1 with 10% discount
+upgrade spike0 path 1 with 10% discount
+upgrade spike0 path 1 with 10% discount
+upgrade spike0 path 1
+upgrade spike0 path 1
+place mortar mortar0 at 378, 399
+retarget mortar0 to 831, 430
+upgrade mortar0 path 2 with 10% discount
+upgrade mortar0 path 2 with 10% discount
+upgrade mortar0 path 2 with 10% discount
+upgrade mortar0 path 2
+upgrade mortar0 path 1 with 10% discount
+upgrade mortar0 path 1 with 10% discount
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0

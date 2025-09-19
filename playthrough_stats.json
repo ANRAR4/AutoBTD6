@@ -1199,5 +1199,53 @@
         "1920x1080": {
             "validation_result": true
         }
+    },
+    "playthroughs/the_cabin#chimps#1920x1080.btd6": {
+        "1920x1080": {
+            "validation_result": false,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1279.0770330429077
+                ]
+            }
+        },
+        "version": 50.0
+    },
+    "own_playthroughs/lost_crevasse#chimps#1920x1080.btd6": {
+        "1920x1080": {
+            "validation_result": true,
+            "hard": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    797.9249742031097
+                ]
+            },
+            "alternate_bloons_rounds": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    780.3646967411041
+                ]
+            },
+            "impoppable": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1099.1404571533203
+                ]
+            },
+            "chimps": {
+                "attempts": 22,
+                "wins": 2,
+                "win_times": [
+                    1037.3840689659119,
+                    1029.5591146945953
+                ]
+            }
+        },
+        "version": 50.0
     }
 }

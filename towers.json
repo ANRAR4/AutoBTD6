@@ -174,17 +174,17 @@
             "class": "land",
             "upgrades": [
                 [
-                    250,
+                    200,
                     200,
                     1200,
-                    5800,
+                    4800,
                     17500
                 ],
                 [
                     150,
-                    500,
+                    350,
                     3000,
-                    8000,
+                    6500,
                     42000
                 ],
                 [
@@ -213,14 +213,14 @@
                     450,
                     2100,
                     7600,
-                    14000
+                    12000
                 ],
                 [
                     450,
                     450,
-                    2900,
+                    2700,
                     4100,
-                    14700
+                    14900
                 ]
             ]
         },
@@ -337,7 +337,7 @@
             ]
         },
         "mortar": {
-            "base": 750,
+            "base": 600,
             "type": "military",
             "class": "land",
             "upgrades": [
@@ -358,7 +358,7 @@
                 [
                     200,
                     500,
-                    900,
+                    1000,
                     9500,
                     40000
                 ]
@@ -741,13 +741,9 @@
             "base": 650,
             "class": "land"
         },
-        "rosalia": {
-            "base": 875,
-            "class": "land"
-        },
-        "captain_churchill": {
-            "base": 2000,
-            "class": "land"
+        "silas": {
+            "base": 850,
+            "class": "any"
         },
         "benjamin": {
             "base": 1200,
@@ -757,12 +753,16 @@
             "base": 800,
             "class": "any"
         },
+        "captain_churchill": {
+            "base": 2000,
+            "class": "land"
+        },
         "ezili": {
             "base": 600,
             "class": "land"
         },
-        "adora": {
-            "base": 1000,
+        "rosalia": {
+            "base": 875,
             "class": "land"
         },
         "etienne": {
@@ -771,6 +771,10 @@
         },
         "sauda": {
             "base": 600,
+            "class": "land"
+        },
+        "adora": {
+            "base": 1000,
             "class": "land"
         },
         "admiral_brickell": {
@@ -790,4 +794,5 @@
             "class": "land"
         }
     }
+
 }

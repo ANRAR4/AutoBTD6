@@ -1,0 +1,50 @@
+place druid druid0 at 1239, 524
+speed slow
+place sniper sniper0 at 1068, 249
+place druid druid1 at 1038, 654
+place obyn_greenfoot hero0 at 1169, 494
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+upgrade druid0 path 1
+upgrade druid1 path 1
+speed fast
+place sniper sniper1 at 808, 264
+upgrade sniper1 path 1
+place heli heli0 at 927, 439
+upgrade heli0 path 0
+upgrade heli0 path 0
+upgrade heli0 path 2
+upgrade heli0 path 2
+upgrade heli0 path 2
+place village village0 at 1050, 339
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+place heli heli1 at 926, 235
+upgrade heli1 path 0
+upgrade heli1 path 0
+upgrade heli1 path 2
+upgrade heli1 path 2
+upgrade heli1 path 0
+upgrade heli0 path 2
+upgrade heli1 path 0
+upgrade village0 path 1
+upgrade village0 path 0
+upgrade village0 path 0
+place glue glue0 at 1105, 466
+upgrade glue0 path 1
+upgrade glue0 path 1
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade heli1 path 0
+upgrade heli0 path 2
+upgrade glue0 path 2
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0

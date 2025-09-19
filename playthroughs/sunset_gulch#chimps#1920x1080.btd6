@@ -1,0 +1,82 @@
+place dart dart0 at 139, 927
+retarget dart0
+retarget dart0
+retarget dart0
+place dart dart1 at 167, 870
+place dart dart2 at 1484, 877
+place sniper sniper0 at 1345, 175
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade dart2 path 1
+upgrade dart2 path 1
+upgrade dart2 path 1
+upgrade dart2 path 2
+place sniper sniper1 at 1426, 208
+retarget sniper1
+retarget sniper1
+retarget sniper1
+place sniper sniper2 at 1368, 236
+retarget sniper2
+retarget sniper2
+retarget sniper2
+speed slow
+place captain_churchill hero0 at 1281, 479
+speed fast
+upgrade dart2 path 2
+upgrade sniper0 path 0
+place village village0 at 1479, 297
+upgrade village0 path 2
+upgrade village0 path 2
+place spike spike0 at 1377, 303
+upgrade spike0 path 2 with 10% discount
+upgrade spike0 path 2 with 10% discount
+retarget spike0
+upgrade spike0 path 2 with 10% discount
+upgrade spike0 path 1 with 10% discount
+upgrade spike0 path 1 with 10% discount
+place alchemist alchemist0 at 1499, 473
+upgrade alchemist0 path 0 with 10% discount
+upgrade alchemist0 path 0 with 10% discount
+upgrade alchemist0 path 0 with 10% discount
+upgrade sniper0 path 0 with 10% discount
+upgrade alchemist0 path 1 with 10% discount
+upgrade alchemist0 path 1 with 10% discount
+place village village1 at 1276, 237
+upgrade village1 path 0 with 10% discount
+upgrade village1 path 0 with 10% discount
+upgrade village1 path 2 with 10% discount
+upgrade village1 path 2 with 10% discount
+place alchemist alchemist1 at 1298, 314
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0 with 20% discount
+upgrade alchemist1 path 0
+upgrade alchemist1 path 1 with 20% discount
+upgrade alchemist1 path 1 with 20% discount
+upgrade sniper2 path 1 with 20% discount
+upgrade sniper2 path 1 with 20% discount
+upgrade sniper2 path 1 with 20% discount
+upgrade sniper2 path 0 with 20% discount
+upgrade sniper2 path 0 with 20% discount
+retarget sniper2
+upgrade sniper2 path 1
+upgrade sniper2 path 1
+retarget sniper2
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0
+upgrade sniper0 path 1 with 20% discount
+upgrade sniper0 path 1 with 20% discount
+retarget sniper0
+retarget sniper0
+upgrade alchemist1 path 0
+upgrade sniper1 path 1 with 20% discount
+upgrade sniper1 path 1 with 20% discount
+upgrade sniper1 path 2 with 20% discount
+upgrade sniper1 path 2 with 20% discount
+upgrade sniper1 path 2 with 20% discount
+upgrade sniper1 path 2
+retarget sniper1
+retarget sniper1
+upgrade sniper1 path 2
+upgrade sniper0 path 0
