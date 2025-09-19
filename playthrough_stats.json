@@ -656,7 +656,7 @@
     "playthroughs/monkey_meadow#deflation#2560x1440#noMK#ninjaOnly#noLL.btd6": {
         "version": 32.0,
         "2560x1440": {
-            "validation_result": false
+            "validation_result": true
         },
         "1920x1080": {
             "validation_result": true
@@ -1132,20 +1132,32 @@
     "playthroughs/monkey_meadow#apopalypse#1920x1080#noMK#noLL.btd6": {
         "1920x1080": {
             "validation_result": true
+        },
+        "2560x1440": {
+            "validation_result": true
         }
     },
     "playthroughs/monkey_meadow#reverse#1920x1080#noMK#noLLwMK.btd6": {
         "1920x1080": {
+            "validation_result": true
+        },
+        "2560x1440": {
             "validation_result": true
         }
     },
     "playthroughs/monkey_meadow#alternate_bloons_rounds#1920x1080#noMK#noLL.btd6": {
         "1920x1080": {
             "validation_result": true
+        },
+        "2560x1440": {
+            "validation_result": true
         }
     },
     "playthroughs/monkey_meadow#chimps#1920x1080#noMK#noLL.btd6": {
         "1920x1080": {
+            "validation_result": true
+        },
+        "2560x1440": {
             "validation_result": true
         }
     },
@@ -1160,20 +1172,32 @@
                 ]
             }
         },
-        "version": 42.0
+        "version": 42.0,
+        "2560x1440": {
+            "validation_result": true
+        }
     },
     "playthroughs/monkey_meadow#half_cash#1920x1080#noMK.btd6": {
         "1920x1080": {
+            "validation_result": true
+        },
+        "2560x1440": {
             "validation_result": true
         }
     },
     "playthroughs/monkey_meadow#double_hp_moabs#1920x1080#noMK#noLL.btd6": {
         "1920x1080": {
             "validation_result": true
+        },
+        "2560x1440": {
+            "validation_result": true
         }
     },
     "playthroughs/glacial_trail#alternate_bloons_rounds#1920x1080#noMK#noLLwMK.btd6": {
         "1920x1080": {
+            "validation_result": true
+        },
+        "2560x1440": {
             "validation_result": true
         }
     },
@@ -1188,10 +1212,16 @@
                 ]
             }
         },
-        "version": 43.0
+        "version": 43.0,
+        "2560x1440": {
+            "validation_result": true
+        }
     },
     "playthroughs/glacial_trail#chimps#1920x1080#noMK#noLL.btd6": {
         "1920x1080": {
+            "validation_result": true
+        },
+        "2560x1440": {
             "validation_result": true
         }
     },
@@ -1202,7 +1232,7 @@
     },
     "playthroughs/the_cabin#chimps#1920x1080.btd6": {
         "1920x1080": {
-            "validation_result": false,
+            "validation_result": true,
             "chimps": {
                 "attempts": 1,
                 "wins": 1,
@@ -1211,7 +1241,10 @@
                 ]
             }
         },
-        "version": 50.0
+        "version": 50.0,
+        "2560x1440": {
+            "validation_result": true
+        }
     },
     "own_playthroughs/lost_crevasse#chimps#1920x1080.btd6": {
         "1920x1080": {
@@ -1247,5 +1280,373 @@
             }
         },
         "version": 50.0
+    },
+    "playthroughs/alpine_run#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/ancient_portal#hard#2560x1440#noLLwMK.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/ancient_portal#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/another_brick#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/candy_falls#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cargo#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/carved#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/chutes#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cracked#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/cubism#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/downstream#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/enchanted_glade#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/encrypted#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/end_of_the_road#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/four_circles#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/frozen_over#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/haunted#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/hedge#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/in_the_loop#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/kartsndarts#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/logs#impoppable#2560x1440#noMK#noLL.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/luminous_cove#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/middle_of_the_road#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/moon_landing#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/off_the_coast#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/one_two_tree#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/park_path#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/polyphemus#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/quarry#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/resort#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/scrapyard#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/skates#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spa_pits#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spice_islands#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/spillway#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1163.129490852356
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        },
+        "version": 50.0
+    },
+    "playthroughs/spring_spring#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/streambed#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sulfur_springs#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sunset_gulch#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/sunset_gulch#military_only#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/tinkerton#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/town_center#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/water_park#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1416.5244612693787
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        },
+        "version": 50.0
+    },
+    "playthroughs/winter_park#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
     }
 }

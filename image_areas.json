@@ -24,7 +24,8 @@
                 "overwrite_save": [857, 79, 890, 79],
                 "levelup": [1020, 689, 1070, 689],
                 "apopalypse_hint": [1229, 289, 1263, 298],
-                "round_100_insta": [913, 837, 976, 837],
+                "insta_granted": [913, 837, 976, 837],
+                "insta_claimed": [990, 368, 1048, 414],
                 "collection_claim_chest": [2193, 91, 2217, 91]
             },
             "game_state": [2412, 1347, 2445, 1347],
@@ -102,7 +103,9 @@
             "gamemode_apopalypse_message_confirmation": [1280, 1000],
             "freeplay_message_confirmation": [1280, 1000],
             "paragon_message_confirmation": [1520, 980],
-            "collection_claim_chest": [1270, 900]
+            "collection_claim_chest": [1270, 900],
+            "collection_claim_chest_done": [1280, 1332],
+            "insta_claimed": [1320, 1656]
         }
     }
 }

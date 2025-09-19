@@ -1,6 +1,6 @@
 place sub sub0 at 1442, 497
 place dart dart0 at 277, 570
-place buccaneer buccaneer0 at 1382, 631
+place buccaneer buccaneer0 at 1398, 623
 place striker_jones hero0 at 1244, 584
 retarget hero0
 retarget hero0
@@ -17,7 +17,7 @@ upgrade sub0 path 2
 upgrade buccaneer0 path 0
 upgrade sub0 path 0
 upgrade sub0 path 0
-place village village0 at 1281, 424
+place village village0 at 1299, 425
 upgrade village0 path 1
 upgrade village0 path 1
 upgrade buccaneer0 path 0
@@ -25,7 +25,7 @@ upgrade village0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
-place bomb bomb0 at 1381, 486
+place bomb bomb0 at 1399, 477
 upgrade bomb0 path 0 with 100% discount
 upgrade bomb0 path 0
 upgrade bomb0 path 1 with 100% discount
@@ -33,7 +33,7 @@ upgrade bomb0 path 1
 upgrade bomb0 path 0
 upgrade bomb0 path 0
 upgrade bomb0 path 0
-place bomb bomb1 at 1296, 538
+place bomb bomb1 at 1317, 530
 upgrade bomb1 path 2 with 100% discount
 upgrade bomb1 path 2
 upgrade bomb1 path 0 with 100% discount

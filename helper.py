@@ -34,6 +34,27 @@ class ValidatedPlaythroughs(Enum):
     EXCLUDE_VALIDATED = 2
 
 
+class Screen(Enum):
+    UNKNOWN = 0
+    STARTMENU = 1
+    MAP_SELECTION = 3
+    DIFFICULTY_SELECTION = 4
+    GAMEMODE_SELECTION = 5
+    HERO_SELECTION = 6
+    INGAME = 7
+    INGAME_PAUSED = 8
+    VICTORY_SUMMARY = 9
+    VICTORY = 10
+    DEFEAT = 11
+    OVERWRITE_SAVE = 12
+    LEVELUP = 13
+    APOPALYPSE_HINT = 14
+    INSTA_GRANTED = 15  # insta monkey reward screen (either from round 100 or collection chest)
+    INSTA_CLAIMED = 16 # insta monkey claimed screen (after INSTA_GRANTED when pressing ESC instead of clicking), can't be left using ESC
+    COLLECTION_CLAIM_CHEST = 17
+    BTD6_UNFOCUSED = 18
+
+
 def tupleToStr(tup):
     output = ""
     for item in tup:
@@ -1362,6 +1383,37 @@ def getIngameOcrSegments(mapConfig):
         "money": segmentCoordinates["money"],
         "round": segmentCoordinates["round"],
     }
+
+def recognizeScreen(img, comparisonImages, ignoreFocus = False):
+    screen = Screen.UNKNOWN
+    activeWindow = ahk.get_active_window()
+    if not ignoreFocus and (not activeWindow or not isBTD6Window(activeWindow.title)):
+        screen = Screen.BTD6_UNFOCUSED
+    else:
+        bestMatchDiff = None
+        for screenCfg in [
+            (Screen.STARTMENU, comparisonImages["screens"]["startmenu"], imageAreas["compare"]["screens"]["startmenu"]),
+            (Screen.MAP_SELECTION, comparisonImages["screens"]["map_selection"], imageAreas["compare"]["screens"]["map_selection"]),
+            (Screen.DIFFICULTY_SELECTION, comparisonImages["screens"]["difficulty_selection"], imageAreas["compare"]["screens"]["difficulty_selection"]),
+            (Screen.GAMEMODE_SELECTION, comparisonImages["screens"]["gamemode_selection"], imageAreas["compare"]["screens"]["gamemode_selection"]),
+            (Screen.HERO_SELECTION, comparisonImages["screens"]["hero_selection"], imageAreas["compare"]["screens"]["hero_selection"]),
+            (Screen.INGAME, comparisonImages["screens"]["ingame"], imageAreas["compare"]["screens"]["ingame"]),
+            (Screen.INGAME_PAUSED, comparisonImages["screens"]["ingame_paused"], imageAreas["compare"]["screens"]["ingame_paused"]),
+            (Screen.VICTORY_SUMMARY, comparisonImages["screens"]["victory_summary"], imageAreas["compare"]["screens"]["victory_summary"]),
+            (Screen.VICTORY, comparisonImages["screens"]["victory"], imageAreas["compare"]["screens"]["victory"]),
+            (Screen.DEFEAT, comparisonImages["screens"]["defeat"], imageAreas["compare"]["screens"]["defeat"]),
+            (Screen.OVERWRITE_SAVE, comparisonImages["screens"]["overwrite_save"], imageAreas["compare"]["screens"]["overwrite_save"]),
+            (Screen.LEVELUP, comparisonImages["screens"]["levelup"], imageAreas["compare"]["screens"]["levelup"]),
+            (Screen.APOPALYPSE_HINT, comparisonImages["screens"]["apopalypse_hint"], imageAreas["compare"]["screens"]["apopalypse_hint"]),
+            (Screen.INSTA_GRANTED, comparisonImages["screens"]["insta_granted"], imageAreas["compare"]["screens"]["insta_granted"]),
+            (Screen.INSTA_CLAIMED, comparisonImages["screens"]["insta_claimed"], imageAreas["compare"]["screens"]["insta_claimed"]),
+            (Screen.COLLECTION_CLAIM_CHEST, comparisonImages["screens"]["collection_claim_chest"], imageAreas["compare"]["screens"]["collection_claim_chest"]),
+        ]:
+            diff = cv2.matchTemplate(cutImage(img, screenCfg[2]), cutImage(screenCfg[1], screenCfg[2]), cv2.TM_SQDIFF_NORMED)[0][0]
+            if diff < 0.05 and (bestMatchDiff is None or diff < bestMatchDiff):
+                bestMatchDiff = diff
+                screen = screenCfg[0]
+    return screen
 
 
 monkeyKnowledgeEnabled = False

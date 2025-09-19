@@ -6,7 +6,7 @@ actionDelay = 0.2
 menuChangeDelay = 1
 
 def getResolutionDependentData(resolution = pyautogui.size(), gamemode=''):
-    requiredComparisonImages = [{'category': 'screens', 'name': 'startmenu'}, {'category': 'screens', 'name': 'map_selection'}, {'category': 'screens', 'name': 'difficulty_selection'}, {'category': 'screens', 'name': 'gamemode_selection'}, {'category': 'screens', 'name': 'hero_selection'}, {'category': 'screens', 'name': 'ingame'}, {'category': 'screens', 'name': 'ingame_paused'}, {'category': 'screens', 'name': 'victory_summary'}, {'category': 'screens', 'name': 'victory'}, {'category': 'screens', 'name': 'defeat'}, {'category': 'screens', 'name': 'overwrite_save'}, {'category': 'screens', 'name': 'levelup'}, {'category': 'screens', 'name': 'apopalypse_hint'}, {'category': 'screens', 'name': 'round_100_insta'}, {'category': 'game_state', 'name': 'game_paused'}, {'category': 'game_state', 'name': 'game_playing_slow'}, {'category': 'game_state', 'name': 'game_playing_fast'}]
+    requiredComparisonImages = [{'category': 'screens', 'name': 'startmenu'}, {'category': 'screens', 'name': 'map_selection'}, {'category': 'screens', 'name': 'difficulty_selection'}, {'category': 'screens', 'name': 'gamemode_selection'}, {'category': 'screens', 'name': 'hero_selection'}, {'category': 'screens', 'name': 'ingame'}, {'category': 'screens', 'name': 'ingame_paused'}, {'category': 'screens', 'name': 'victory_summary'}, {'category': 'screens', 'name': 'victory'}, {'category': 'screens', 'name': 'defeat'}, {'category': 'screens', 'name': 'overwrite_save'}, {'category': 'screens', 'name': 'levelup'}, {'category': 'screens', 'name': 'apopalypse_hint'}, {'category': 'screens', 'name': 'insta_granted'}, {'category': 'screens', 'name': 'insta_claimed'}, {'category': 'game_state', 'name': 'game_paused'}, {'category': 'game_state', 'name': 'game_playing_slow'}, {'category': 'game_state', 'name': 'game_playing_fast'}]
     optionalComparisonImages = [{'category': 'screens', 'name': 'collection_claim_chest', 'for': [Mode.CHASE_REWARDS.name]}]
     requiredLocateImages = [{'name': 'remove_obstacle_confirm_button'}, {'name': 'button_home'}]
     optionalLocateImages = [{'name': 'unknown_insta', 'for': [Mode.CHASE_REWARDS.name]}, {'name': 'unknown_insta_mask', 'for': [Mode.CHASE_REWARDS.name]}]
@@ -88,25 +88,6 @@ class State(Enum):
     FIND_HARDEST_INCREASED_REWARDS_MAP = 6
     MANAGE_OBJECTIVES = 7
     EXIT = 8
-
-class Screen(Enum):
-    UNKNOWN = 0
-    STARTMENU = 1
-    MAP_SELECTION = 3
-    DIFFICULTY_SELECTION = 4
-    GAMEMODE_SELECTION = 5
-    HERO_SELECTION = 6
-    INGAME = 7
-    INGAME_PAUSED = 8
-    VICTORY_SUMMARY = 9
-    VICTORY = 10
-    DEFEAT = 11
-    OVERWRITE_SAVE = 12
-    LEVELUP = 13
-    APOPALYPSE_HINT = 14
-    ROUND_100_INSTA = 15
-    COLLECTION_CLAIM_CHEST = 16
-    BTD6_UNFOCUSED = 17
 
 class Mode(Enum):
     ERROR = 0
@@ -644,33 +625,7 @@ def main():
     while True:
         screenshot = np.array(pyautogui.screenshot())[:, :, ::-1].copy()
 
-        screen = Screen.UNKNOWN
-        activeWindow = ahk.get_active_window()
-        if not activeWindow or not isBTD6Window(activeWindow.title):
-            screen = Screen.BTD6_UNFOCUSED
-        else:
-            bestMatchDiff = None
-            for screenCfg in [
-                (Screen.STARTMENU, comparisonImages["screens"]["startmenu"], imageAreas["compare"]["screens"]["startmenu"]),
-                (Screen.MAP_SELECTION, comparisonImages["screens"]["map_selection"], imageAreas["compare"]["screens"]["map_selection"]),
-                (Screen.DIFFICULTY_SELECTION, comparisonImages["screens"]["difficulty_selection"], imageAreas["compare"]["screens"]["difficulty_selection"]),
-                (Screen.GAMEMODE_SELECTION, comparisonImages["screens"]["gamemode_selection"], imageAreas["compare"]["screens"]["gamemode_selection"]),
-                (Screen.HERO_SELECTION, comparisonImages["screens"]["hero_selection"], imageAreas["compare"]["screens"]["hero_selection"]),
-                (Screen.INGAME, comparisonImages["screens"]["ingame"], imageAreas["compare"]["screens"]["ingame"]),
-                (Screen.INGAME_PAUSED, comparisonImages["screens"]["ingame_paused"], imageAreas["compare"]["screens"]["ingame_paused"]),
-                (Screen.VICTORY_SUMMARY, comparisonImages["screens"]["victory_summary"], imageAreas["compare"]["screens"]["victory_summary"]),
-                (Screen.VICTORY, comparisonImages["screens"]["victory"], imageAreas["compare"]["screens"]["victory"]),
-                (Screen.DEFEAT, comparisonImages["screens"]["defeat"], imageAreas["compare"]["screens"]["defeat"]),
-                (Screen.OVERWRITE_SAVE, comparisonImages["screens"]["overwrite_save"], imageAreas["compare"]["screens"]["overwrite_save"]),
-                (Screen.LEVELUP, comparisonImages["screens"]["levelup"], imageAreas["compare"]["screens"]["levelup"]),
-                (Screen.APOPALYPSE_HINT, comparisonImages["screens"]["apopalypse_hint"], imageAreas["compare"]["screens"]["apopalypse_hint"]),
-                (Screen.ROUND_100_INSTA, comparisonImages["screens"]["round_100_insta"], imageAreas["compare"]["screens"]["round_100_insta"]),
-                (Screen.COLLECTION_CLAIM_CHEST, comparisonImages["screens"]["collection_claim_chest"], imageAreas["compare"]["screens"]["collection_claim_chest"]),
-            ]:
-                diff = cv2.matchTemplate(cutImage(screenshot, screenCfg[2]), cutImage(screenCfg[1], screenCfg[2]), cv2.TM_SQDIFF_NORMED)[0][0]
-                if diff < 0.05 and (bestMatchDiff is None or diff < bestMatchDiff):
-                    bestMatchDiff = diff
-                    screen = screenCfg[0]
+        screen = recognizeScreen(screenshot, comparisonImages)
 
         if screen != lastScreen:
             customPrint("screen " + screen.name + "!")
@@ -858,8 +813,11 @@ def main():
                 pyautogui.click(100, 100)
                 time.sleep(menuChangeDelay)
                 pyautogui.click(100, 100)
-            elif screen == Screen.ROUND_100_INSTA:
+            elif screen == Screen.INSTA_GRANTED:
                 pyautogui.click(100, 100)
+                time.sleep(menuChangeDelay)
+            elif screen == Screen.INSTA_CLAIMED:
+                pyautogui.click(imageAreas["click"]["insta_claimed"])
                 time.sleep(menuChangeDelay)
             elif screen == Screen.COLLECTION_CLAIM_CHEST:
                 pyautogui.click(imageAreas["click"]["collection_claim_chest"])
@@ -869,12 +827,12 @@ def main():
                     result = [cv2.minMaxLoc(cv2.matchTemplate(newScreenshot, locateImages['unknown_insta'], cv2.TM_SQDIFF_NORMED, mask=locateImages['unknown_insta_mask']))[i] for i in [0,2]]
                     if result[0] < 0.01:
                         pyautogui.click(result[1])
-                        time.sleep(menuChangeDelay)
+                        time.sleep(menuChangeDelay * 2)
                         pyautogui.click(result[1])
-                        time.sleep(menuChangeDelay)
+                        time.sleep(menuChangeDelay * 2)
                     else:
                         break
-                pyautogui.click(round(resolution[0] / 2), round(resolution[1] / 2))
+                pyautogui.click(imageAreas["click"]["collection_claim_chest_done"])
                 time.sleep(menuChangeDelay)
                 sendKey('{Esc}')
             elif screen == Screen.APOPALYPSE_HINT:
@@ -1027,8 +985,11 @@ def main():
                 pyautogui.click(100, 100)
                 time.sleep(menuChangeDelay)
                 pyautogui.click(100, 100)
-            elif screen == Screen.ROUND_100_INSTA:
+            elif screen == Screen.INSTA_GRANTED:
                 pyautogui.click(100, 100)
+                time.sleep(menuChangeDelay)
+            elif screen == Screen.INSTA_CLAIMED:
+                pyautogui.click(imageAreas["click"]["insta_claimed"])
                 time.sleep(menuChangeDelay)
             elif screen == Screen.VICTORY_SUMMARY:
                 if logStats:

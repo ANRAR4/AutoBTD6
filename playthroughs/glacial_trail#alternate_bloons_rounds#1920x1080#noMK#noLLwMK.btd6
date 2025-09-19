@@ -51,7 +51,7 @@ upgrade farm0 path 1
 upgrade farm0 path 2
 upgrade alchemist0 path 0
 round 47
-place alchemist alchemist1 at 211, 410
+place alchemist alchemist1 at 209, 409
 place dart dart0 at 245, 550
 retarget alchemist1
 retarget alchemist1
