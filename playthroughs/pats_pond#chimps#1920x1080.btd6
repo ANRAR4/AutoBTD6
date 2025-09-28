@@ -1,0 +1,71 @@
+place druid druid0 at 1521, 482
+place dart dart0 at 169, 608
+place tack tack0 at 1476, 598
+place obyn_greenfoot hero0 at 1546, 602
+upgrade dart0 path 1
+upgrade dart0 path 1
+upgrade dart0 path 1
+upgrade dart0 path 2
+upgrade dart0 path 2
+place sniper sniper0 at 1609, 630
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 0
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+upgrade sniper0 path 2
+remove obstacle at 402, 553 for 500
+remove obstacle at 1227, 536 for 500
+remove obstacle at 869, 181 for 500
+remove obstacle at 784, 868 for 500
+place village village0 at 1535, 687
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade sniper0 path 2
+upgrade village0 path 0
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+upgrade tack0 path 0
+place alchemist alchemist0 at 1433, 663
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade alchemist0 path 0
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade tack0 path 2
+place spike spike0 at 1598, 460
+upgrade spike0 path 0
+upgrade alchemist0 path 0
+upgrade village0 path 0
+place dart dart1 at 1453, 723
+upgrade dart1 path 2 with 100% discount
+upgrade dart1 path 1 with 100% discount
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 2
+upgrade dart1 path 1
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 1
+upgrade spike0 path 0
+place spike spike1 at 1488, 415
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 1
+upgrade spike1 path 0
+upgrade spike1 path 0
+place spike spike2 at 1451, 346
+upgrade spike2 path 1
+upgrade spike2 path 1
+upgrade spike2 path 1
+upgrade spike2 path 0
+upgrade spike2 path 0

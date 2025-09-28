@@ -1629,20 +1629,20 @@ An _italic_ listing means the corresponding playthrough is derived from a playth
 	</tr>
 	<tr>
 	<th>Pat's pond</th>
-		<td><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)"><i>supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
+		<td><a href="playthroughs%2Fpats_pond%23chimps%231920x1080.btd6" title="required monkeys: druid(1-3-0), dart(0-3-5), tack(2-0-5), sniper(0-2-5), village(4-2-0), alchemist(5-0-0), spike(2-3-0)"><i>with MK, Obyn_greenfoot, *, native: 1920x1080</i></a><br><br><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)"><i>supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
-		<td><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)"><i>supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)">supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
+		<td><a href="playthroughs%2Fpats_pond%23chimps%231920x1080.btd6" title="required monkeys: druid(1-3-0), dart(0-3-5), tack(2-0-5), sniper(0-2-5), village(4-2-0), alchemist(5-0-0), spike(2-3-0)"><i>with MK, Obyn_greenfoot, *, native: 1920x1080</i></a><br><br><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)"><i>supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</i></a></td>
 		<td></td>
 		<td></td>
 		<td></td>
+		<td><a href="playthroughs%2Fpats_pond%23chimps%231920x1080.btd6" title="required monkeys: druid(1-3-0), dart(0-3-5), tack(2-0-5), sniper(0-2-5), village(4-2-0), alchemist(5-0-0), spike(2-3-0)"><i>with MK, Obyn_greenfoot, *, native: 1920x1080</i></a><br><br><a href="playthroughs%2Fpats_pond%23hard%232560x1440%23noMK%23noLL.btd6" title="required monkeys: sub(0-2-2), wizard(0-2-5), village(2-0-2), spike(3-2-4), alchemist(4-0-0), heli(4-0-2)">supported, Sauda, native: 2560x1440, tested for: 2560x1440, 1920x1080</a></td>
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
+		<td><a href="playthroughs%2Fpats_pond%23chimps%231920x1080.btd6" title="required monkeys: druid(1-3-0), dart(0-3-5), tack(2-0-5), sniper(0-2-5), village(4-2-0), alchemist(5-0-0), spike(2-3-0)">with MK, Obyn_greenfoot, *, native: 1920x1080</a></td>
 		<td></td>
 	</tr>
 	<tr>
