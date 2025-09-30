@@ -1,0 +1,88 @@
+place dart dart0 at 430, 516
+place etienne hero0 at 961, 834
+place sniper sniper0 at 1083, 1043
+upgrade sniper0 path 1
+upgrade sniper0 path 0
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place sub sub0 at 403, 787
+place buccaneer buccaneer0 at 1252, 575
+upgrade buccaneer0 path 2
+upgrade buccaneer0 path 2
+upgrade sub0 path 0
+upgrade sub0 path 0
+place desperado desperado0 at 472, 238
+upgrade desperado0 path 1
+upgrade sub0 path 1
+upgrade sub0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 1
+place sub sub1 at 725, 761
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade sub0 path 1
+place village village0 at 860, 894
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade sub1 path 2 with 15% discount
+upgrade sub1 path 2 with 15% discount
+upgrade sub1 path 2 with 15% discount
+upgrade sub1 path 2
+upgrade buccaneer0 path 2
+place village village1 at 699, 920
+upgrade village1 path 2 with 15% discount
+upgrade village1 path 2 with 15% discount
+upgrade village0 path 0 with 15% discount
+upgrade village0 path 0 with 15% discount
+place buccaneer buccaneer1 at 576, 822
+upgrade buccaneer1 path 2 with 20% discount
+upgrade buccaneer1 path 2 with 20% discount
+upgrade buccaneer1 path 2 with 20% discount
+upgrade village1 path 0 with 15% discount
+upgrade buccaneer0 path 2
+place wizard wizard0 at 870, 801
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 1 with 20% discount
+upgrade wizard0 path 1 with 20% discount
+place buccaneer buccaneer2 at 797, 694
+upgrade buccaneer2 path 1 with 20% discount
+upgrade buccaneer2 path 1 with 20% discount
+upgrade buccaneer2 path 0 with 20% discount
+upgrade buccaneer2 path 0 with 20% discount
+upgrade buccaneer2 path 0 with 20% discount
+upgrade buccaneer2 path 0
+place buccaneer buccaneer3 at 567, 724
+upgrade buccaneer3 path 2 with 15% discount
+upgrade buccaneer3 path 2 with 15% discount
+upgrade buccaneer3 path 2 with 15% discount
+place buccaneer buccaneer4 at 490, 863
+upgrade buccaneer4 path 2 with 15% discount
+upgrade buccaneer4 path 2 with 15% discount
+upgrade buccaneer4 path 2 with 15% discount
+place buccaneer buccaneer5 at 491, 763
+upgrade buccaneer5 path 2 with 15% discount
+upgrade buccaneer5 path 2 with 15% discount
+upgrade buccaneer5 path 2 with 15% discount
+upgrade buccaneer1 path 2
+upgrade buccaneer3 path 2
+upgrade buccaneer4 path 2
+upgrade buccaneer5 path 2
+upgrade buccaneer2 path 0
+upgrade wizard0 path 0
+upgrade village0 path 0 with 15% discount
+upgrade village0 path 0
+place boomerang boomerang0 at 957, 911
+upgrade boomerang0 path 1 with 100% discount
+upgrade boomerang0 path 1 with 20% discount
+upgrade boomerang0 path 2 with 100% discount
+upgrade boomerang0 path 2 with 20% discount
+upgrade boomerang0 path 2 with 20% discount
+upgrade boomerang0 path 2
+upgrade wizard0 path 0
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 1 with 20% discount

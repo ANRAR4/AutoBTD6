@@ -1,0 +1,76 @@
+place sub sub0 at 403, 787
+place dart dart0 at 428, 519
+place sub sub1 at 1189, 237
+place buccaneer buccaneer0 at 1252, 575
+place benjamin hero1 at 765, 104
+place sub sub2 at 725, 761
+upgrade sub0 path 0
+upgrade sub0 path 0
+upgrade buccaneer0 path 1
+upgrade sub2 path 0
+upgrade sub2 path 0
+place desperado desperado0 at 472, 238
+upgrade desperado0 path 1
+upgrade sub0 path 1
+upgrade sub0 path 1
+upgrade buccaneer0 path 1
+upgrade buccaneer0 path 2
+upgrade buccaneer0 path 2
+upgrade sub2 path 2
+upgrade sub2 path 2
+upgrade sub2 path 2
+upgrade sub1 path 0
+upgrade sub1 path 0
+upgrade sub2 path 2
+place village village0 at 860, 894
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 1
+upgrade village0 path 1
+place wizard wizard0 at 870, 801
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 0
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+place buccaneer buccaneer1 at 812, 692
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 1
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade buccaneer1 path 0
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub1 path 2
+upgrade sub0 path 1
+upgrade buccaneer1 path 0
+upgrade wizard0 path 0
+upgrade village0 path 1
+place boomerang boomerang0 at 957, 911
+upgrade boomerang0 path 1
+upgrade boomerang0 path 1
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade wizard0 path 0
+place sniper sniper0 at 1083, 1043
+retarget sniper0
+retarget sniper0
+retarget sniper0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade sniper0 path 1
+upgrade sniper0 path 1
+upgrade sub2 path 2
+upgrade sniper0 path 0
+upgrade desperado0 path 1
+upgrade desperado0 path 0
+upgrade desperado0 path 0
+upgrade desperado0 path 0
+upgrade desperado0 path 0
+upgrade desperado0 path 0
