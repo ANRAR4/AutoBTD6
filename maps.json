@@ -31,7 +31,7 @@
     "covered_garden": {"category": "intermediate", "name": "Covered garden", "page": 0, "pos": 5},
     "quarry": {"category": "intermediate", "name": "Quarry", "page": 1, "pos": 0},
     "quiet_street": {"category": "intermediate", "name": "Quiet street", "page": 1, "pos": 1},
-    "bloonarius prime": {"category": "intermediate", "name": "Bloonarius prime", "page": 1, "pos": 2},
+    "bloonarius_prime": {"category": "intermediate", "name": "Bloonarius prime", "page": 1, "pos": 2},
     "balance": {"category": "intermediate", "name": "Balance", "page": 1, "pos": 3},
     "encrypted": {"category": "intermediate", "name": "Encrypted", "page": 1, "pos": 4},
     "bazaar": {"category": "intermediate", "name": "Bazaar", "page": 1, "pos": 5},
