@@ -1,0 +1,87 @@
+place mortar mortar0 at 415, 201
+place glue glue0 at 878, 320
+retarget mortar0 to 850, 562
+place benjamin hero1 at 1089, 298
+upgrade mortar0 path 2
+upgrade mortar0 path 1
+upgrade mortar0 path 2
+upgrade mortar0 path 1
+place sniper sniper0 at 848, 243
+upgrade sniper0 path 0
+upgrade sniper0 path 1
+remove obstacle at 139, 141 for 250
+place tack tack0 at 766, 402
+place wizard wizard0 at 709, 366
+upgrade wizard0 path 1
+upgrade wizard0 path 1
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade tack0 path 2
+upgrade wizard0 path 2
+upgrade wizard0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+remove obstacle at 139, 141 for 500
+place village village0 at 622, 327
+upgrade village0 path 2
+upgrade village0 path 2
+place alchemist alchemist0 at 653, 215
+upgrade alchemist0 path 0 with 15% discount
+upgrade alchemist0 path 0 with 15% discount
+upgrade alchemist0 path 0 with 15% discount
+upgrade alchemist0 path 1 with 15% discount
+upgrade alchemist0 path 1 with 15% discount
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+place boomerang boomerang0 at 714, 444
+upgrade boomerang0 path 0 with 100% discount
+upgrade boomerang0 path 0 with 15% discount
+upgrade boomerang0 path 0 with 15% discount
+upgrade boomerang0 path 2 with 100% discount
+upgrade boomerang0 path 2 with 15% discount
+upgrade boomerang0 path 0
+upgrade glue0 path 2 with 100% discount
+upgrade glue0 path 2 with 15% discount
+upgrade glue0 path 2 with 15% discount
+upgrade glue0 path 0 with 100% discount
+upgrade glue0 path 0 with 15% discount
+place alchemist alchemist1 at 627, 429
+upgrade alchemist1 path 1 with 15% discount
+upgrade alchemist1 path 1 with 15% discount
+upgrade alchemist1 path 1 with 15% discount
+place spike spike0 at 601, 549
+upgrade spike0 path 2 with 15% discount
+upgrade spike0 path 2 with 15% discount
+retarget spike0
+retarget spike0
+upgrade spike0 path 2 with 15% discount
+upgrade spike0 path 1 with 15% discount
+upgrade spike0 path 1 with 15% discount
+place alchemist alchemist02 at 600, 481
+upgrade alchemist02 path 0 with 15% discount
+upgrade alchemist02 path 0 with 15% discount
+upgrade alchemist02 path 0 with 15% discount
+upgrade alchemist02 path 1 with 15% discount
+upgrade alchemist02 path 1 with 15% discount
+upgrade alchemist02 path 0
+upgrade boomerang0 path 0
+upgrade spike0 path 2
+upgrade alchemist0 path 0
+upgrade wizard0 path 2
+upgrade glue0 path 2
+upgrade spike0 path 2
+upgrade mortar0 path 2 with 15% discount
+upgrade mortar0 path 2
+upgrade mortar0 path 2
+upgrade sniper0 path 0 with 15% discount
+upgrade sniper0 path 0 with 15% discount
+upgrade sniper0 path 1 with 15% discount
+upgrade sniper0 path 0
+upgrade sniper0 path 0
+upgrade tack0 path 2
+upgrade alchemist02 path 0

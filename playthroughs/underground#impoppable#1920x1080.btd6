@@ -1,0 +1,73 @@
+place desperado desperado0 at 786, 715
+place desperado desperado1 at 780, 342
+place dart dart0 at 646, 543
+place benjamin hero0 at 300, 300
+upgrade dart0 path 1
+upgrade dart0 path 1
+upgrade dart0 path 1
+place sniper sniper0 at 854, 732
+retarget sniper0
+retarget sniper0
+retarget sniper0
+place sniper sniper1 at 816, 779
+upgrade dart0 path 2
+upgrade dart0 path 2
+upgrade sniper0 path 0
+upgrade sniper1 path 1
+upgrade sniper1 path 2
+upgrade sniper1 path 2
+upgrade sniper1 path 1
+place village village0 at 945, 717
+upgrade village0 path 2
+upgrade village0 path 2
+upgrade sniper0 path 1 with 15% discount
+upgrade sniper1 path 2 with 15% discount
+place village village1 at 857, 597
+upgrade village1 path 2 with 15% discount
+upgrade village1 path 2 with 15% discount
+place glue glue0 at 961, 582
+upgrade glue0 path 0 with 20% discount
+upgrade glue0 path 0 with 20% discount
+upgrade glue0 path 1 with 20% discount
+upgrade village1 path 0 with 15% discount
+upgrade village1 path 0 with 15% discount
+upgrade village1 path 0 with 15% discount
+place tack tack0 at 1050, 649
+upgrade tack0 path 0 with 20% discount
+upgrade tack0 path 0 with 20% discount
+upgrade tack0 path 2 with 20% discount
+upgrade tack0 path 2 with 20% discount
+upgrade tack0 path 2 with 20% discount
+upgrade village0 path 1 with 15% discount
+upgrade village0 path 1 with 15% discount
+upgrade glue0 path 0 with 20% discount
+upgrade glue0 path 1 with 20% discount
+upgrade glue0 path 0
+upgrade tack0 path 2
+place wizard wizard0 at 1021, 527
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 0 with 20% discount
+upgrade wizard0 path 0
+upgrade wizard0 path 1 with 20% discount
+upgrade wizard0 path 1 with 20% discount
+upgrade village1 path 0
+upgrade glue0 path 0
+upgrade wizard0 path 0
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0 with 20% discount
+upgrade sniper0 path 0
+upgrade sniper0 path 1 with 20% discount
+place alchemist alchemist0 at 925, 796
+upgrade alchemist0 path 0 with 20% discount
+upgrade alchemist0 path 0 with 20% discount
+upgrade alchemist0 path 0 with 20% discount
+upgrade alchemist0 path 0
+upgrade alchemist0 path 1 with 20% discount
+upgrade alchemist0 path 1 with 20% discount
+upgrade sniper1 path 2
+upgrade village0 path 1 with 15% discount
+upgrade sniper1 path 2
+upgrade village1 path 0
+upgrade sniper0 path 0
+upgrade tack0 path 2
