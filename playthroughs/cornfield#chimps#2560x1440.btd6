@@ -1,0 +1,101 @@
+place desperado desperado0 at 1006, 847
+place desperado desperado1 at 1208, 852
+place dart dart0 at 1114, 859
+upgrade dart0 path 1
+upgrade dart0 path 1
+place psi hero0 at 1207, 756
+retarget hero0
+retarget hero0
+retarget hero0
+place tack tack0 at 1208, 638
+upgrade tack0 path 2
+upgrade tack0 path 2
+upgrade tack0 path 0
+upgrade tack0 path 0
+upgrade tack0 path 2
+place boomerang boomerang0 at 1011, 636
+upgrade boomerang0 path 2
+upgrade boomerang0 path 2
+upgrade boomerang0 path 1
+upgrade boomerang0 path 1
+upgrade boomerang0 path 2
+retarget boomerang0
+retarget boomerang0
+retarget boomerang0
+place village village0 at 1075, 749
+upgrade village0 path 1
+upgrade village0 path 1
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade village0 path 0
+upgrade boomerang0 path 2
+place glue glue0 at 1112, 641
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 1
+upgrade glue0 path 1
+retarget glue0
+retarget glue0
+retarget glue0
+upgrade tack0 path 2
+upgrade village0 path 0
+upgrade desperado0 path 1 with 100% discount
+upgrade desperado0 path 1
+upgrade desperado0 path 1
+upgrade desperado0 path 0 with 100% discount
+upgrade desperado0 path 0
+remove obstacle at 1104, 1054 for 700
+place ace ace0 at 1046, 955
+upgrade ace0 path 2
+upgrade ace0 path 2
+upgrade ace0 path 2
+upgrade ace0 path 0
+upgrade ace0 path 0
+place druid druid0 at 1207, 945
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 1
+upgrade druid0 path 0
+upgrade druid0 path 0
+upgrade druid0 path 1
+upgrade ace0 path 2
+remove obstacle at 1543, 1174 for 1000
+place village village1 at 1240, 1060
+place ace ace1 at 1044, 1071
+upgrade ace1 path 2
+upgrade ace1 path 2
+upgrade ace1 path 2
+upgrade ace1 path 0
+upgrade ace1 path 0
+upgrade ace1 path 2
+upgrade village1 path 1
+upgrade village1 path 1
+upgrade village1 path 1
+upgrade village1 path 0
+upgrade village1 path 0
+upgrade glue0 path 2
+upgrade glue0 path 2
+upgrade glue0 path 2
+place ninja ninja0 at 1198, 1161
+retarget ninja0
+retarget ninja0
+retarget ninja0
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 2
+upgrade ninja0 path 0
+upgrade ninja0 path 0
+upgrade ninja0 path 2
+place druid druid1 at 1371, 1064
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 1
+upgrade druid1 path 0
+upgrade druid1 path 0
+place glue glue1 at 1519, 1053
+upgrade glue1 path 1
+upgrade glue1 path 1
+upgrade glue1 path 2
+upgrade glue1 path 2
+upgrade glue1 path 1
+upgrade desperado0 path 1

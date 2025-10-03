@@ -1,13 +1,13 @@
-place desperado desperado0 at 448, 648
-place desperado desperado1 at 1087, 664
-place tack tack0 at 842, 119
-place silas hero0 at 845, 189
-place druid druid0 at 912, 128
+place desperado desperado0 at 448, 671
+place desperado desperado1 at 1059, 664
+place tack tack0 at 842, 141
+place silas hero0 at 845, 198
+place druid druid0 at 912, 150
 upgrade druid0 path 0
 upgrade druid0 path 1
 upgrade druid0 path 1
 upgrade druid0 path 1
-place ice ice0 at 775, 129
+place ice ice0 at 775, 150
 upgrade ice0 path 0
 upgrade ice0 path 0
 upgrade ice0 path 1
@@ -18,7 +18,7 @@ upgrade tack0 path 2
 upgrade tack0 path 2
 upgrade tack0 path 0
 upgrade tack0 path 2
-place sniper sniper0 at 636, 334
+place sniper sniper0 at 636, 316
 upgrade sniper0 path 1
 special sniper0
 upgrade tack0 path 2
@@ -27,14 +27,14 @@ upgrade village0 path 2
 upgrade village0 path 2
 upgrade village0 path 1
 upgrade village0 path 1
-place village village1 at 929, 301
+place village village1 at 930, 301
 upgrade village1 path 2 with 15% discount
 upgrade village1 path 2 with 15% discount
 upgrade village1 path 0 with 15% discount
 upgrade village1 path 0 with 15% discount
 upgrade village1 path 0 with 15% discount
 upgrade village1 path 0
-place ice ice1 at 978, 148
+place ice ice1 at 978, 171
 upgrade ice1 path 1 with 100% discount
 upgrade ice1 path 2 with 100% discount
 upgrade ice1 path 1 with 20% discount
@@ -43,7 +43,7 @@ upgrade ice1 path 2 with 20% discount
 upgrade ice1 path 2
 upgrade tack0 path 2
 upgrade village0 path 1 with 15% discount
-place alchemist alchemist0 at 778, 187
+place alchemist alchemist0 at 772, 207
 upgrade alchemist0 path 0 with 20% discount
 upgrade alchemist0 path 0 with 20% discount
 upgrade alchemist0 path 0 with 20% discount
@@ -51,7 +51,7 @@ upgrade alchemist0 path 0
 upgrade alchemist0 path 0
 upgrade ice0 path 0 with 25% discount
 upgrade ice1 path 2 with 25% discount
-place mermonkey mermonkey0 at 920, 203
+place mermonkey mermonkey0 at 1013, 241
 upgrade mermonkey0 path 0 with 20% discount
 upgrade mermonkey0 path 0 with 20% discount
 upgrade mermonkey0 path 0 with 20% discount

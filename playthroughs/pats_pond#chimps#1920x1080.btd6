@@ -33,7 +33,7 @@ upgrade tack0 path 2
 upgrade tack0 path 2
 upgrade tack0 path 0
 upgrade tack0 path 0
-place alchemist alchemist0 at 1433, 663
+place alchemist alchemist0 at 1434, 663
 upgrade alchemist0 path 0
 upgrade alchemist0 path 0
 upgrade alchemist0 path 0
@@ -57,7 +57,7 @@ upgrade spike0 path 1
 upgrade spike0 path 1
 upgrade spike0 path 1
 upgrade spike0 path 0
-place spike spike1 at 1488, 415
+place spike spike1 at 1489, 415
 upgrade spike1 path 1
 upgrade spike1 path 1
 upgrade spike1 path 1

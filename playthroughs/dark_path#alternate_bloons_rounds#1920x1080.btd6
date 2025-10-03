@@ -1,3 +1,5 @@
+place dart dart0 at 192, 677
+sell dart0
 remove obstacle at 139, 141 for 250
 place ezili hero0 at 760, 414
 place glue glue0 at 878, 320
@@ -31,7 +33,7 @@ upgrade village0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
 upgrade village0 path 0
-place boomerang boomerang0 at 693, 444
+place boomerang boomerang0 at 693, 445
 upgrade boomerang0 path 0 with 100% discount
 upgrade boomerang0 path 0 with 15% discount
 upgrade boomerang0 path 0 with 15% discount

@@ -1225,11 +1225,6 @@
             "validation_result": true
         }
     },
-    "own_playthroughs/monkey_meadow#hard#1920x1080.btd6": {
-        "1920x1080": {
-            "validation_result": true
-        }
-    },
     "playthroughs/the_cabin#chimps#1920x1080.btd6": {
         "1920x1080": {
             "validation_result": true,
@@ -1245,41 +1240,6 @@
         "2560x1440": {
             "validation_result": true
         }
-    },
-    "own_playthroughs/lost_crevasse#chimps#1920x1080.btd6": {
-        "1920x1080": {
-            "validation_result": true,
-            "hard": {
-                "attempts": 1,
-                "wins": 1,
-                "win_times": [
-                    797.9249742031097
-                ]
-            },
-            "alternate_bloons_rounds": {
-                "attempts": 1,
-                "wins": 1,
-                "win_times": [
-                    780.3646967411041
-                ]
-            },
-            "impoppable": {
-                "attempts": 1,
-                "wins": 1,
-                "win_times": [
-                    1099.1404571533203
-                ]
-            },
-            "chimps": {
-                "attempts": 22,
-                "wins": 2,
-                "win_times": [
-                    1037.3840689659119,
-                    1029.5591146945953
-                ]
-            }
-        },
-        "version": 50.0
     },
     "playthroughs/alpine_run#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1299,19 +1259,35 @@
     },
     "playthroughs/ancient_portal#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1068.7260944843292
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/another_brick#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1030.8703594207764
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/candy_falls#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1323,11 +1299,19 @@
     },
     "playthroughs/cargo#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    976.6927243300846
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/carved#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1339,11 +1323,19 @@
     },
     "playthroughs/chutes#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1261.6368734836578
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/cracked#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1411,11 +1403,19 @@
     },
     "playthroughs/haunted#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1126.4190409183502
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/hedge#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1475,11 +1475,19 @@
     },
     "playthroughs/off_the_coast#chimps#1920x1080.btd6": {
         "2560x1440": {
-            "validation_result": true
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1181.3171560764313
+                ]
+            }
         },
         "1920x1080": {
             "validation_result": true
-        }
+        },
+        "version": 50.0
     },
     "playthroughs/one_two_tree#chimps#1920x1080.btd6": {
         "2560x1440": {
@@ -1642,6 +1650,163 @@
         "version": 50.0
     },
     "playthroughs/winter_park#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/dark_path#alternate_bloons_rounds#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/dark_path#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1295.0898885726929
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        },
+        "version": 50.0
+    },
+    "playthroughs/dark_path#impoppable#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/lotus_island#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/monkey_meadow#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/pats_pond#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1129.3043546676636
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        },
+        "version": 50.0
+    },
+    "playthroughs/tree_stump#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/underground#alternate_bloons_rounds#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/underground#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1129.2648301124573
+                ]
+            }
+        },
+        "1920x1080": {
+            "validation_result": true
+        },
+        "version": 50.0
+    },
+    "playthroughs/underground#impoppable#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true
+        },
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/lost_crevasse#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    958.0381910800934
+                ]
+            }
+        },
+        "version": 50.0,
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/bloonarius_prime#chimps#1920x1080.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1624.0044090747833
+                ]
+            }
+        },
+        "version": 50.0
+    },
+    "playthroughs/cornfield#chimps#2560x1440.btd6": {
+        "2560x1440": {
+            "validation_result": true,
+            "chimps": {
+                "attempts": 1,
+                "wins": 1,
+                "win_times": [
+                    1250.8789374828339
+                ]
+            }
+        },
+        "version": 50.0,
+        "1920x1080": {
+            "validation_result": true
+        }
+    },
+    "playthroughs/lost_crevasse#impoppable#1920x1080.btd6": {
         "2560x1440": {
             "validation_result": true
         },
