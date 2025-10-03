@@ -72,7 +72,7 @@
         "covered_garden": true,
         "quarry": true,
         "quiet_street": true,
-        "bloonarius prime": true,
+        "bloonarius_prime": true,
         "balance": true,
         "encrypted": true,
         "bazaar": true,
@@ -767,7 +767,7 @@
             "impoppable": true,
             "chimps": true
         },
-        "bloonarius prime": {
+        "bloonarius_prime": {
             "easy": true,
             "primary_only": true,
             "deflation": true,

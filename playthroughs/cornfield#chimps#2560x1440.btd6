@@ -19,9 +19,6 @@ upgrade boomerang0 path 2
 upgrade boomerang0 path 1
 upgrade boomerang0 path 1
 upgrade boomerang0 path 2
-retarget boomerang0
-retarget boomerang0
-retarget boomerang0
 place village village0 at 1075, 749
 upgrade village0 path 1
 upgrade village0 path 1
@@ -37,6 +34,9 @@ upgrade glue0 path 1
 retarget glue0
 retarget glue0
 retarget glue0
+retarget boomerang0
+retarget boomerang0
+retarget boomerang0
 upgrade tack0 path 2
 upgrade village0 path 0
 upgrade desperado0 path 1 with 100% discount

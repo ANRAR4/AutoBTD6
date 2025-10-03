@@ -2142,6 +2142,11 @@ Outputs the detected balance and saves the relevant area of the image as seen by
 Usage `py recognize_screen.py <filename>`<br>
 Outputs the detected screen for a given screenshot.
 
+`normalize_playthrough_stats.py`<br>
+Usage `py normalize_playthrough_stats.py`<br>
+Sets the `attempts` and `wins` counter in `playthrough_stats` to `1` (if >= 0) and sums up all `win_times` to an average time.<br>
+This script should be run before commiting new playthroughs.
+
 # Supported resolutions
 
 Currently only screen resolutions of `1920x1080` and `2560x1440` are supported. Supporting a resolution requires the images in the folder `images/<resolution>` (as well as tested rescaled or native playthroughs).
